@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.80,vscale=0.80,centering}
+\title{Rapport de Stage}
+\author{Caroline Jonas}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Le but de ce travail est de comprendre l'article "Quantum dynamics of a massless relativistic string" de P.GODDARD, J.GOLDSTONE, C.REBBI et C.B. THORN et de pouvoir en réexpliquer et démontrer les résultats.\\
+Cet article se divise en deux parties. Dans un premier temps, on traite la corde bosonique à l'aide de la mécanique classique. On trouve les équations du mouvement et on développe le formalisme Hamiltonien.\\
+Dans un second temps, on transpose les résultats ainsi obtenus à la mécanique quantique par le principe de correspondance et on trouve la dimension dans laquelle cette théorie est covariante. 
+\section{Approche Classique}
+\subsection{Définition de la corde}
+Une corde est une courbe dans l'espace dont la forme et la position changent au cours du temps.
+
+Dans l'espace-temps, elle est décrite par une surface à deux dimensions:
+$x^{\mu}(\sigma,t)$ ($\sigma$ est un paramètre le long de la corde, et t est le temps).
+Pour que le problème soit physique, on impose que chaque point de cette surface se déplace à une vitesse $v\leq c$, c'est-à-dire qu'à chaque point de la surface, il existe un déplacement infinitésimal le long de la surface \textit{time-like} ou \textit{light-like}. On dit que cette surface est \textit{time-like}.
+\subsection{Paramétrisation générale}
+$$x^{\mu}=x^{\mu}(\sigma,\tau)$$
+$$dx^{\mu}=\frac{\partial x^{\mu}}{\partial \sigma}+\frac{\partial x^{\mu}}{\partial \tau}$$
+$$dF^{\mu \nu}=d\sigma d\tau \left( \frac{\partial x^{\mu}}{\partial \sigma}\frac{\partial x^{\nu}}{\partial \tau}-\frac{\partial x^{\nu}}{\partial \sigma}\frac{\partial x^{\mu}}{\partial \tau}\right)\equiv dx^{\mu}\Lambda dx^{\nu}$$
+La surface est \textit{time-like} si et seulement si $-dF^{\mu \nu}dF_{\mu \nu}\geq0$.
+Un élément de surface est donné par:
+$$dA=\sqrt{-dF^{\mu \nu}dF_{\mu \nu}}=d\sigma d\tau \sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}$$
+On impose les contraintes suivantes sur les paramètres:
+\begin{enumerate}
+\item Les bouts de la corde correspondent à $\sigma=0$ and $\sigma=\pi$
+\item Les configurations initiales et finales sont n'importes quelles courbes $x^{\mu}_{i}(\sigma)$ et $x^{\mu}_{f}(\sigma)$  \textit{de type espace} qui peuvent être reliées par une surface $x^{\mu}(\sigma,\tau) \textit{de type temps}$:
+autrement dit, $\left( \frac{\partial x^{\mu}}{\partial \tau}\right)^{2}\leq 0 $ et $\left( \frac{\partial x^{\mu}}{\partial \sigma}\right)^{2}\geq 0 $ (car la métrique utilisée est la métrique de Minkowski constante telle que $g^{00}=-1$).
+\end{enumerate}
+\subsection{Equations du mouvement}
+On trouve les équations du mouvement par le principe de moindre action. L'action choisie est appelée \textit{action de Nambu-Goto}, c'est la plus simple action qui est directement proportionnelle à la surface:
+\begin{equation}
+S=\frac{-1}{2\pi \alpha'\hbar c^{2}}\int_{\tau_{i}}^{\tau_{f}}\int_{0}^{\pi}dA
+\end{equation} 
+La constante à l'avant n'est pas importante et sert juste aux unités. On pose donc $\alpha '=c=\hbar =1$, et ainsi toutes les grandeurs physique du problème seront sans dimension.\\
+\textbf{Principe de Moindre Action:} 
+
+\begin{equation}
+0=\delta S
+\Rightarrow
+0=\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\delta L
+\end{equation}
+Or $L=\frac{-1}{2\pi}\sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}$ $\Leftrightarrow$ L dépend uniquement des variables $ \frac{\partial x^{\mu}}{\partial \sigma}\equiv x'^{\mu}$ et $\frac{\partial x^{\mu}}{\partial \tau}\equiv \dot{x^{\mu}}$\\
+Et donc:
+\begin{equation}
+\delta L= \frac{\partial L}{\partial x^{\mu}}\delta x^{\mu}=\left( \frac{\partial L}{\partial \dot{x^{\mu}}}\frac{\partial \dot{x^{\mu}}}{\partial x^{\mu}}+\frac{\partial L}{\partial x'^{\mu}}\frac{\partial x'^{\mu}}{\partial x^{\mu}}\right) \delta x^{\mu}\\
+=\frac{\partial L}{\partial \dot{x^{\mu}}}\frac{\partial\delta x^{\mu}}{\partial \tau}+\frac{\partial L}{\partial x'^{\mu}}\frac{\partial\delta x^{\mu}}{\partial \sigma}
+\end{equation}
+Ainsi,
+
+$$\delta S=\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\left( \frac{\partial L}{\partial \dot{x^{\mu}}}\frac{\partial\delta x^{\mu}}{\partial \tau}+\frac{\partial L}{\partial x'^{\mu}}\frac{\partial\delta x^{\mu}}{\partial \sigma}\right) $$
+$$=\int_{0}^{\pi}d\sigma \Big[\frac{\partial L}{\partial \dot{x^{\mu}}}\delta x^{\mu}\Big]^{\tau_{f}}_{\tau_{i}}+\int_{\tau_{i}}^{\tau_{f}}d\tau \Big[\frac{\partial L}{\partial x'^{\mu}}\delta x^{\mu}\Big]^{\pi}_{0}-\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\left( \frac{\partial}{\partial \tau}\frac{\partial L}{\partial \dot{x^{\mu}}}+\frac{\partial}{\partial \sigma}\frac{\partial L}{\partial x'^{\mu}}\right)\delta x^{\mu}$$
+où la dernière égalité s'obtient par intégration par parties.
+Ceci est valable $\forall \delta x^{\mu}(\sigma,\tau)$ tel que 
+$$\delta x^{\mu}(\sigma,\tau_{i})=\delta x^{\mu}(\sigma,\tau_{f})=0$$
+($\Rightarrow$ le premier terme de $\delta S$ est toujours nul).
+
+Et donc finalement, $\delta S=0 \Leftrightarrow$:
+\begin{equation}
+    \frac{\partial}{\partial \tau}\frac{\partial L}{\partial \dot x^{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial L}{\partial  x'^{\mu}}=0
+\end{equation}
+\begin{equation}
+    \frac{\partial L}{\partial x'^{\mu}}(0, \tau)=\frac{\partial L}{\partial x'^{\mu}}(\pi, \tau)=0   
+\end{equation}
+Les équations (4) et (5) forment le système d'équations classiques du mouvement de la corde. 
+
+\subsection{Interprétation physique des équations classiques du mouvement(Pas important)}
+
+On va voir que cette expression des équations du mouvement correspond à un cas simple que l'on peut comprendre physiquement: 
+Soit un référentiel de Lorentz où $$\tau=t$$
+Le mouvement en 3 dimensions est alors décrit par le vecteur 
+$$\vec{x}=\vec{x}(t,\sigma)$$
+Soit $$ds=\vert\frac{\partial x}{\partial \sigma}\vert d\sigma$$ l'élément de longueur le long de la corde.\\
+Soit $$v_{\perp}=\frac{\partial \vec{x}}{\partial t}-\frac{\partial \vec{x}}{\partial s}\left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)$$\\
+Donc $\frac{\partial \vec{x}}{\partial s}$ est un vecteur unité qui indique la direction tangente à la corde en chaque point. 
+La métrique utilisée dans tout l'article est
+$$
+\eta=
+\begin{bmatrix}
+    -1 & 0 & 0 & 0\\
+    0  & 1 & 0 & 0\\
+    0  & 0 & 1 & 0\\
+    0  & 0 & 0 & 1
+\end{bmatrix}
+$$
+Par conséquent, $$\left(\frac{\partial x}{\partial \tau}\right)^2= \left(\frac{\partial \vec{x}}{\partial t}\right)^2-c^2$$et$$\left(\frac{\partial x}{\partial \sigma}\right)^2= \left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2$$
+Nous pouvons donc calculer que $$v_{\perp}^2=\left(\frac{\partial \vec{x}}{\partial t}\right)^2- \left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)^2$$
+D'autre part on a
+$$\frac{ds}{d\sigma}=\vert\frac{\partial \vec{x}}{\partial \sigma}\vert$$
+On obtient ainsi finalement
+\begin{equation}
+\frac{ds}{d\sigma}\left(1-\frac{v_{\perp}^2}{c^2}\right)^{1/2}=\frac{1}{c}\bigg[c^2\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2-\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2\left(\frac{\partial \vec{x}}{\partial t}\right)^2+\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2\left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)^2\bigg]^{1/2}\\
+\end{equation}
+\begin{equation}
+=\frac{1}{c}\bigg[-\left(\frac{\partial x}{\partial\tau}\right)^2\left(\frac{\partial x}{\partial\sigma}\right)^2+\left(\frac{\partial x}{\partial\sigma}.\frac{\partial x}{\partial\tau}\right)^2\bigg]^{1/2}
+\end{equation}
+Et donc on voit que
+\begin{equation}
+L=\frac{-1}{2\pi\alpha'\hbar c}\int_{0}^{\pi}d\sigma\frac{ds}{d\sigma}\left(1-\frac{v_{\perp}^2}{c^2}\right)^{1/2}
+\end{equation}
+\subsection{Quantités conservées}
+Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkowskiennes de $\dot{x^{\mu}}$ et $x'^{\mu}$, il est invariant sous le groupe des transformations de Poincaré.
+
+\textsc{Rappel}: Le groupe de Poincaré est l'ensemble des transformations de l'espace temps qui préservent la distance minkowskienne:
+$$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}+a^{\mu}$$ 
+Où $\Lambda_{\nu}^{\mu}$ est une transformation de Lorentz et $a^{\mu}$ est une translation dans l'espace temps.\\
+Or le théorème de Noether nous dit que:
+\textit{"Toute variation virtuelle instantanée qui laisse le Lagrangien invariant donne lieu à une intégrale première, c'est-à-dire une fonction $K(x^{\mu},\dot{x^{\mu}},t)$ telle que $\frac{dK}{dt}=0$ sur toute solution $x^{\mu}$ des équations du mouvement."}\\
+Autrement dit, les transformations infinitésimales du groupe de Poincaré (resp. translations  et transformations de Lorentz) seront associées à des intégrales premières(=quantités conservées) (resp. impulsion et moment angulaire).\\ 
+\textbf{NB: Je ne comprend pas encore très bien comment on trouve ces éléments infinitésimaux à partir du théorème de Noether, ni ce qu'ils représentent physiquement.}
+\subparagraph{Translations infinitésimales}
+Comme L dépend seulement de $\dot{x^{\mu}}$ et $x'^{\mu}$, 
+l'élément d'impulsion infinitésimal est 
+$$dP^{\mu}=\frac{\partial L}{\partial \dot{x^{\mu}}}d\sigma+\frac{\partial L}{\partial x'^{\mu}}d\tau$$
+
+On définit le courant d'impulsion sur la surface $P^{\mu}_{i}(i=\sigma,\tau)$ tel que 
+$$P^{\mu}_{\tau}=\frac{\partial L}{\partial \dot{x^{\mu}}},			 P^{\mu}_{\sigma}=\frac{\partial L}{\partial x'^{\mu}}$$
+Alors, les équations du mouvement expriment directement la conservation de l'impulsion sur la surface:
+$$\frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}=0$$
+Et les conditions au bords reviennent à dire que l'impulsion ne "s'écoule" pas des bouts de la corde: $$P^{\mu}_{\sigma}(0,\tau)=P^{\mu}_{\sigma}(\pi,\tau)=0$$
+On peut donc écrire l'impulsion totale de la corde (à un instant $\tau$ fixé) comme:
+$$\mathcal{P^{\mu}}=\int_{C}dP^{\mu}=\int_{C}P^{\mu}_{\sigma}d\tau+P^{\mu}_{\tau}d\sigma=\int_{0}^{\pi}P^{\mu}_{\tau}d\sigma$$
+pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.
+
+\subparagraph{Transformations de Lorentz infinitésimales}
+Elément infinitésimal de moment angulaire:
+$$dM^{\mu\nu}=(x^{\mu}P^{\nu}_{\tau}-x^{\nu}P^{\mu}_{\tau})d\sigma+(x^{\mu}P^{\nu}_{\sigma}-x^{\nu}P^{\mu}_{\sigma})d\tau$$
+On définit le courant de moment angulaire $M_{i}^{\mu\nu}\equiv x^{\mu}P^{\nu}_{i}-x^{\nu}P^{\mu}_{i}$\\
+Les équations du mouvement expriment la conservation locale du moment angulaire:
+$$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=x^{\mu}\left( \frac{\partial P^{\nu}_{\tau}}{\partial \tau}+\frac{\partial P^{\nu}_{\sigma}}{\partial \sigma}\right) +\left( \dot{x^{\mu}}P^{\nu}_{\tau}+x'^{\mu}P^{\nu}_{\sigma}\right) -x^{\nu}\left( \frac{\partial P^{\nu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}\right) +\left( \dot{x^{\nu}}P^{\mu}_{\tau}+x'^{\nu}P^{\mu}_{\sigma}\right)=0$$
+\textbf{(A finir de démontrer)}\\
+Et les condtions de bords donnent:
+$$M_{\sigma}^{\mu\nu}(0,\tau)=M_{\sigma}^{\mu\nu}(\pi,\tau)=0$$
+
+Le moment angulaire total est: 
+$$\mathcal{M^{\mu\nu}}=\int_{C}dM^{\mu\nu}=\int_{C}M^{\mu\nu}_{\sigma}d\tau+M^{\mu\nu}_{\tau}d\sigma=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
+pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.
+\subsection{Spécification de la paramétrisation}
+L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement garde la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(A démontrer)}.
+Par conséquent, il faut choisir cette paramétrisation avant de résoudre les équations.\\
+Premièrement, on montre que les contraintes sur la paramétrisation suivantes:
+\begin{equation}
+\frac{\partial x}{\partial \sigma}.\frac{\partial x}{\partial \tau}=0
+\end{equation}
+\begin{equation}
+\left( \frac{\partial x}{\partial \sigma}\right) ^{2}+\left(\frac{\partial x}{\partial \tau}\right) ^{2}=0 
+\end{equation}
+simplifient les équations du mouvement.\\ Secondement, nous verrons comment on peut retrouver ces contraintes, ainsi que d'autres, par des arguments physiques. 
+\subsubsection{Simplification des équations}
+En utilisant la contrainte (9) sur la paramétrisation, on peut ré-écrire le Lagrangien comme:
+$$L=\frac{-1}{2\pi}\sqrt{ -\left( \frac{\partial x}{\partial \sigma}\right) ^{2}\left( \frac{\partial x}{\partial \tau}\right) ^{2} }$$
+Donc 
+$$\frac{\partial L}{\partial \dot{x^{\mu}}}=\frac{-1}{2\pi}\frac{1}{2}\frac{-2\eta_{\mu\nu}\dot{x^{\nu}}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}{\sqrt{ -\left( \frac{\partial x}{\partial \sigma}\right) ^{2}\left( \frac{\partial x}{\partial \tau}\right) ^{2} }}$$
+Par la contrainte (10), ceci se ré-écrit:
+
+\end{document}
