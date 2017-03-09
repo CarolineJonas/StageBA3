@@ -70,41 +70,28 @@ Et donc finalement, $\delta S=0 \Leftrightarrow$:
     \frac{\partial L}{\partial x'^{\mu}}(0, \tau)=\frac{\partial L}{\partial x'^{\mu}}(\pi, \tau)=0   
 \end{equation}
 Les équations (4) et (5) forment le système d'équations classiques du mouvement de la corde. 
-\textbf{Remarque: vu le nombre de fois où c'est utilisé dans la suite, ce serait bien de faire une fois pour toute le calcul explicite de $\frac{\partial L}{\partial x'_{\mu}}$ et $\frac{\partial L}{\partial \dot x_{\mu}}$ à la place de l'interprétation} 
-\subsection{Interprétation physique des équations classiques du mouvement(Pas important)}
-
-On va voir que cette expression des équations du mouvement correspond à un cas simple que l'on peut comprendre physiquement: 
-Soit un référentiel de Lorentz où $$\tau=t$$
-Le mouvement en 3 dimensions est alors décrit par le vecteur 
-$$\vec{x}=\vec{x}(t,\sigma)$$
-Soit $$ds=\vert\frac{\partial x}{\partial \sigma}\vert d\sigma$$ l'élément de longueur le long de la corde.\\
-Soit $$v_{\perp}=\frac{\partial \vec{x}}{\partial t}-\frac{\partial \vec{x}}{\partial s}\left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)$$\\
-Donc $\frac{\partial \vec{x}}{\partial s}$ est un vecteur unité qui indique la direction tangente à la corde en chaque point. 
-La métrique utilisée dans tout l'article est
-$$
-\eta=
-\begin{bmatrix}
-    -1 & 0 & 0 & 0\\
-    0  & 1 & 0 & 0\\
-    0  & 0 & 1 & 0\\
-    0  & 0 & 0 & 1
-\end{bmatrix}
-$$
-Par conséquent, $$\left(\frac{\partial x}{\partial \tau}\right)^2= \left(\frac{\partial \vec{x}}{\partial t}\right)^2-c^2$$et$$\left(\frac{\partial x}{\partial \sigma}\right)^2= \left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2$$
-Nous pouvons donc calculer que $$v_{\perp}^2=\left(\frac{\partial \vec{x}}{\partial t}\right)^2- \left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)^2$$
-D'autre part on a
-$$\frac{ds}{d\sigma}=\vert\frac{\partial \vec{x}}{\partial \sigma}\vert$$
-On obtient ainsi finalement
+\subsection{Calcul explicite de $\frac{\partial L}{\partial x'_{\mu}}$ et $\frac{\partial L}{\partial \dot x_{\mu}}$}
+Dans la suite, nous allons utiliser les équations du mouvement sous leur forme covariante:
+$$\frac{\partial}{\partial \tau}\frac{\partial L}{\partial \dot x_{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial L}{\partial  x'_{\mu}}=0$$
+Comme ces expressions vont nous être très souvent utiles, nous allons calculer explicitement les valeurs de $\frac{\partial L}{\partial x'_{\mu}}$ et $\frac{\partial L}{\partial \dot x_{\mu}}$ en terme de $\dot{x}$ et $x'$.\\
+On a pour l'instant que $L=\frac{-1}{2\pi}\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}=\frac{-1}{2\pi}\sqrt{(\dot{\xmu}x'_\mu)^2-(\dot{\xmu}\dot{x_\mu})(x'^\nu x'_\nu)}$\\
+Ainsi,
 \begin{equation}
-\frac{ds}{d\sigma}\left(1-\frac{v_{\perp}^2}{c^2}\right)^{1/2}=\frac{1}{c}\bigg[c^2\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2-\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2\left(\frac{\partial \vec{x}}{\partial t}\right)^2+\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2\left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)^2\bigg]^{1/2}\\
+	\left\lbrace 
+	\begin{aligned}
+	\frac{\partial L}{\partial x'_\mu }=\frac{-1}{2\pi.2}\frac{2\dot{\xmu}(x'\dot{x})-2x'^\mu (\dot{x}^2)}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	\frac{\partial L}{\partial \dot{x_\mu}}=\frac{-1}{2\pi.2}\frac{2x'^\mu(x'\dot{x})-2\dot{\xmu} (x'^2)}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	\end{aligned} 
+	\right. 
+	\Leftrightarrow\\
+	\left\lbrace
+	\begin{aligned}
+	\frac{\partial L}{\partial x'_\mu }=\frac{1}{2\pi}\frac{x'^\mu (\dot{x}^2)-\dot{\xmu}(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	\frac{\partial L}{\partial \dot{x_\mu}}=\frac{1}{2\pi}\frac{\dot{\xmu} (x'^2)-x'^\mu(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	\end{aligned}
+	\right.
 \end{equation}
-\begin{equation}
-=\frac{1}{c}\bigg[-\left(\frac{\partial x}{\partial\tau}\right)^2\left(\frac{\partial x}{\partial\sigma}\right)^2+\left(\frac{\partial x}{\partial\sigma}.\frac{\partial x}{\partial\tau}\right)^2\bigg]^{1/2}
-\end{equation}
-Et donc on voit que
-\begin{equation}
-L=\frac{-1}{2\pi\alpha'\hbar c}\int_{0}^{\pi}d\sigma\frac{ds}{d\sigma}\left(1-\frac{v_{\perp}^2}{c^2}\right)^{1/2}
-\end{equation}
+Nous ferons appel à ces deux expressions très souvent dans la suite.
 \subsection{Quantités conservées}
 Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkowskiennes de $\dot{x^{\mu}}$ et $x'^{\mu}$, il est invariant sous le groupe des transformations de Poincaré.
 
@@ -134,18 +121,32 @@ Elément infinitésimal de moment angulaire:
 $$dM^{\mu\nu}=(x^{\mu}P^{\nu}_{\tau}-x^{\nu}P^{\mu}_{\tau})d\sigma+(x^{\mu}P^{\nu}_{\sigma}-x^{\nu}P^{\mu}_{\sigma})d\tau$$
 On définit le courant de moment angulaire $M_{i}^{\mu\nu}\equiv x^{\mu}P^{\nu}_{i}-x^{\nu}P^{\mu}_{i}$\\
 Les équations du mouvement expriment la conservation locale du moment angulaire:
-$$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=x^{\mu}\left( \frac{\partial P^{\nu}_{\tau}}{\partial \tau}+\frac{\partial P^{\nu}_{\sigma}}{\partial \sigma}\right) +\left( \dot{x^{\mu}}P^{\nu}_{\tau}+x'^{\mu}P^{\nu}_{\sigma}\right) -x^{\nu}\left( \frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}\right) -\left( \dot{x^{\nu}}P^{\mu}_{\tau}+x'^{\nu}P^{\mu}_{\sigma}\right)=0$$
-\textbf{(ok pour la démo, encore à recopier)}\\
-Et les conditions de bords donnent:
+$$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=x^{\mu}\left( \frac{\partial P^{\nu}_{\tau}}{\partial \tau}+\frac{\partial P^{\nu}_{\sigma}}{\partial \sigma}\right) +\left( \dot{x^{\mu}}P^{\nu}_{\tau}+x'^{\mu}P^{\nu}_{\sigma}\right) -x^{\nu}\left( \frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}\right) -\left( \dot{x^{\nu}}P^{\mu}_{\tau}+x'^{\nu}P^{\mu}_{\sigma}\right)$$
+Par les équations du mouvements exprimées en fonction de $P$, nous voyons directement que le premier et le troisième terme sont nuls. 
+Ré-écrivons les termes 2 et 4 en fonctions de $\dot{x}$ et $x'$ grâce à l'équation (6):
+\begin{equation}
+	\left\lbrace
+	\begin{aligned}
+	\dot{x^{\mu}}P^{\nu}_{\tau}=\frac{1}{2\pi}\frac{\dot{\xmu}\dot{x^\nu}(x')^2-\dot{\xmu}x'^\nu(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	x'^{\mu}P^{\nu}_{\sigma}=\frac{1}{2\pi}\frac{x'^\mu x'^\nu (\dot{x})^2-x'^{\mu}\dot{x^\nu}(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	-\dot{x^{\nu}}P^{\mu}_{\tau}=-\frac{1}{2\pi}\frac{\dot{x^\nu}\dot{\xmu}(x')^2-\dot{x^\nu}x'^\mu(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	-x'^{\nu}P^{\mu}_{\sigma}=-\frac{1}{2\pi}\frac{x'^{\nu}x'^\mu (\dot{x})^2-x'^{\nu}\dot{\xmu}(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}
+	\end{aligned}
+	\right.
+\end{equation}
+On voit que la somme de ces quatre termes est nulle.
+Les équations du mouvement en terme des moments angulaires sont donc:
+$$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=0$$
+Et les conditions de bords sont:
 $$M_{\sigma}^{\mu\nu}(0,\tau)=M_{\sigma}^{\mu\nu}(\pi,\tau)=0$$
 
 Le moment angulaire total est: 
 $$\mathcal{M^{\mu\nu}}=\int_{C}dM^{\mu\nu}=\int_{C}M^{\mu\nu}_{\sigma}d\tau+M^{\mu\nu}_{\tau}d\sigma=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
 pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.
 \subsection{Spécification de la paramétrisation}
-L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement garde la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(A démontrer)}.
+L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(A démontrer)}.
 Par conséquent, il faut choisir cette paramétrisation avant de résoudre les équations.\\
-Premièrement, on montre que les contraintes sur la paramétrisation suivantes:
+Premièrement, on montre que les contraintes suivantes sur la paramétrisation:
 \begin{equation}
 \frac{\partial x}{\partial \sigma}.\frac{\partial x}{\partial \tau}=0
 \end{equation}
@@ -154,23 +155,33 @@ Premièrement, on montre que les contraintes sur la paramétrisation suivantes:
 \end{equation}
 simplifient les équations du mouvement.\\ Secondement, nous verrons comment on peut retrouver ces contraintes, ainsi que d'autres, par des arguments physiques. 
 \subsubsection{Simplification des équations}
-En utilisant la contrainte (9) sur la paramétrisation, on peut ré-écrire le Lagrangien comme:
-$$L=\frac{-1}{2\pi}\sqrt{ -\left( \frac{\partial x}{\partial \sigma}\right) ^{2}\left( \frac{\partial x}{\partial \tau}\right) ^{2} }$$
-Donc 
-$$\frac{\partial L}{\partial \dot{x_{\mu}}}=\frac{-1}{2\pi}\frac{1}{2}\frac{-2\dot{x^{\mu}}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}{\sqrt{ -\left( \frac{\partial x}{\partial \sigma}\right) ^{2}\left( \frac{\partial x}{\partial \tau}\right) ^{2} }}$$
-Par la contrainte (10), ceci se ré-écrit:
-$$\frac{\partial L}{\partial \dot{x_{\mu}}}=\frac{-1}{2\pi}\dot{x^\mu}*(-1)$$
-
-De manière complètement analogue, on trouve que:
-$$\frac{\partial L}{\partial x'_{\mu}}=\frac{-1}{2\pi}x'^\mu*(+1)$$
-
-Ainsi, les équations du mouvement deviennent:
-$$\frac{\partial}{\partial \tau}\frac{\partial L}{\partial \dot x_{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial L}{\partial  x'_{\mu}}=0$$
-$\Leftrightarrow$
-$$\frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \frac{\partial x^\mu}{\partial \tau}\right)+\frac{-1}{2\pi}\frac{\partial}{\partial \sigma}\left( \frac{\partial x^\mu}{\partial \sigma}\right) $$
-$\Leftrightarrow$
-$$\frac{1}{2\pi}\left[ \frac{\partial^2 x^\mu}{\partial \tau^2}-\frac{\partial^2 x^\mu}{\partial \sigma^2}\right] =0$$
-ce qui revient à l'équation d'onde.
+En utilisant la contrainte (11) sur la paramétrisation, on peut ré-écrire l'équation (6) comme:
+\begin{equation}
+	\left\lbrace
+	\begin{aligned}
+	\frac{\partial L}{\partial x'_\mu }=\frac{1}{2\pi}\frac{x'^\mu (\dot{x})^2}{\sqrt{-x'^2\dot{x}^2}}\\
+	\frac{\partial L}{\partial \dot{x_\mu}}=\frac{1}{2\pi}\frac{\dot{\xmu} (x')^2}{\sqrt{-x'^2\dot{x}^2}}\\
+	\end{aligned}
+	\right.
+\end{equation}
+Par la contrainte (12), on a que:
+$$\frac{\dot{x}^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{\dot{x}^2}{\sqrt{\dot{x}^4}}=-1$$ car on sait que $(\dot{x}^2)\leq0$.
+Et similairement,
+$$\frac{x'^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{x'^2}{\sqrt{x'^4}}=+1$$
+car on sait que $(x'^2)\geq0$.
+Donc
+\begin{equation}
+	\left\lbrace
+	\begin{aligned}
+	\frac{\partial L}{\partial x'_\mu }=-\frac{1}{2\pi}x'^\mu\\
+	\frac{\partial L}{\partial \dot{x_\mu}}=+\frac{1}{2\pi}\dot{\xmu}\\
+	\end{aligned}
+	\right.
+\end{equation}
+Et les équations du mouvement deviennent:
+$$\frac{\partial}{\partial \tau}\frac{\partial L}{\partial \dot x_{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial L}{\partial  x'_{\mu}}=0 \Leftrightarrow \frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \dot{\xmu}\right)+\frac{-1}{2\pi}\frac{\partial}{\partial \sigma}\left( x'^\mu\right) $$
+$$\Leftrightarrow \frac{1}{2\pi}\left[ \frac{\partial^2 x^\mu}{\partial \tau^2}-\frac{\partial^2 x^\mu}{\partial \sigma^2}\right] =0 \Leftrightarrow \left( \frac{\partial^2}{\partial \tau^2}-\frac{\partial^2 }{\partial \sigma^2}\right) \xmu(\sigma,\tau)=0$$
+c'est-à-dire l'équation d'onde classique.
 \subsubsection{Arguments physiques pour le choix de la paramétrisation}
 On veut que $\tau$ soit identifié à une coordonnée temporelle et que $\sigma$ soit une quantité qui varie toujours de $0$ à $\pi$ indépendamment du temps.
 On pose donc les deux égalités suivantes:
@@ -189,30 +200,73 @@ Comme les conditions au bord donnent
 $$P_\sigma^\mu(0,\tau)=P_\sigma^\mu(\pi,\tau)=0$$
 On a $\forall (\sigma,\tau)$ $$n.P_\sigma=0 $$\\
 D'autre part, 
-$$n.P_\sigma=n_\mu \frac{\partial L}{\partial x'_\mu }$$
-Or $L=\frac{-1}{2\pi}\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}=\frac{-1}{2\pi}\sqrt{(\dot{\xmu}x'_\mu)^2-(\dot{\xmu}\dot{x_\mu})(x'^\nu x'_\nu)}$,\\
-donc
-$$\frac{\partial L}{\partial x'_\mu }=\frac{-1}{2\pi.2}\frac{2\dot{\xmu}(x'\dot{x})-2x'^\mu (\dot{x})^2}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}$$
-Mais $n.x=2(n.\mathcal{P})\tau$ où $n$ et $\mathcal{P}$ sont des constantes,
-donc $n.\dot{x}=2(n.\mathcal{P})$ et $n.x'=0$.
-On en conclut que $$n.P_\sigma=2(n.\mathcal{P}).\frac{-1}{2\pi}.\frac{(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}=0 \Leftrightarrow (\dot{x}.x')=0$$
-
-On effectue le même calcul pour $n.P_\tau$:
-$$n.P_\tau=\frac{n.\mathcal{P}}{\pi}$$
-$$n.P_\tau=n_\mu.\frac{\partial L}{\partial \dot{x_\mu}}$$
-et $$\frac{\partial L}{\partial \dot{x_\mu}}=\frac{-1}{2\pi.2}\frac{2x'^\mu(x'\dot{x})-2\dot{\xmu} (x')^2}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}$$
-Donc $$\frac{n.\mathcal{P}}{\pi}=\frac{1}{2\pi}.\frac{(n.\dot{x})(x'^2)}{\sqrt{0-x'^2\dot{x}^2}} \Leftrightarrow (-\dot{x}^2)=(x'^2)$$\\
+$$n.P_\sigma=n_\mu \frac{\partial L}{\partial x'_\mu }, n.P_\tau=n_\mu.\frac{\partial L}{\partial \dot{x_\mu}}$$
+En utilisant l'équation (6):
+\begin{equation}
+	\left\lbrace
+	\begin{aligned}
+	\frac{\partial L}{\partial x'_\mu }=\frac{1}{2\pi}\frac{x'^\mu (\dot{x}^2)-\dot{\xmu}(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	\frac{\partial L}{\partial \dot{x_\mu}}=\frac{1}{2\pi}\frac{\dot{\xmu} (x'^2)-x'^\mu(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	\end{aligned}
+	\right.
+	\Rightarrow\\
+	\left\lbrace
+	\begin{aligned}
+	n.P_\sigma=\frac{1}{2\pi}\frac{n.x' (\dot{x}^2)-n.\dot{x}(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	n.P_\tau=\frac{1}{2\pi}\frac{n.\dot{x} (x'^2)-n.x'(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}
+	\end{aligned}
+	\right.
+\end{equation}
+Or, $n.x=2(n.\mathcal{P})\tau$ où $n$ et $\mathcal{P}$ sont des constantes,
+donc $n.\dot{x}=2(n.\mathcal{P})$ et $n.x'=0$,
+Par conséquent, 
+\begin{equation}
+	\left\lbrace
+	\begin{aligned}
+	0=n.P_\sigma=\frac{1}{2\pi}\frac{-2(n.\mathcal{P})(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
+	\frac{n.\mathcal{P}}{\pi}=n.P_\tau=\frac{1}{2\pi}\frac{2(n.\mathcal{P}) (x'^2)}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}
+	\end{aligned}
+	\right.
+	\Rightarrow\\
+	\left\lbrace
+	\begin{aligned}
+	(x'\dot{x})=0\\
+	\frac{n.\mathcal{P}}{\pi}=\frac{1}{\pi}\frac{(n.\mathcal{P}) (x'^2)}{\sqrt{-x'^2\dot{x}^2}}
+	\end{aligned}
+	\right.	
+\end{equation}
+\begin{equation}
+	\left\lbrace
+	\begin{aligned}
+	(x'\dot{x})=0\\
+	1=\frac{ (x'^2)}{\sqrt{-x'^2\dot{x}^2}}
+	\end{aligned}
+	\right.
+	\Leftrightarrow\\
+	\left\lbrace
+	\begin{aligned}
+	(x'\dot{x})=0\\
+	(-x'^2\dot{x}^2)=(x'^4)
+	\end{aligned}
+	\right.	
+	\Leftrightarrow\\
+	\left\lbrace
+	\begin{aligned}
+	(x'\dot{x})=0\\
+	(x'^2)+(\dot{x}^2)=0
+	\end{aligned}
+	\right.	
+\end{equation}
 \textbf{Conclusion:}
 \begin{equation}
-      \begin{cases}
+	\left\lbrace
+    \begin{aligned}
         \frac{\partial x}{\partial \sigma}.\frac{\partial x}{\partial \tau}=0, \left( \frac{\partial x}{\partial \sigma}\right) ^2+\left( \frac{\partial x}{\partial \tau}\right) ^2=0\\
-        \\
         \left( \frac{\partial^2}{\partial  \tau^2}-\frac{\partial^2}{\partial  \sigma^2}\right) \xmu=0\\
-        \\
         \frac{\partial \xmu}{\partial \sigma}=0 	 (\sigma=0,\pi)\\
-        \\
         n.x=2(n.\mathcal{P})\tau
-      \end{cases}
+        \end{aligned}
+        \right.
 \end{equation}
 \textbf{Remarque sur la covariance des équations:}
 \subsection{Formalisme Hamiltonien}
