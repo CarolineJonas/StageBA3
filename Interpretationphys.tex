@@ -1,0 +1,43 @@
+\documentclass[a4paper,12pt]{article}
+\def\xmu{x^\mu}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.80,vscale=0.80,centering}
+\title{Interprétation physique des équations classiques du mouvement}
+\begin{document}
+\maketitle
+
+On va voir que cette expression des équations du mouvement correspond à un cas simple que l'on peut comprendre physiquement: 
+Soit un référentiel de Lorentz où $$\tau=t$$
+Le mouvement en 3 dimensions est alors décrit par le vecteur 
+$$\vec{x}=\vec{x}(t,\sigma)$$
+Soit $$ds=\vert\frac{\partial x}{\partial \sigma}\vert d\sigma$$ l'élément de longueur le long de la corde.\\
+Soit $$v_{\perp}=\frac{\partial \vec{x}}{\partial t}-\frac{\partial \vec{x}}{\partial s}\left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)$$\\
+Donc $\frac{\partial \vec{x}}{\partial s}$ est un vecteur unité qui indique la direction tangente à la corde en chaque point. 
+La métrique utilisée dans tout l'article est
+$$
+\eta=
+\begin{bmatrix}
+    -1 & 0 & 0 & 0\\
+    0  & 1 & 0 & 0\\
+    0  & 0 & 1 & 0\\
+    0  & 0 & 0 & 1
+\end{bmatrix}
+$$
+Par conséquent, $$\left(\frac{\partial x}{\partial \tau}\right)^2= \left(\frac{\partial \vec{x}}{\partial t}\right)^2-c^2$$et$$\left(\frac{\partial x}{\partial \sigma}\right)^2= \left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2$$
+Nous pouvons donc calculer que $$v_{\perp}^2=\left(\frac{\partial \vec{x}}{\partial t}\right)^2- \left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)^2$$
+D'autre part on a
+$$\frac{ds}{d\sigma}=\vert\frac{\partial \vec{x}}{\partial \sigma}\vert$$
+On obtient ainsi finalement
+\begin{equation}
+\frac{ds}{d\sigma}\left(1-\frac{v_{\perp}^2}{c^2}\right)^{1/2}=\frac{1}{c}\bigg[c^2\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2-\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2\left(\frac{\partial \vec{x}}{\partial t}\right)^2+\left(\frac{\partial \vec{x}}{\partial \sigma}\right)^2\left(\frac{\partial \vec{x}}{\partial t}.\frac{\partial \vec{x}}{\partial s}\right)^2\bigg]^{1/2}\\
+\end{equation}
+\begin{equation}
+=\frac{1}{c}\bigg[-\left(\frac{\partial x}{\partial\tau}\right)^2\left(\frac{\partial x}{\partial\sigma}\right)^2+\left(\frac{\partial x}{\partial\sigma}.\frac{\partial x}{\partial\tau}\right)^2\bigg]^{1/2}
+\end{equation}
+Et donc on voit que
+\begin{equation}
+L=\frac{-1}{2\pi\alpha'\hbar c}\int_{0}^{\pi}d\sigma\frac{ds}{d\sigma}\left(1-\frac{v_{\perp}^2}{c^2}\right)^{1/2}
+\end{equation}
+\end{document}
