@@ -269,7 +269,36 @@ Par conséquent,
         \right.
 \end{equation}
 \textbf{Remarque sur la covariance des équations:}
+Les trois premières équations de (15) sont covariantes: on peut changer de référentiel par une transformation de Lorentz et ces équations seront toujours valables. Cependant, la quatrième ne l'est pas, car elle spécifie la coordonnée $\tau$ de manière unique en fonction du "quadrivecteur" $n$. 
+Si on considère seulement les trois premières équations, on peut reparamétriser:
+\begin{align}
+\sigma=\sigma(\tilde{\sigma},\tilde{\tau})\\
+\tau=\tau(\tilde{\sigma},\tilde{\tau})
+\end{align}
+On a donc une liberté de paramétrisation, qui est similaire à celle qu'on a dans les équations de Maxwell (\textit{liberté de jauge}). La paramétrisation sera fixée uniquement si on spécifie les configurations initiales et finales de la corde (deux courbes \textit{type espace} sans intersection et à $\tau$ constant).
 \subsection{Formalisme Hamiltonien}
+Pour passer ensuite à la formulation quantique du système par le principe de correspondance, on doit construire le formalisme Hamiltonien de notre système. Cependant, les équations du mouvement sont contraintes par:
+\begin{align}
+(\dot{x}x')=0\\
+(\dot{x}^2)+(x'^2)=0
+\end{align}
+De plus, $\xmu$ et $P_\tau^\mu$ ne peuvent pas être prises comme les variables canoniquement conjuguées car:
+\begin{align}
+n.x=2(n.\mathcal{P})\tau\\
+n.P_\tau=\frac{n.\mathcal{P}}{\pi}
+\end{align}
+et elles ne sont donc pas indépendantes l'une de l'autre. Sous contraintes, on a deux méthodes pour obtenir le formalisme Hamiltonien:
+\begin{enumerate}
+\item On calcule les crochets de Poisson de toutes les variables et puis on impose les contraintes.
+\item On résout d'abord explicitement les contraintes en éliminant certaines variables et on calcule les crochets de Poisson seulement sur les variables restantes.
+\end{enumerate} 
+On va utiliser la deuxième méthode.
+On va introduire de nouvelles notations et spécifier $n$ de façon explicite.
+$\forall$ D-vecteur $r=(r^0,\vec{r},r^{D-1})$, on définit:
+$$r_\pm=\frac{1}{\sqrt2}(r^0\pm r^{D-1})$$
+On spécifie $n=\frac{1}{\sqrt2}(1,\vec{0},-1)$, c'est-à-dire que 
+$n_+=0$ et $n_-=1$.
+On va résoudre explicitement les contraintes pour fixer certaines des composantes de $\xmu$ et de $P_\tau^\mu$: 
 \subsection{Propriétés de covariance du système}
 \section{Approche Quantique}
 
