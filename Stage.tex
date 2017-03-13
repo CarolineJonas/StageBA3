@@ -299,6 +299,23 @@ $$r_\pm=\frac{1}{\sqrt2}(r^0\pm r^{D-1})$$
 On spécifie $n=\frac{1}{\sqrt2}(1,\vec{0},-1)$, c'est-à-dire que 
 $n_+=0$ et $n_-=1$.
 On va résoudre explicitement les contraintes pour fixer certaines des composantes de $\xmu$ et de $P_\tau^\mu$: 
+\subsubsection{$n.x=2(n.\mathcal{P})\tau$}
+$$\Leftrightarrow n_0x^0 + \vec{n}.\vec{x} + n_{D-1}x^{D-1}=2\left( n_0\mathcal{P}^0 + \vec{n}.\vec{\mathcal{P}} + n_{D-1}\mathcal{P}^{D-1}\right) \tau$$
+$$\Leftrightarrow \frac{-1}{\sqrt{2}}x^0 + \frac{-1}{\sqrt{2}}x^{D-1}=2\left( \frac{-1}{\sqrt{2}}\mathcal{P}^0  + \frac{-1}{\sqrt{2}}\mathcal{P}^{D-1}\right) \tau$$
+$$\Leftrightarrow x_+ = 2 \mathcal{P_+}\tau$$
+\subsubsection{$n.P_\tau=\frac{n.\mathcal{P}}{\pi}$}
+$$\Leftrightarrow n_0P_\tau^0 + \vec{n}.\vec{x} + n_{D-1}P_\tau^{D-1}=\frac{1}{\pi}\left( n_0\mathcal{P}^0 + \vec{n}.\vec{\mathcal{P}} + n_{D-1}\mathcal{P}^{D-1}\right)$$
+$$\Leftrightarrow \frac{-1}{\sqrt{2}}P_\tau^0 + \frac{-1}{\sqrt{2}}P_\tau^{D-1}=\left( \frac{-1}{\sqrt{2}\pi}\mathcal{P}^0  + \frac{-1}{\sqrt{2}}\mathcal{P}^{D-1}\right) $$
+$$\Leftrightarrow P_{\tau+} = \frac{\mathcal{P_+}}{\pi}$$
+\subsubsection{$(\dot{x}x')=0$}
+$$\Leftrightarrow x'.P_\tau=0$$
+$$\Leftrightarrow -x'_0P_\tau^0 +\vec{x'}.\vec{P_\tau} + x'_{D-1}.P_\tau^{D-1} =0$$
+$$\Leftrightarrow x'^0P_\tau^0 - x'^{D-1}.P_\tau^{D-1}=\vec{x'}.\vec{P_\tau}$$
+Or, $$x'_+P_{\tau -} + x'_-P_{\tau +}=\frac{1}{2}\left( x'^0 + x'^{D-1}\right) \left(P_\tau^0 - P_\tau^{D-1}\right) + \frac{1}{2}\left( x'^0 - x'^{D-1}\right) \left(P_\tau^0 + P_\tau^{D-1}\right)=x'^0P_\tau^0 - x'^{D-1}.P_\tau^{D-1}$$
+De plus, par le point 1 on a que $x_+ = 2 \mathcal{P_+}\tau$ donc $x'_+=\frac{\partial x_+}{\partial \sigma}=0$ car $\mathcal{P}$ est une constante.
+Donc finalement:
+$$x'_-P_{\tau +}=\vec{x'}.\vec{P_\tau}$$
+\subsubsection{$(\dot{x}^2)+(x'^2)=0$}
 \subsection{Propriétés de covariance du système}
 \section{Approche Quantique}
 
