@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass[a4paper,12pt]{article}
 \def\xmu{x^\mu}
 \def\vecx{\vec{x}}
@@ -25,14 +26,17 @@ Une corde est une courbe dans l'espace dont la forme et la position changent au 
 
 Dans l'espace-temps, elle est décrite par une surface à deux dimensions:
 $x^{\mu}(\sigma,t)$ ($\sigma$ est un paramètre le long de la corde, et t est le temps).
-Pour que le problème soit physique, on impose que chaque point de cette surface se déplace à une vitesse $v\leq c$, c'est-à-dire qu'à chaque point de la surface, il existe un déplacement infinitésimal le long de la surface \textit{time-like} ou \textit{light-like}. On dit que cette surface est \textit{time-like}.
+Pour que le problème soit physique, on impose que chaque point de cette surface se déplace à une vitesse $v\leq c$, c'est-à-dire qu'à chaque point de la surface, il existe un déplacement infinitésimal le long de la surface de type-temps ou de type-lumière. On dit que cette surface est de type-temps.
 \subsection{Paramétrisation générale}
-$$x^{\mu}=x^{\mu}(\sigma,\tau)$$
-$$dx^{\mu}=\frac{\partial \xmu}{\partial \sigma}+\frac{\partial x^{\mu}}{\partial \tau}$$
-$$dF^{\mu \nu}=d\sigma d\tau \left( \frac{\partial \xmu}{\partial \sigma}\frac{\partial x^{\nu}}{\partial \tau}-\frac{\partial x^{\nu}}{\partial \sigma}\frac{\partial x^{\mu}}{\partial \tau}\right)\equiv dx^{\mu}\Lambda dx^{\nu}$$
-La surface est \textit{time-like} si et seulement si $-dF^{\mu \nu}dF_{\mu \nu}\geq0$.\textbf{(A démontrer)}\\
-Un élément de surface est donné par:\textbf{(A démontrer)}
-$$dA=\sqrt{-dF^{\mu \nu}dF_{\mu \nu}}=d\sigma d\tau \sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}$$
+\textit{Partie à retravailler}
+On paramétrise la surface par $x^{\mu}=x^{\mu}(\sigma,\tau)$. On veut calculer l'aire de la surface en termes des coordonnées $\sigma$ et $\mu$.
+Soit une surface $\Sigma$ de dimension n dans une variété $M$ de dimension D>n et soit une métrique $g_{\mu\nu}$ dans $M$ sur les coordonnées $\xmu$. Alors il existe une métrique induite sur $\Sigma$:
+Sur $\Sigma$ on définit les coordonnées $\xi^\alpha$ telles que 
+$$\xmu=\xmu(\xi^\alpha) $$.
+Alors $$g_{\mu\nu}d\xmu dx^\nu=\gamma_{\alpha\beta}d\xi^\alpha d\xi^\beta \Rightarrow \gamma_{\alpha\beta}=g_{\mu\nu}\partial_\alpha\xmu\partial_\beta x^\nu$$
+L'aire de la surface $\Sigma$ s'écrit alors: $$A=\int d^n\xi\sqrt{-\gamma}=\sqrt{-det(\partial_\alpha x\partial_\beta x)}$$
+Pour deux coordonnées $(\sigma,\tau)$, $$A=\int d\tau d\sigma \sqrt{-\gamma_{\tau\tau}\gamma_{\sigma\sigma}+\gamma^2_{\tau\sigma}}$$
+$$=\int d\tau d\sigma \sqrt{(\partial_\tau x \partial_\sigma x)^2-(\partial_\tau x)^2(\partial_\sigma x)^2}$$
 On impose les contraintes suivantes sur les paramètres:
 \begin{enumerate}
 \item Les bouts de la corde correspondent à $\sigma=0$ and $\sigma=\pi$
@@ -42,7 +46,7 @@ autrement dit, $\left( \frac{\partial x^{\mu}}{\partial \tau}\right)^{2}\leq 0 $
 \subsection{Equations du mouvement}
 On trouve les équations du mouvement par le principe de moindre action. L'action choisie est appelée \textit{action de Nambu-Goto}, c'est la plus simple action qui est directement proportionnelle à la surface:
 \begin{equation}
-S=\frac{-1}{2\pi \alpha'\hbar c^{2}}\int_{\tau_{i}}^{\tau_{f}}\int_{0}^{\pi}dA
+S=\frac{-1}{2\pi \alpha'\hbar c^{2}}\int_{\tau_{i}}^{\tau_{f}}\int_{0}^{\pi}d\tau d\sigma \sqrt{(\partial_\tau x \partial_\sigma x)^2-(\partial_\tau x)^2(\partial_\sigma x)^2}
 \end{equation} 
 La constante à l'avant n'est pas importante et sert juste aux unités. On pose donc $\alpha '=c=\hbar =1$, et ainsi toutes les grandeurs physique du problème sont sans dimension.\\
 \textbf{Principe de Moindre Action:} 
@@ -52,10 +56,11 @@ La constante à l'avant n'est pas importante et sert juste aux unités. On pose 
 \Rightarrow
 0=\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\delta \CL
 \end{equation}
-où $\CL$ est la densité de Lagrangien et vaut: $\CL=\frac{-1}{2\pi}\sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}$ $\Leftrightarrow$ $\CL$ dépend uniquement des variables $ \frac{\partial x^{\mu}}{\partial \sigma}\equiv x'^{\mu}$ et $\frac{\partial x^{\mu}}{\partial \tau}\equiv \dot{x^{\mu}}$\\
+où $\CL$ est la densité Lagrangienne et vaut: $\CL=\frac{-1}{2\pi}\sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}$ $\Leftrightarrow$ $\CL$ est une fonctionnelle de x.
+Pour simplifier les notations on écrit par la suite: $ \frac{\partial x^{\mu}}{\partial \sigma}\equiv x'^{\mu}$ et $\frac{\partial x^{\mu}}{\partial \tau}\equiv \dot{x^{\mu}}$\\
 Donc:
 \begin{equation}
-\delta \CL= \frac{\partial \CL}{\partial x^{\mu}}\delta x^{\mu}=\left( \frac{\partial \CL}{\partial \dot{x^{\mu}}}\frac{\partial \dot{x^{\mu}}}{\partial x^{\mu}}+\frac{\partial \CL}{\partial x'^{\mu}}\frac{\partial x'^{\mu}}{\partial x^{\mu}}\right) \delta x^{\mu}\\
+\delta \CL= \frac{\partial \CL}{\partial \dot{\xmu}}\dot{\delta \xmu}+\frac{\partial \CL}{\partial x^{\mu'}}\delta  x^{\mu'}\\
 =\frac{\partial \CL}{\partial \dot{x^{\mu}}}\frac{\partial\delta x^{\mu}}{\partial \tau}+\frac{\partial \CL}{\partial x'^{\mu}}\frac{\partial\delta x^{\mu}}{\partial \sigma}
 \end{equation}
 Ainsi,
@@ -103,14 +108,21 @@ Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkows
 \textsc{Rappel}: Le groupe de Poincaré est l'ensemble des transformations de l'espace temps qui préservent la distance minkowskienne:
 $$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}+a^{\mu}$$ 
 Où $\Lambda_{\nu}^{\mu}$ est une transformation de Lorentz et $a^{\mu}$ est une translation dans l'espace temps.\\
-Or le théorème de Noether nous dit que:
-\textit{"Toute variation virtuelle instantanée qui laisse le Lagrangien invariant donne lieu à une intégrale première, c'est-à-dire une fonction $K(x^{\mu},\dot{x^{\mu}},t)$ telle que $\frac{dK}{dt}=0$ sur toute solution $x^{\mu}$ des équations du mouvement."}\\
-Autrement dit, les transformations infinitésimales du groupe de Poincaré (resp. translations  et transformations de Lorentz) seront associées à des intégrales premières(=quantités conservées) (resp. impulsion et moment angulaire).\\ 
-\textbf{NB: Je ne comprend pas encore très bien comment on trouve ces éléments infinitésimaux à partir du théorème de Noether, ni ce qu'ils représentent physiquement.}
+
+\paragraph{Théorème de Noether pour les champs continus dans l'espace-temps quadridimensionnel:}
+
+Soit un ensemble de champs différentiables $\phi$ défini sur tout l'espace-temps. L'action est une intégrale sur l'espace et le temps:
+$$\mathcal{S}=\int\CL(\phi,\partial_\mu \phi,\xmu)d^4x$$
+Une transformation infinitésimale continue du champ $\phi$ peut s'écrire:
+$\phi \rightarrow \phi + \epsilon \psi$ où $\psi$ est une fonction qui peut dépendre de $\xmu$ et de $\phi$.
+Cette transformation génère une symétrie physique si elle laisse l'action $\mathcal{S}$ invariante, autrement dit si elle laisse $\CL$ invariant à une divergence près: $$\CL \rightarrow \CL + \epsilon \partial_\mu \Gamma^\mu$$
+Dans ce cas, le théorème de Noether nous dit qu'il existe une densité de courant: $$j^\nu=\Gamma^\nu -\frac{\partial \CL}{\partial \phi_{,\nu}}.\psi$$
+où $\phi_{,\nu}$ est la dérivée de $\phi$ par rapport à la variable $x^\nu$.
+Ce courant est conservé, et dans l'espace-temps cette conservation s'écrit: $$\partial_\nu j^\nu=0$$
+Dans notre cas, le Lagrangien est laissé invariant par les transformations de Lorentz $$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}$$ et par les translations dans l'espace-temps $$ x^{\mu}\rightarrow \xmu+a^{\mu}$$
+Par le théorème de Noether, ces deux transformations vont donner lieu à une densité de courant conservé.
+\textit{retravailler la suite}
 \subparagraph{Translations infinitésimales}
-Comme L dépend seulement de $\dot{x^{\mu}}$ et $x'^{\mu}$, 
-l'élément d'impulsion infinitésimal est 
-$$dP^{\mu}=\frac{\partial L}{\partial \dot{x_{\mu}}}d\sigma+\frac{\partial L}{\partial x'_{\mu}}d\tau$$
 
 On définit le courant d'impulsion sur la surface $P^{\mu}_{i}(i=\sigma,\tau)$ tel que 
 $$P^{\mu}_{\tau}=\frac{\partial \CL}{\partial \dot{x_{\mu}}},			 P^{\mu}_{\sigma}=\frac{\partial \CL}{\partial x'_{\mu}}$$
@@ -122,8 +134,6 @@ $$\mathcal{P^{\mu}}=\int_{C}dP^{\mu}=\int_{C}P^{\mu}_{\sigma}d\tau+P^{\mu}_{\tau
 pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.
 
 \subparagraph{Transformations de Lorentz infinitésimales}
-Elément infinitésimal de moment angulaire:
-$$dM^{\mu\nu}=(x^{\mu}P^{\nu}_{\tau}-x^{\nu}P^{\mu}_{\tau})d\sigma+(x^{\mu}P^{\nu}_{\sigma}-x^{\nu}P^{\mu}_{\sigma})d\tau$$
 On définit le courant de moment angulaire $M_{i}^{\mu\nu}\equiv x^{\mu}P^{\nu}_{i}-x^{\nu}P^{\mu}_{i}$\\
 Les équations du mouvement expriment la conservation locale du moment angulaire:
 $$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=x^{\mu}\left( \frac{\partial P^{\nu}_{\tau}}{\partial \tau}+\frac{\partial P^{\nu}_{\sigma}}{\partial \sigma}\right) +\left( \dot{x^{\mu}}P^{\nu}_{\tau}+x'^{\mu}P^{\nu}_{\sigma}\right) -x^{\nu}\left( \frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}\right) -\left( \dot{x^{\nu}}P^{\mu}_{\tau}+x'^{\nu}P^{\mu}_{\sigma}\right)$$
@@ -139,7 +149,7 @@ Ré-écrivons les termes 2 et 4 en fonctions de $\dot{x}$ et $x'$ grâce à l'é
 	\end{aligned}
 	\right.
 \end{equation}
-On voit que la somme de ces quatre termes est nulle. \textbf{(Je ne sais pas si ça se voit ou si je devrais le faire ressortir par des couleurs ou autres?)}
+On voit que la somme de ces quatre termes est nulle. 
 Les équations du mouvement en terme des moments angulaires sont donc:
 $$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=0$$
 Et les conditions de bords sont:
@@ -153,14 +163,14 @@ L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation,
 Par conséquent, il faut choisir cette paramétrisation avant de résoudre les équations.\\
 Premièrement, on montre que les contraintes suivantes sur la paramétrisation:
 \begin{equation}
-\frac{\partial x}{\partial \sigma}.\frac{\partial x}{\partial \tau}=0
+x'. \dot{x}=0
 \end{equation}
 \begin{equation}
-\left( \frac{\partial x}{\partial \sigma}\right) ^{2}+\left(\frac{\partial x}{\partial \tau}\right) ^{2}=0 
+\left( x'\right) ^{2}+\left(\dot{x}\right) ^{2}=0 
 \end{equation}
 simplifient les équations du mouvement.\\ Secondement, nous verrons comment on peut retrouver ces contraintes, ainsi que d'autres, par des arguments physiques. 
 \subsubsection{Simplification des équations}
-En utilisant la contrainte (11) sur la paramétrisation, on peut ré-écrire l'équation (6) comme:
+En utilisant la contrainte (8) sur la paramétrisation, on peut ré-écrire l'équation (6) comme:
 \begin{equation}
 	\left\lbrace
 	\begin{aligned}
@@ -169,7 +179,7 @@ En utilisant la contrainte (11) sur la paramétrisation, on peut ré-écrire l'�
 	\end{aligned}
 	\right.
 \end{equation}
-Par la contrainte (12), on a que:
+Par la contrainte (9), on a que:
 $$\frac{\dot{x}^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{\dot{x}^2}{\sqrt{\dot{x}^4}}=-1$$ car on sait que $(\dot{x}^2)\leq0$.
 Et similairement,
 $$\frac{x'^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{x'^2}{\sqrt{x'^4}}=+1$$
@@ -192,12 +202,11 @@ On veut que $\tau$ soit identifié à une coordonnée temporelle et que $\sigma$
 On pose donc les deux égalités suivantes:
 $$n.x=2(n.\mathcal{P})\tau$$
 $$(n.\mathcal{P})\sigma=\pi\int_0^\sigma d\sigma (n.P_\tau)$$
-où n est un quadrivecteur constant tel que $n^2\leq0$.
-Comme $\mathcal{P^\mu}=\int_0^\pi d\sigma P_\tau^\mu$, la seconde équation se ré-écrit:
-$$\left( \int_0^\pi d\sigma' nP_\tau\right) \sigma=\pi\left( \int_0^\sigma d\sigma'nP_\tau\right) $$
-Ainsi, $n.P_\tau$ ne dépend ni de $\sigma$, ni de $\tau$ et :
+où n est un vecteur à D dimensions constant tel que $n^2\leq0$.
+Ainsi, comme $\CP$ est une constante (par conservation du courant de Noether), 
+$n.P_\tau$ est également une constante et:
 $$n.P_\tau=\frac{n.\mathcal{P}}{\pi}$$\\
-\textbf{Problème: je n'arrive pas à voir que $n.P_\tau$ ne dépend ni de $\tau$ ni de $\sigma$ ($\sigma$ je vois mais je n'arrive pas à le montrer rigoureusement, et $\tau$ je ne vois pas).}\\
+
 Les équations du mouvement nous donnent:
 $$\frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\tau}}{\partial \tau}+\frac{\partial n.P_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\sigma}}{\partial \sigma}=0$$
 Car $n.P_\tau$ est constant.
@@ -273,7 +282,8 @@ Par conséquent,
         \end{aligned}
         \right.
 \end{equation}
-\textbf{Remarque sur la covariance des équations:}
+\textbf{Remarque sur la covariance des équations:}\\
+\textit{Ce qui suit est faux,comprendre et réécrire}\\
 Les trois premières équations de (15) sont covariantes: on peut changer de référentiel par une transformation de Lorentz et ces équations seront toujours valables. Cependant, la quatrième ne l'est pas, car elle spécifie la coordonnée $\tau$ de manière unique en fonction du "quadrivecteur" $n$. 
 Si on considère seulement les trois premières équations, on peut reparamétriser:
 \begin{align}
@@ -300,10 +310,10 @@ et elles ne sont donc pas indépendantes l'une de l'autre. Sous contraintes, on 
 On va utiliser la deuxième méthode.
 On introduit de nouvelles notations et on spécifie $n$ de façon explicite.
 \begin{enumerate}
-\item $\forall$ D-vecteur $r=(r^0,\vec{r},r^{D-1})$, 
+\item $\forall$ D-vecteur $r=(r^0,\vec{r},r^{D-1})$, on définit
 $r_\pm=\frac{1}{\sqrt2}(r^0\pm r^{D-1})$
 \item $n=\frac{1}{\sqrt2}(1,\vec{0},-1)$, c'est-à-dire que 
-$n_+=0$ et $n_-=1$.
+$n_+=0$ et $n_-=1$ ( et $n$ est de type-lumière: le temps sur la corde est défini par une direction de type-lumière)
 \end{enumerate}
 On va résoudre explicitement les contraintes pour fixer certaines des composantes de $\xmu$ et de $P_\tau^\mu$: 
 \subsubsection{$n.x=2(n.\mathcal{P})\tau$}
@@ -333,42 +343,46 @@ Alors, les deux dernières équations nous permettent d'écrire:
 P_{\tau -}(\sigma,\tau)=\frac{\pi}{2\mathcal{P_+}}\left[\frac{1}{(2\pi)^2}(\vec{x'})^2 + (\vec{\pt})^2\right]\\
 x_-(\sigma,\tau) = q_-(\tau) + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
 \end{align}
-\textbf{(Je n'ai pas encore démontré la deuxième mais j'ai une intuition de pourquoi elle est vraie)}
-Donc finalement, on peut exprimer toutes les composantes de $x$ et $\pt$ à partir de:
+\subparagraph{Démonstration:}
+L'équation (22) s'obtient directement en inversant la relation (2.7.4) et en utilisant (2.7.1). Nous montrons que l'équation (23) est bien cohérente avec la définition de $q_-(\tau)$:
+$$q_-(\tau)=\frac{1}{\pi}\int_0^\pi d\sigma x_-(\sigma,\tau)
+\Rightarrow q_-(\tau)=\frac{1}{\pi}\int_0^\pi d\sigma\left[ q_-(\tau) + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\right] $$
+$q_-(\tau)$ ne dépend pas de $\sigma$ donc le premier terme de l'intégrale donne 0. Pour le second terme, on utilise la relation (2.7.3): $\frac{\pi}{\CP}\vecx'\vecpt=x'_-$.
+On réécrit donc: 
+$$ q_-(\tau)=\frac{1}{\pi}\int_0^\pi d\sigma\left[ \int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \frac{\partial x_-}{\partial \sigma'}\right]$$
+$$=\frac{1}{\pi^2}\int_0^\pi d\sigma\left[\sigma'.x_-(\sigma',\tau)\right]^\pi_0 - \frac{1}{\pi^2}\int_0^\pi d\sigma\int_0^\pi d\sigma'\frac{\partial x_-}{\partial \sigma'}(\sigma',\tau) - \frac{1}{\pi}\int_0^\pi d\sigma\int_\sigma^\pi d\sigma'\frac{\partial x_-}{\partial \sigma'}(\sigma',\tau)$$
+$$=\frac{1}{\pi^2}\int_0^\pi d\sigma \pi.x_-(\pi,\tau)-\frac{1}{\pi^2}\int_0^\pi d\sigma \left( x_-(\pi,\tau)-x_-(0,\tau)\right) - \frac{1}{\pi}\int_0^\pi d\sigma\left( x_-(\pi,\tau)-x_-(\sigma,\tau)\right) $$
+Les quatres premiers termes donnent une intégrale nulle car ils ne dépendent pas de $\sigma$. Le dernier terme nous redonne:
+$$q_-(\tau)=\frac{1}{\pi}\int_0^\pi d\sigma x_-(\sigma,\tau)$$
+Cette expression pour $x_-(\sigma,\tau)$ est bien cohérente.\\
+Nous pouvons donc exprimer toutes les composantes de $x$ et $\pt$ à partir de:
 $$\boxed{\vecx, \vecpt, \CP_+, q_-}$$
 Ce sont les variables non contraintes sur lesquelles on va calculer les crochets de Poisson. 
 \textsc{Rappel:} Les crochets de Poisson et les équations du mouvement sont reliés par 
-$$\dot{f}={f,H}+\frac{\partial f}{\partial \tau}$$
-Comme on connait les équations du mouvement, on va en déduire $\dot{\vecx}, \dot{\vecpt}, \dot{\CP_+}, \dot{q_-}$  et en calculant ensuite l'Hamiltonien, on pourra trouver les crochets de Poisson.\textbf{(Cette partie me semble un peu suspecte pcq j'ai l'impression qu'après on calcule les dérivées par rapport à $\tau$ et qu'on écrit que ce sont les "dot" mais du coup je sais pas si c'est parce que je n'ai pas fait les bons calculs ou pcq je n'ai pas compris ce qu'il faut faire)}\\
+$$\dot{f}=\{f,H\}+\frac{\partial f}{\partial \tau}$$
+Comme on connait les équations du mouvement, on va en déduire $\dot{\vecx}, \dot{\vecpt}, \dot{\CP_+}, \dot{q_-}$  et en calculant ensuite l'Hamiltonien, on pourra trouver les crochets de Poisson.
+\textbf{Attention} la dérivée partielle par rapport à $\tau$ ci-dessus doit se comprendre comme une dérivée explicite, qui sera toujours nulle ici puisqu'aucune de nos expressions ne dépend explicitement de $\tau$.\\
 \paragraph{$\vecpt$:}
-$$\left( \frac{\partial^2\xmu}{\partial  \tau^2}-\frac{\partial^2 \xmu}{\partial  \sigma^2}\right)=0 $$
-Or $\frac{\partial \xmu}{\partial \tau}=2\pi \pt^\mu$,
-$$\Leftrightarrow 2\pi\frac{\partial \pt^\mu}{\partial \tau}-x''^\mu=0$$
+$$\left( \ddot{\xmu}-x^{\mu''} \right)=0 $$
+Or $\dot{\xmu}=2\pi \pt^\mu$,
+$$\Leftrightarrow 2\pi\dot{\pt^\mu}-x''^\mu=0$$
 $$\Rightarrow \dot{\vecpt}=\frac{1}{2\pi}\vecx''$$
 \paragraph{$\vecx$:}
-$$\frac{\partial x}{\partial \sigma}.\frac{\partial x}{\partial \tau}=0 \Leftrightarrow x'_0\dot{x^0} + \vecx'.\dot{\vecx} + x'_{D-1}\dot{x^{D-1}}=0$$
+$$x'.\dot{x}=0 \Leftrightarrow x'_0\dot{x^0} + \vecx'.\dot{\vecx} + x'_{D-1}\dot{x^{D-1}}=0$$
 $$\Leftrightarrow \vecx'.\dot{\vecx}= x'_+.\dot{x}_- + x'_-.\dot{x}_+$$
 Or $x'_+ =0$ donc $\vecx'.\dot{\vecx}=2\pi x'_{-} P_{\tau +} $
 Mais de la même manière, $\vecx' \vecpt=x'_{-} P_{\tau +} $, $$\Leftrightarrow \vecx'.\dot{\vecx}=2\pi \vecx'\vecpt \Rightarrow \dot{\vecx}=2\pi\vecpt$$
 \paragraph{$\CP_+$:}
-$$\CP_+= cst$$ \textbf{(Moment cinétique total... dépend pas de $\sigma$ par définition mais je comprend pas pq il ne dépend pas de $\tau$... )}
+$$\CP_+= cst$$ 
 \paragraph{$q_-$:}
 $$\dot{q}_-=\frac{1}{\pi}\int_0^\pi d\sigma \dot{x_-}= 2\int_0^\pi d\sigma P_{\tau -}\equiv 2 \CP_-$$
 $$\Leftrightarrow \dot{q}_-=2\CP_-$$
-A présent, on doit exprimer l'Hamiltonien du système. 
-Le Lagrangien est $L=\int_0^\pi d\sigma \CL$, avec $\CL=\frac{-1}{2\pi}\sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}=\frac{-1}{2\pi}\sqrt{-(\dot{x})^2(x')^2}=\frac{-1}{2\pi}(x')^2$ dans notre paramétrisation.\\
-Par définition, $$H=\int_0^\pi d\sigma\left( \dot{x}\frac{\partial \CL}{\partial\dot{x}} -\CL\right)$$
-Or $$\frac{\partial \CL}{\partial\dot{x}}=\frac{1}{2\pi}\dot{x}\equiv \pt$$
-Donc $$H=\int_0^\pi \left( 2\pi \pt^2 - \frac{-1}{2\pi}(x')^2\right)=2\pi \int_0^\pi\left( \pt^2+\frac{(x')^2}{(2\pi)^2}\right) $$
-$$\Leftrightarrow H=0????$$
-\textbf{Je comprend pas... où alors il faut écrire seulement que:
-$$H=\int_0^\pi d\sigma\left( \dot{\vecx}\frac{\partial \CL}{\partial\dot{\vecx}} -\CL\right)?$$ Mais pourquoi?}\\
-Dans ce cas, comme $(x')^2=\vec{x'}^2 - 2x'_+.x'_-=\vec{x'}^2$:
-$$H=\int_0^\pi d\sigma\left( 2\pi\vecpt.\vecpt+ \frac{1}{2\pi}(\vec{x'})^2\right)=2\pi\int_0^\pi d\sigma\left( \vecpt^2+ \frac{(\vec{x'})^2}{(2\pi)^2}\right)$$
-\textbf{Ce qui est deux fois trop par rapport au résultat écrit dans l'article (équation (26))}
+A présent, on doit exprimer l'Hamiltonien du système. On est tenté pour ce faire de retourner à l'expression du Lagrangien du système et de trouver l'Hamiltonien par transformée de Legendre. Cependant cette méthode n'est plus valable maintenant qu'on a fixé une partie des variables par les contraintes (si on le fait, on obtient des contradictions comme $H=0$). Mais on sait que l'Hamiltonien décrit l'évolution temporelle (dans notre cas selon $\tau$) du système. Or, par la relation (2.7.1), on sait que $x_+=2\CP_+.\tau$. Il est donc naturel d'écrire que $H=2\CP_+\CP_-$ où $\CP_-$ est la variable "conjuguée?" de $\CP_+$(et le générateur des translations infinitésimales dans la direction $x_+$).
+Par l'équation (22) et la définition de $\CP_-$, on obtient: $$H=\pi\int_0^\pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)=\dot{q_-}\CP_+ $$
+On est à présent prêts pour calculer les crochets de Poisson:
 
-\subsection{Propriétés de covariance du système}
+
 \section{Approche Quantique}
-{}
+
 
 \end{document}
