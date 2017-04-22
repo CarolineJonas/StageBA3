@@ -1,0 +1,53 @@
+\documentclass[a4paper,12pt]{article}
+\def\xmu{x^\mu}
+\def\vecx{\vec{x}}
+\def\CP{\mathcal{P}}
+\def\CL{\mathcal{L}}
+\def\pt{P_\tau}
+\def\vecpt{\vec{\pt}}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.80,vscale=0.80,centering}
+\title{Décomposition en modes normaux }
+
+\begin{document}
+\maketitle
+\paragraph{But:}
+On démontre que l'on peut décomposer $\xmu(\sigma,\tau)$ comme:
+\begin{equation}
+\xmu(\sigma,\tau)= q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}
+\end{equation}
+où $q_0^\mu$ et $a_n^\mu$ sont des constantes indépendantes de $\sigma$ et de $\tau$
+\paragraph{Méthode de séparation des variables:}
+$\xmu(\sigma,\tau)$ obéit à l'équation d'onde: $$\left( \frac{\partial^2}{\partial  \tau^2}-\frac{\partial^2}{\partial  \sigma^2}\right) \xmu=0$$
+Supposons que l'on peut décomposer $\xmu$ en $\xmu(\sigma,\tau)=S(\sigma)*T(\tau)$
+Alors l'équation devient: 
+\begin{equation}
+S(\sigma)\frac{\partial^2 T}{\partial \tau^2}-T(\tau)\frac{\partial^2 S}{\partial \sigma^2}=0 \Leftrightarrow \frac{\ddot{T}}{T}=\frac{S''}{S}= -\lambda^2
+\end{equation}
+\begin{equation}
+	\left\lbrace 
+	\begin{aligned}
+		\frac{\partial^2 T}{\partial \tau^2}=-T\lambda^2\\
+		\frac{\partial^2 S}{\partial \sigma^2}=-S\lambda^2
+	\end{aligned}
+	\right.
+	\Leftrightarrow
+	\left\lbrace
+	\begin{aligned}
+	T(\tau)=A_\lambda e^{i\lambda\tau}+B_\lambda e^{-i\lambda\tau}\\
+	S(\sigma)=C_\lambda \cos(\lambda \sigma) + D_\lambda \sin(\lambda\sigma)
+	\end{aligned}
+	\right.
+\end{equation}
+Tous les $A_\lambda$ sont nuls sinon la solution explose en $\tau\rightarrow\infty$ (pas physique).\\
+Par les conditions au bord: $\frac{\partial \xmu}{\partial \sigma}=0$ en $\sigma=0,\pi$ $\Leftrightarrow$ $\frac{\partial S}{\partial\sigma}(0)=\frac{\partial S}{\partial \sigma}(\pi)=0$
+donc tous les $D_\lambda$ sont nuls et $\lambda=n$ $\forall n \in \mathbb{Z}$.
+Pour le cas $\lambda=0$, $$T(\tau)=A_0 + B_0\tau$$ et $S$ est une constante. Donc finalement,
+\begin{equation}
+\xmu(\sigma,\tau)=C_0 + D_0\tau + \sum_{n=-\infty;n\neq 0}^{\infty}E_n\cos(n\sigma)e^{-in\tau}
+\end{equation}
+$$\square$$
+\end{document}
