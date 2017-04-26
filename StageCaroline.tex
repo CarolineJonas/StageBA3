@@ -463,6 +463,34 @@ Les variables indépendantes sont $\{a_n^i,q_0^i,a_n^+,q_0^-\}$. Tous les autres
 L_n=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
 \end{equation}
 Nous pouvons à présent calculer les crochets de Poisson parmi les variables indépendantes ainsi que parmi les modes dépendants.
+Lors du calcul des contraintes sur les $a_n^-$, on a montré que:
+\begin{equation}
+\left\lbrace
+\begin{aligned}
+&x^i= q_0^i + \sqrt{2}a_0^i \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}\cos(n\sigma)e^{-in\tau}\\
+&\pt^i=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}\cos(k\sigma)e^{-ik\tau}
+\end{aligned}
+\right.
+\end{equation}
+Donc si on veut isoler les $a_n^i$ en fonction de $x^i$ et $\pt^i$:
+\begin{flalign*}
+\int_0^\pi \pt^i \cos(m\sigma)d\sigma&=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}e^{-ik\tau}\int_0^\pi\cos(k\sigma)cos(m\sigma)d\sigma=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}e^{-ik\tau}\frac{\pi}{2}\left( \delta_{k,m}+\delta_{k,-m}\right) \\
+&=\frac{1}{2\sqrt{2}}\left(a_m^ie^{-im\tau}+a_{-m}^ie^{im\tau}\right) 
+\end{flalign*}
+\begin{flalign*}
+\int_0^\pi x^i \cos(m\sigma)d\sigma &=  (q_0^i + \sqrt{2}a_0^i \tau)\int_0^\pi\cos(m\sigma)d\sigma + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
+&=\pi\delta_{m,0}(q_0^i + \sqrt{2}a_0^i \tau) + \epsilon_{m,0}\frac{\pi\sqrt{2}i}{2}\left( \frac{a_m^i}{m}e^{-im\tau} + \frac{a_{-m}^i}{-m}e^{im\tau})\right) 
+\end{flalign*}
+Donc $\forall m\neq 0$:
+$$a^i_m=e^{im\tau}\left( \frac{m}{\sqrt{2}i\pi}\int_0^\pi x^i\cos(m\sigma)d\sigma + \sqrt{2}\int_0^\pi \pt^i \cos(m\sigma)d\sigma\right) $$
+Et pour $m=0$:
+$$a_0^i=\sqrt{2}\int_0^\pi\pt^i d\sigma$$
+$$\int_0^\pi x^id\sigma=\pi(q_0^i+\sqrt{2}a_0^i\tau)$$
+$$\Rightarrow q_0^i=\int_0^\pi(\frac{x^i}{\pi}- 2\tau \pt^i)d\sigma$$
+\textbf{Crochets de Poisson}:\\
+\begin{flalign*}
+\{a_n^i,a_m^j\}=e^{in\tau}e^{jm\tau}\left\{\int_0^\pi\left( \frac{nx^i}{\sqrt{2}i\pi}+\sqrt{2}\pt^i\right) \cos(n\sigma)d\sigma,\int_0^\pi\left(\frac{mx^j}{\sqrt{2}i\pi}+\sqrt{2}\pt^j\right)\cos(m\sigma')d\sigma' \right\}
+\end{flalign*}
 \subsubsection{Expression des moments cinétiques et angulaires}
 \part*{Approche Quantique}
 
