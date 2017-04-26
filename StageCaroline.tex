@@ -8,6 +8,7 @@
 \def\vecpt{\vec{\pt}}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[a4paper]{geometry}
 \geometry{hscale=0.80,vscale=0.80,centering}
 \title{Rapport de Stage}
@@ -26,15 +27,15 @@ Une corde est une courbe dans l'espace dont la forme et la position changent au 
 
 Dans l'espace-temps, elle est décrite par une surface à deux dimensions:
 $x^{\mu}(\sigma,t)$ ($\sigma$ est un paramètre le long de la corde, et t est le temps).
-Pour que le problème soit physique, on impose que chaque point de cette surface se déplace à une vitesse $v\leq c$, c'est-à-dire qu'à chaque point de la surface, il existe un déplacement infinitésimal le long de la surface de type-temps ou de type-lumière. On dit que cette surface est de type-temps.
+Pour que le problème soit physique, on impose que chaque point de cette surface se déplace à une vitesse $v\leq c$, c'est-à-dire qu'en chaque point de la surface, il existe un déplacement infinitésimal le long de la surface de type-temps ou de type-lumière. On dit que cette surface est de type-temps.
 \section{Paramétrisation générale}
-\textit{Partie à retravailler}
+\textit{A retravailler}
 On paramétrise la surface par $x^{\mu}=x^{\mu}(\sigma,\tau)$. On veut calculer l'aire de la surface en termes des coordonnées $\sigma$ et $\mu$.
-Soit une surface $\Sigma$ de dimension n dans une variété $M$ de dimension D>n et soit une métrique $g_{\mu\nu}$ dans $M$ sur les coordonnées $\xmu$. Alors il existe une métrique induite sur $\Sigma$:
+Soit une surface $\Sigma$ de dimension n dans une variété $M$ de dimension $D>n$ et soit une métrique $g_{\mu\nu}$ dans $M$ sur les coordonnées $\xmu$. Alors il existe une métrique induite sur $\Sigma$:
 Sur $\Sigma$ on définit les coordonnées $\xi^\alpha$ telles que 
-$$\xmu=\xmu(\xi^\alpha) $$.
+$$\xmu=\xmu(\xi^\alpha) $$
 Alors $$g_{\mu\nu}d\xmu dx^\nu=\gamma_{\alpha\beta}d\xi^\alpha d\xi^\beta \Rightarrow \gamma_{\alpha\beta}=g_{\mu\nu}\partial_\alpha\xmu\partial_\beta x^\nu$$
-L'aire de la surface $\Sigma$ s'écrit alors: $$A=\int d^n\xi\sqrt{-\gamma}=\sqrt{-det(\partial_\alpha x\partial_\beta x)}$$
+L'aire de la surface $\Sigma$ s'écrit: $$A=\int d^n\xi\sqrt{-\gamma}=\sqrt{-det(\partial_\alpha x\partial_\beta x)}$$
 Pour deux coordonnées $(\sigma,\tau)$, $$A=\int d\tau d\sigma \sqrt{-\gamma_{\tau\tau}\gamma_{\sigma\sigma}+\gamma^2_{\tau\sigma}}$$
 $$=\int d\tau d\sigma \sqrt{(\partial_\tau x \partial_\sigma x)^2-(\partial_\tau x)^2(\partial_\sigma x)^2}$$
 On impose les contraintes suivantes sur les paramètres:
@@ -83,7 +84,7 @@ Les équations (4) et (5) forment le système d'équations classiques du mouveme
 \paragraph*{Calcul explicite de $\frac{\partial \CL}{\partial x'_{\mu}}$ et $\frac{\partial \CL}{\partial \dot x_{\mu}}$:}
 Dans la suite, nous allons utiliser les équations du mouvement sous leur forme covariante:
 $$\frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot x_{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial  x'_{\mu}}=0$$
-Comme ces expressions vont nous être très souvent utiles, nous allons calculer explicitement les valeurs de $\frac{\partial \CL}{\partial x'_{\mu}}$ et $\frac{\partial \CL}{\partial \dot x_{\mu}}$ en terme de $\dot{x}$ et $x'$.\\
+Comme ces expressions vont nous être très souvent utiles, nous allons calculer explicitement $\frac{\partial \CL}{\partial x'_{\mu}}$ et $\frac{\partial \CL}{\partial \dot x_{\mu}}$ en terme de $\dot{x}$ et $x'$.\\
 On a pour l'instant que $\CL=\frac{-1}{2\pi}\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}=\frac{-1}{2\pi}\sqrt{(\dot{\xmu}x'_\mu)^2-(\dot{\xmu}\dot{x_\mu})(x'^\nu x'_\nu)}$\\
 Ainsi,
 \begin{equation}
@@ -101,7 +102,6 @@ Ainsi,
 	\end{aligned}
 	\right.
 \end{equation}
-Nous ferons appel à ces deux expressions très souvent dans la suite.
 \section{Quantités conservées}
 Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkowskiennes de $\dot{x^{\mu}}$ et $x'^{\mu}$, il est invariant sous le groupe des transformations de Poincaré.
 
@@ -121,7 +121,7 @@ où $\phi_{,\nu}$ est la dérivée de $\phi$ par rapport à la variable $x^\nu$.
 Ce courant est conservé, et dans l'espace-temps cette conservation s'écrit: $$\partial_\nu j^\nu=0$$
 $$------------------------------------------------------$$
 Dans notre cas, le Lagrangien est laissé invariant par les transformations de Lorentz $$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}$$ et par les translations dans l'espace-temps $$ x^{\mu}\rightarrow \xmu+a^{\mu}$$
-Par le théorème de Noether, ces deux transformations vont donner lieu à une densité de courant conservé.
+Par le théorème de Noether, chacune de ces transformations va donner lieu à une densité de courant conservé.
 
 \subsection{Translations:}
 
@@ -137,7 +137,7 @@ $$\mathcal{P^{\mu}}=\int_{C}dP^{\mu}=\int_{C}P^{\mu}_{\sigma}d\tau+P^{\mu}_{\tau
 pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.
 Cette impulsion totale est donc conservée.
 \subsection{Transformations de Lorentz}
-La densité de courant associée au trnsformations de Lorentz est:
+La densité de courant associée aux tarnsformations de Lorentz est:
 $M_{i}^{\mu\nu}\equiv x^{\mu}P^{\nu}_{i}-x^{\nu}P^{\mu}_{i}$\\
 On l'appelle le courant de moment angulaire.
 Comme pour l'impulsion, les équations du mouvement expriment la conservation locale du moment angulaire:
@@ -163,7 +163,7 @@ Le moment angulaire total de la corde est:
 $$\mathcal{M^{\mu\nu}}=\int_{C}dM^{\mu\nu}=\int_{C}M^{\mu\nu}_{\sigma}d\tau+M^{\mu\nu}_{\tau}d\sigma=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
 pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.Ce moment angulaire total est conservé en conséquence du théorème de Noether.
 \section{Spécification de la paramétrisation}
-L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(A démontrer)}.
+L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(pas encore montré)}.
 Par conséquent, il faut choisir cette paramétrisation avant de résoudre les équations.\\
 Premièrement, on montre que les contraintes suivantes sur la paramétrisation:
 \begin{equation}
@@ -286,15 +286,6 @@ Par conséquent,
         \end{aligned}
         \right.
 \end{equation}
-\textbf{Remarque sur la covariance des équations:}\\
-\textit{Ce qui suit est faux,comprendre et réécrire}\\
-Les trois premières équations de (15) sont covariantes: on peut changer de référentiel par une transformation de Lorentz et ces équations seront toujours valables. Cependant, la quatrième ne l'est pas, car elle spécifie la coordonnée $\tau$ de manière unique en fonction du "quadrivecteur" $n$. 
-Si on considère seulement les trois premières équations, on peut reparamétriser:
-\begin{align}
-\sigma=\sigma(\tilde{\sigma},\tilde{\tau})\\
-\tau=\tau(\tilde{\sigma},\tilde{\tau})
-\end{align}
-On a donc une liberté de paramétrisation, qui est similaire à celle qu'on a dans les équations de Maxwell (\textit{liberté de jauge}). La paramétrisation sera fixée uniquement si on spécifie les configurations initiales et finales de la corde (deux courbes \textit{type espace} sans intersection et à $\tau$ constant).
 \section{Formalisme Hamiltonien}
 Pour passer ensuite à la formulation quantique du système par le principe de correspondance, on doit construire le formalisme Hamiltonien de notre système. Cependant, les équations du mouvement sont contraintes par:
 \begin{align}
@@ -306,7 +297,7 @@ De plus, $\xmu$ et $P_\tau^\mu$ ne peuvent pas être prises comme les variables 
 n.x=2(n.\mathcal{P})\tau\\
 n.P_\tau=\frac{n.\mathcal{P}}{\pi}
 \end{align}
-Autrement dit, $\xmu$ et $\pt^\mu$ ne sont donc pas indépendantes l'une de l'autre. Sous contraintes, on a deux méthodes pour obtenir le formalisme Hamiltonien:
+Autrement dit, $\xmu$ et $\pt^\mu$ ne sont pas indépendantes l'une de l'autre. Sous contraintes, on a deux méthodes pour obtenir le formalisme Hamiltonien:
 \begin{enumerate}
 \item On calcule les crochets de Poisson de toutes les variables et puis on impose les contraintes.
 \item On résout d'abord explicitement les contraintes en éliminant certaines variables et on calcule les crochets de Poisson seulement sur les variables restantes.
@@ -381,11 +372,11 @@ $$\CP_+= cst$$
 \paragraph{$q_-$:}
 $$\dot{q}_-=\frac{1}{\pi}\int_0^\pi d\sigma \dot{x}_-= 2\int_0^\pi d\sigma P_{\tau -}\equiv 2 \CP_-$$
 $$\Leftrightarrow \dot{q}_-=2\CP_-$$
-\paragraph*{Etape 2: calcul du Hamiltonien.}
-On doit exprimer l'Hamiltonien du système. On est tenté pour ce faire de retourner à l'expression du Lagrangien du système et de trouver l'Hamiltonien par transformée de Legendre. Cependant cette méthode n'est plus valable maintenant qu'on a fixé une partie des variables par les contraintes (si on le fait, on obtient des contradictions comme $H=0$).\\
+\paragraph*{Etape 2: calcul du hamiltonien.}
+On doit exprimer le hamiltonien du système. On est tenté pour ce faire de retourner à l'expression du Lagrangien du système et de trouver l'Hamiltonien par transformée de Legendre. Cependant cette méthode n'est plus valable maintenant qu'on a fixé une partie des variables par les contraintes (si on le fait, on obtient des contradictions comme $H=0$).\\
 Pour déterminer H, on utilise le fait que H décrit l'évolution temporelle du système:
 $$H \leftrightarrow \frac{\partial}{\partial \tau}$$
-D'autre part, on sait que $\CP_-$ génére les translations infinitésimales dans la direction de $x_+$: $$\frac{\partial}{\partial \CP_-}\leftrightarrow x_+$$
+D'autre part, on sait que $\CP_-$ génére les translations infinitésimales dans la direction de $x_+$: $$\frac{\partial}{\partial x_+}\leftrightarrow \CP_-$$
 et que (relation (6.1.1)): $$x_+=2\CP_+.\tau$$ Donc $$H \leftrightarrow \frac{\partial}{\partial \tau}=2\CP_+\frac{\partial}{\partial x_+}=2\CP_+\CP_- $$
 Par l'équation (22) et la définition de $\CP_-$, on obtient: $$H=\pi\int_0^\pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)d\sigma=\dot{q_-}\CP_+ $$
 \paragraph*{Etape 3: calcul des crochets de Poisson}
@@ -404,16 +395,13 @@ Les équations de Hamilton sont:
 \begin{equation}
 	\left\lbrace
     \begin{aligned}
-		\dot{q}^i=\{q^i,\mathcal{H}\}=\frac{\partial \mathcal{H}}{\partial p^i}\\
-		\dot{p}^i=\{p^i,\mathcal{H}\}=-\frac{\partial \mathcal{H}}{\partial q^i}\\
+		\dot{q}^i=\{q^i,H\}=\frac{\partial H}{\partial p^i}\\
+		\dot{p}^i=\{p^i,H\}=-\frac{\partial H}{\partial q^i}\\
      \end{aligned}
      \right.
 \end{equation}
-où $$\mathcal{H}= \pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)$$ est la densité de Hamiltonien. Montrons que ces équations sont équivalentes pour $q^i=x^i(\sigma)$, $p^i=\pt^i(\sigma)$:
-\begin{align*}
-	&\frac{\partial\mathcal{H}}{\partial p^i}=\frac{\partial\mathcal{H}}{\partial \pt^i}=2\pi*\pt^i\equiv \dot{x}^i=\dot{q}^i&\\
-	&\frac{\partial\mathcal{H}}{\partial q^i}=\frac{\partial\mathcal{H}}{\partial x^i}=\pi\sum_{j=1}^{D-1} \frac{2x^{'j}}{(2\pi)^2}\frac{\partial x^{'j}}{\partial x^i}=\sum_{j=1}^{D-1}\frac{x^{'j}}{2\pi}*\frac{x^{''j}}{x^{'i}}\delta^{ij}=\frac{1}{2\pi}x^{''i}=\dot{\pt}^i=\dot{p}^i&
-\end{align*}
+ Montrons que ces équations sont équivalentes pour $q^i=x^i(\sigma)$, $p^i=\pt^i(\sigma)$:\\
+\textbf{Problème}\\
 Par conséquent, $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjuguées:
 \begin{equation}
 	\begin{aligned}
@@ -455,46 +443,26 @@ x_- &=q_0^- + \sqrt{2}a_0^- \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\f
 &=q_{0-}+\frac{H}{\CP_+}\tau + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
 \end{flalign}
 donc $q_0^-=q_{0-}$ et $a_0^-=\frac{H}{\sqrt{2}\CP_+}=\frac{H}{a_0^+}$\\
-Pour exprimer les $a_n^-$, il faut travailler les expressions un peu plus:
-\begin{flalign}
-\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}&=\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\\
-&\equiv f(\sigma,\tau)
-\end{flalign}
-Alors
-\begin{flalign}
-\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left( \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\right) \cos(m\sigma)d\sigma\\
-&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
-&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\frac{\pi}{2}\left( \delta_{n,-m}+\delta_{n,m}\right)\\
-&=\frac{i\pi}{\sqrt{2}}\left( \frac{a_{-m}^-}{-m}e^{im\tau}+\frac{a_m^-}{m}e^{-im\tau}\right) 
-\end{flalign}
-D'autre part,
-\begin{flalign}
-\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\right]\cos(m\sigma)d\sigma 
-\end{flalign}
+Pour exprimer les $a_n^-$, il faut travailler les expressions un peu plus (cf. Annexes).\\
+On trouve que $\forall m\neq 0$:
 \begin{equation}
-\vec{x}^{ '} =\frac{\partial}{\partial \sigma'}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}\cos(n\sigma')e^{-in\tau}\right)
-=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}(-n\sin(n\sigma'))e^{-in\tau}
+a_m^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}
 \end{equation}
+On montre également que:
 \begin{equation}
-\vec{\pt} =\frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{k=-\infty;k\neq 0}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')e^{-ik\tau}\right)
-=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')(-ike^{-ik\tau})
+H=\frac{1}{2}\sum_{n=-\infty}^{+\infty}\vec{a}_{-n}\vec{a}_{n}=\frac{(\vec{a}_0)^2}{2}+\sum_{n=1}^{+\infty}\vec{a}_{-n}\vec{a}_{n}
 \end{equation}
-Donc
+Et par conséquent, $\forall n \in \mathbb{Z}$:
 \begin{equation}
-\vec{x}^{ '}\vec{\pt}=\frac{-i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_k\sin(n\sigma')\cos(k\sigma')e^{-in\tau}e^{-ik\tau}
+a_n^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
 \end{equation}
-Ainsi,
-\begin{flalign}
-&\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma=\\
-&\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\int_0^\pi d\sigma\cos(m\sigma) \left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]
-\end{flalign}
-\begin{flalign}
-\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')&=\frac{1}{2\pi}\int_0^\pi \sigma'\left[ \sin((n+k)\sigma')+\sin((n-k)\sigma')\right]d\sigma'\\ &-\frac{1}{2}\int_{\sigma}^{\pi}\left[ \sin((n+k)\sigma')+\sin((n-k)\sigma')\right]d\sigma'
-\end{flalign}
-
-
 
 \subsubsection{Crochets de Poisson des modes normaux}
+Les variables indépendantes sont $\{a_n^i,q_0^i,a_n^+,q_0^-\}$. Tous les autres modes s'expriment en fonction de ces variables comme vu au point (6.3.1). On définit les modes dépendants:
+\begin{equation}
+L_n=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
+\end{equation}
+Nous pouvons à présent calculer les crochets de Poisson parmi les variables indépendantes ainsi que parmi les modes dépendants.
 \subsubsection{Expression des moments cinétiques et angulaires}
 \part*{Approche Quantique}
 
