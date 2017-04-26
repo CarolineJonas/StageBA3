@@ -1,0 +1,147 @@
+\documentclass[a4paper,12pt]{article}
+\def\xmu{x^\mu}
+\def\vecx{\vec{x}}
+\def\CP{\mathcal{P}}
+\def\CL{\mathcal{L}}
+\def\pt{P_\tau}
+\def\vecpt{\vec{\pt}}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.80,vscale=0.80,centering}
+\title{Calcul des contraintes sur $a_n^-$}
+
+
+\begin{document}
+\maketitle
+\paragraph{Calcul des coefficients $a_n^-$ par analyse de Fourier pour $n\neq 0$:}
+\begin{flalign}
+ f(\sigma,\tau)&\equiv\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\\
+ &=\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
+\end{flalign}
+Par la première égalité:
+\begin{flalign}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left( \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\right) \cos(m\sigma)d\sigma\\
+&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
+&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\frac{\pi}{2}\left( \delta_{n,-m}+\delta_{n,m}\right)\\
+&=\frac{i\pi}{\sqrt{2}}\left( \frac{a_{-m}^-}{-m}e^{im\tau}+\frac{a_m^-}{m}e^{-im\tau}\right) 
+\end{flalign}
+Le passage de (5) à (6) est valable seulement dans le cas $m\neq 0$. 
+Si $m=0$, on voit que par la contrainte $n\neq0$ dans la somme, l'intégrale donne 0 (le cas $m=0$ sera traité à part). Nous pouvons donc supposer $m\neq 0$ pour la suite.\\
+Par la seconde égalité:
+\begin{flalign}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\right]\cos(m\sigma)d\sigma 
+\end{flalign}
+Or,
+\begin{equation}
+\begin{aligned}
+\vec{x}^{ '} &=\frac{\partial}{\partial \sigma'}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}\cos(n\sigma')e^{-in\tau}\right)
+=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}(-n\sin(n\sigma'))e^{-in\tau}\\
+\vec{\pt} &=\frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{k=-\infty;k\neq 0}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')e^{-ik\tau}\right)
+=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')(-ike^{-ik\tau})\\
+&\Rightarrow \vec{x}^{ '}\vec{\pt}=\frac{-i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_k\sin(n\sigma')\cos(k\sigma')e^{-in\tau}e^{-ik\tau}
+\end{aligned}
+\end{equation}
+Ainsi,
+\begin{flalign*}
+f(\sigma,\tau)&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]\\
+&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_n\vec{a}_0e^{-in\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\right]\\
+&+\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty;k\neq 0}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]
+\end{flalign*}
+Où on a séparé le cas $k=0$ du reste. Ceci implique que le second terme est symétrique en $k$ et $n$ ($\equiv$ on peut interchanger $k$ et $n$ et conserver la même expression).\\
+Cependant,
+\begin{flalign*}
+\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')&=\frac{1}{2\pi}\int_0^\pi \sigma'\left[ \sin((n+k)\sigma')+\sin((n-k)\sigma')\right]d\sigma'\\ &-\frac{1}{2}\int_{\sigma}^{\pi}\left[ \sin((n+k)\sigma')+\sin((n-k)\sigma')\right]d\sigma'
+\end{flalign*}
+Or $\sin((n-k)\sigma')$ est antisymétrique par rapport à l'échange de $k$ et $n$ $\Rightarrow$ les termes qui contiennent $\sin((n-k)\sigma')$ seront nuls. On peut donc ré-écrire:
+\begin{flalign*}
+f(\sigma,\tau)&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_n\vec{a}_0e^{-in\tau}\left[\frac{1}{\pi}\int_0^\pi \sigma'\sin(n\sigma')d\sigma'-\int_\sigma^\pi \sin(n\sigma')d\sigma'\right]\\
+&+\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty;k\neq 0}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\frac{1}{2\pi}\int_0^\pi \sigma' \sin((n+k)\sigma')d\sigma'-\frac{1}{2}\int_{\sigma}^{\pi} \sin((n+k)\sigma')d\sigma'\right]
+\end{flalign*}
+On doit maintenant traiter les intégrales des sinus:\\
+Si $a\neq$0, alors:
+\begin{flalign*}
+&\int_0^\pi x\sin(ax) dx=\left[ x\frac{\cos(ax)}{-a}\right]_0^\pi - \int_0^\pi \frac{\cos(ax)}{-a}dx=\left( -\frac{\pi}{a}\cos(a\pi)\right) +\left[\frac{sin(ax)}{a^2}\right]_0^\pi=-\frac{\pi}{a}\cos(a\pi)\\
+&\int_\sigma^\pi sin(ax) dx = \left[\frac{\cos(ax)}{-a}\right]_\sigma^\pi=\frac{\cos(a\sigma)-\cos(a\pi)}{a}
+\end{flalign*}
+Si $a=0$, alors $\sin(ax)=0$ $\forall x$\\
+On introduit le symbole suivant:
+\begin{equation}
+\epsilon_{a}=\left\lbrace
+\begin{aligned}
+	0   (a=0)\\
+	1  (a\neq 0)
+\end{aligned}\right.
+\end{equation}
+Alors:
+\begin{equation*}
+\frac{1}{\pi}\int_0^\pi x\sin(ax) dx-\int_\sigma^\pi \sin(ax) dx=\epsilon_{a}*\left(-\frac{\cos(a\sigma)}{a}\right)
+\end{equation*}
+Donc
+\begin{flalign*}
+f(\sigma,\tau)&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\left[ \frac{\vec{a}_n\vec{a}_0}{n}\cos(n\sigma)e^{-in\tau}+\sum_{k=-\infty;k\neq 0}^{+\infty}\epsilon_{n+k}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right]\\
+&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}
+\end{flalign*}
+On peut finalement intégrer $f(\sigma,\tau)$:
+\begin{flalign*}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[  \frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right] \cos(m\sigma)d\sigma\\
+&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}e^{-i(n+k)\tau}\int_0^\pi\cos((n+k)\sigma)\cos(m\sigma)d\sigma
+\end{flalign*}
+\begin{equation}
+\int_0^\pi\cos(ax)\cos(bx)dx=\frac{1}{2}\int_0^\pi\left( \cos((a+b)x)+\cos((a-b)x\right)dx=\frac{\pi}{2}\left( \delta_{a,-b}+\delta_{a,b}\right)
+\end{equation}
+Car
+$$\int_0^\pi\cos(ax)dx=\pi\delta_{a,0}$$
+Donc
+\begin{flalign*}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma= \frac{\pi i}{2\sqrt{2}a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{n+k}e^{-i(n+k)\tau}\left( \delta_{n+k,-m}+\delta_{n+k,m}\right) 
+\end{flalign*}
+Comme $m\neq 0$,
+\begin{flalign*}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&= \frac{\pi i}{2\sqrt{2}a_0^+}\sum_{n=-\infty}^{+\infty}\left[ \frac{\vec{a}_n\vec{a}_{-m-n}}{-m}e^{im\tau}+\frac{\vec{a}_n\vec{a}_{m-n}}{m}e^{-im\tau}\right]\\
+&=\frac{i\pi}{\sqrt{2}}\left( \frac{e^{im\tau}}{-m}\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty} \vec{a}_{-k}\vec{a}_{-m+k}+\frac{e^{-im\tau}}{m}\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}\right)  
+\end{flalign*}
+En comparant à l'expression (6), on voit directement que:
+\begin{equation}
+a_m^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}
+\end{equation}
+\paragraph{Calcul de $a_0^-$:}
+On sait que $a_0^-=\frac{H}{a_0^+}$
+Nous devons donc exprimer $H$ en fonction des modes normaux.
+$$H=\pi\int_0^\pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)d\sigma$$
+Or
+\begin{equation}
+\left\lbrace
+\begin{aligned}
+\vec{x}^{ '} &=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}(-n\sin(n\sigma))e^{-in\tau}\\
+\vec{\pt}&=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma)(-ike^{-ik\tau})
+\end{aligned}
+\right.
+\end{equation}
+\begin{equation}
+\Rightarrow
+\left\lbrace
+\begin{aligned} \frac{(\vec{x}^{'})^2}{(2\pi)^2}&=\frac{-2}{(2\pi)^2}\sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\sin(k\sigma)\sin(n\sigma)\\
+(\vec{\pt})^2&=\frac{1}{2\pi^2}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\cos(n\sigma)\cos(k\sigma)
+\end{aligned}
+\right.
+\end{equation}
+Donc
+\begin{equation}
+\begin{aligned}
+H&=\frac{1}{2\pi}\int_0^\pi d\sigma\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}(\cos(n\sigma)\cos(k\sigma)-\sin(n\sigma)\sin(k\sigma))\right]+\frac{1}{2\pi}\int_0^\pi d\sigma(\vec{a}_0)^2 \\
+&=\frac{1}{2\pi}\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\int_0^\pi  \cos((n+k)\sigma)d\sigma\right] +\frac{(\vec{a}_0)^2}{2}\\
+&=\frac{1}{2}\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\delta_{n,-k}\right] +\frac{(\vec{a}_0)^2}{2}\\
+&=\left( \sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_{-n}\vec{a}_n}{2}\right)  +\frac{(\vec{a}_0)^2}{2}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\Rightarrow H=\frac{1}{2}\sum_{n=-\infty}^{+\infty}\vec{a}_{-n}\vec{a}_{n}=\frac{(\vec{a}_0)^2}{2}+\sum_{n=1}^{+\infty}\vec{a}_{-n}\vec{a}_{n}
+\end{equation}
+\paragraph{Conclusion:}
+$\forall n \in \mathbb{Z}:$
+\begin{equation}
+a_n^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
+\end{equation}
+\end{document}
