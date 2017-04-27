@@ -489,7 +489,34 @@ $$\int_0^\pi x^id\sigma=\pi(q_0^i+\sqrt{2}a_0^i\tau)$$
 $$\Rightarrow q_0^i=\int_0^\pi(\frac{x^i}{\pi}- 2\tau \pt^i)d\sigma$$
 \textbf{Crochets de Poisson}:\\
 \begin{flalign*}
-\{a_n^i,a_m^j\}=e^{in\tau}e^{jm\tau}\left\{\int_0^\pi\left( \frac{nx^i}{\sqrt{2}i\pi}+\sqrt{2}\pt^i\right) \cos(n\sigma)d\sigma,\int_0^\pi\left(\frac{mx^j}{\sqrt{2}i\pi}+\sqrt{2}\pt^j\right)\cos(m\sigma')d\sigma' \right\}
+\{a_n^i,a_m^j\}&=e^{in\tau}e^{jm\tau}\left\{\int_0^\pi\left( \frac{nx^i}{\sqrt{2}i\pi}+\sqrt{2}\pt^i\right) \cos(n\sigma)d\sigma,\int_0^\pi\left(\frac{mx^j}{\sqrt{2}i\pi}+\sqrt{2}\pt^j\right)\cos(m\sigma')d\sigma' \right\}
+\end{flalign*}
+Comme $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjugués, seuls les termes croisés seront non nuls:
+\begin{flalign*}
+\{a_n^i,a_m^j\}&=\frac{-i}{\pi}e^{in\tau}e^{jm\tau}\int_0^\pi d\sigma\int_0^\pi d\sigma'\cos(n\sigma)\cos(m\sigma')\left(\{nx^i(\sigma),\pt^j(\sigma')\} + \{ \pt^i(\sigma) ,mx^j(\sigma')\}\right)\\
+&= \frac{-i}{\pi}e^{in\tau}e^{jm\tau}\int_0^\pi d\sigma\int_0^\pi d\sigma'\cos(n\sigma)\cos(m\sigma')\left(n\delta^{ij}\delta(\sigma-\sigma') - m\delta^{ij}\delta(\sigma-\sigma')\right)\\
+&= \frac{-i}{\pi}e^{in\tau}e^{im\tau}\delta^{ij}\int_0^\pi d\sigma\cos(n\sigma)\cos(m\sigma)(n - m)\\
+&= \frac{i(m-n)}{\pi}e^{in\tau}e^{im\tau}\delta^{ij}\left[\frac{\pi}{2}(\delta_{n,m}+\delta_{n,-m})\right]\\
+&=\left[\frac{i(m-m)}{2}e^{im\tau}e^{im\tau}\delta^{ij}\delta_{n,m}+\frac{i(m-(-m))}{2}e^{-im\tau}e^{im\tau}\delta^{ij}\delta_{n,-m}\right]\\
+&=im\delta^{ij}\delta_{n,-m}=-in\delta^{ij}\delta_{n,-m}\\
+\{a_0^i,a_0^j\}&=2\int_0^\pi d\sigma\int_0^\pi d\sigma'\{\pt^i(\sigma),\pt^j(\sigma')\}=0\\
+\{q_0^i,a_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\sqrt{2}\int_0^\pi \pt^j(\sigma')d\sigma'\right\}=\frac{\sqrt{2}}{\pi}\int_0^\pi d\sigma \int_0^\pi d\sigma' \{x^i(\sigma),\pt^j(\sigma')\}\\
+&=\frac{\sqrt{2}}{\pi}\delta^{ij}\int_0^\pi d\sigma \int_0^\pi d\sigma'\delta(\sigma-\sigma')=\sqrt{2}\delta{ij}\\
+\{q_0^i,q_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\frac{1}{\pi}\int_0^\pi  (x^j(\sigma')-2\tau\pt^j(\sigma'))d\sigma'\right\}\\
+&=\frac{-2\tau}{\pi}\int_0^\pi d\sigma\int_0^\pi d\sigma'\left(\{  x^i(\sigma),\pt^j(\sigma')\} +\{\pt^i(\sigma),x^j(\sigma')\}\right)=0\\
+\{q_0^-,a_0^+\}&=\{q_{0-},\sqrt{2}\CP_+\}=-\sqrt{2}
+\end{flalign*}
+Calculons à présent les crochets de Poisson des modes dépendants:
+\begin{flalign*}
+&\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\{\vec{a}_{-k} \cdot \vec{a}_{n+k},\vec{a}_{-l} \cdot \vec{a}_{m+l}\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-1}\sum_{j=1}^{D-1}\{a^i_{-k}a^i_{n+k},a^j_{-l}a^j_{m+l}\}\\
+&\{a^i_{-k} \cdot a^i_{n+k},a^j_{-l} \cdot a^j_{m+l}\}=a^i_{-k}\{a^i_{n+k},a^j_{-l}\}a^j_{m+l}+a^i_{-k}\{a^i_{n+k},a^j_{m+l}\}a^j_{-l}\\
+&+a^i_{n+k}\{a^i_{-k},a^j_{-l}\}a^j_{m+l}+a^i_{n+k}\{a^i_{-k},a^j_{m+l}\}a^j_{-l}\\
+&=a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
+&+a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}\\
+\end{flalign*}
+Donc
+\begin{flalign*}
+&\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-1}\sum_{j=1}^{D-1}\left[a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}+a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}\right]
 \end{flalign*}
 \subsubsection{Expression des moments cinétiques et angulaires}
 \part*{Approche Quantique}
