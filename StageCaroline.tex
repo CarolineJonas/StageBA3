@@ -10,6 +10,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[a4paper]{geometry}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \geometry{hscale=0.80,vscale=0.80,centering}
 \title{Rapport de Stage}
 \author{Caroline Jonas}
@@ -133,7 +134,7 @@ $$\frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}
  $$P^{\mu}_{\sigma}(0,\tau)=P^{\mu}_{\sigma}(\pi,\tau)=0$$
 Ce qui revient en fait à la conservation du courant d'impulsion sur la surface.
 L'impulsion totale de la corde est définie comme:
-$$\mathcal{P^{\mu}}=\int_{C}dP^{\mu}=\int_{C}P^{\mu}_{\sigma}d\tau+P^{\mu}_{\tau}d\sigma=\int_{0}^{\pi}P^{\mu}_{\tau}d\sigma$$
+$$\mathcal{P^{\mu}}=\int_{0}^{\pi}P^{\mu}_{\tau}d\sigma$$
 pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.
 Cette impulsion totale est donc conservée.
 \subsection{Transformations de Lorentz}
@@ -160,7 +161,7 @@ $$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{
 Et les conditions de bords sont:
 $$M_{\sigma}^{\mu\nu}(0,\tau)=M_{\sigma}^{\mu\nu}(\pi,\tau)=0$$
 Le moment angulaire total de la corde est: 
-$$\mathcal{M^{\mu\nu}}=\int_{C}dM^{\mu\nu}=\int_{C}M^{\mu\nu}_{\sigma}d\tau+M^{\mu\nu}_{\tau}d\sigma=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
+$$\mathcal{M^{\mu\nu}}=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
 pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.Ce moment angulaire total est conservé en conséquence du théorème de Noether.
 \section{Spécification de la paramétrisation}
 L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(pas encore montré)}.
@@ -432,7 +433,7 @@ On peut donc développer $\xmu$ en somme d'exponentielles complexes en fonction 
 $q_0^\mu$ et $a_n^\mu$ sont des constantes indépendantes de $\sigma$ et de $\tau$
 \subsubsection{Contraintes sur les modes normaux}
 $\xmu$ est réel donc:
-$q_0^\mu=q_0^{\mu*}$, $a_0^\mu=a_0^{\mu*}$ et $a_n^\mu=-a_n^{\mu*}$
+$q_0^\mu=q_0^{\mu*}$, $a_0^\mu=a_0^{\mu*}$ et $a_{-n}^\mu=a_{n}^{\mu*}$
 \begin{flalign}
 x_+=2\CP_+\tau=q_0^+ + \sqrt{2}a_0^+ \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^+}{n}\cos(n\sigma)e^{-in\tau}
 \end{flalign}
@@ -462,63 +463,48 @@ Les variables indépendantes sont $\{a_n^i,q_0^i,a_n^+,q_0^-\}$. Tous les autres
 \begin{equation}
 L_n=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
 \end{equation}
-Nous pouvons à présent calculer les crochets de Poisson parmi les variables indépendantes ainsi que parmi les modes dépendants.
-Lors du calcul des contraintes sur les $a_n^-$, on a montré que:
-\begin{equation}
-\left\lbrace
-\begin{aligned}
-&x^i= q_0^i + \sqrt{2}a_0^i \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}\cos(n\sigma)e^{-in\tau}\\
-&\pt^i=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}\cos(k\sigma)e^{-ik\tau}
-\end{aligned}
-\right.
-\end{equation}
-Donc si on veut isoler les $a_n^i$ en fonction de $x^i$ et $\pt^i$:
+Nous pouvons à présent calculer les crochets de Poisson parmi les variables indépendantes ainsi que parmi les modes dépendants (calculs en Annexes).
+
 \begin{flalign*}
-\int_0^\pi \pt^i \cos(m\sigma)d\sigma&=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}e^{-ik\tau}\int_0^\pi\cos(k\sigma)cos(m\sigma)d\sigma=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}e^{-ik\tau}\frac{\pi}{2}\left( \delta_{k,m}+\delta_{k,-m}\right) \\
-&=\frac{1}{2\sqrt{2}}\left(a_m^ie^{-im\tau}+a_{-m}^ie^{im\tau}\right) 
-\end{flalign*}
-\begin{flalign*}
-\int_0^\pi x^i \cos(m\sigma)d\sigma &=  (q_0^i + \sqrt{2}a_0^i \tau)\int_0^\pi\cos(m\sigma)d\sigma + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
-&=\pi\delta_{m,0}(q_0^i + \sqrt{2}a_0^i \tau) + \epsilon_{m,0}\frac{\pi\sqrt{2}i}{2}\left( \frac{a_m^i}{m}e^{-im\tau} + \frac{a_{-m}^i}{-m}e^{im\tau})\right) 
-\end{flalign*}
-Donc $\forall m\neq 0$:
-$$a^i_m=e^{im\tau}\left( \frac{m}{\sqrt{2}i\pi}\int_0^\pi x^i\cos(m\sigma)d\sigma + \sqrt{2}\int_0^\pi \pt^i \cos(m\sigma)d\sigma\right) $$
-Et pour $m=0$:
-$$a_0^i=\sqrt{2}\int_0^\pi\pt^i d\sigma$$
-$$\int_0^\pi x^id\sigma=\pi(q_0^i+\sqrt{2}a_0^i\tau)$$
-$$\Rightarrow q_0^i=\int_0^\pi(\frac{x^i}{\pi}- 2\tau \pt^i)d\sigma$$
-\textbf{Crochets de Poisson}:\\
-\begin{flalign*}
-\{a_n^i,a_m^j\}&=e^{in\tau}e^{jm\tau}\left\{\int_0^\pi\left( \frac{nx^i}{\sqrt{2}i\pi}+\sqrt{2}\pt^i\right) \cos(n\sigma)d\sigma,\int_0^\pi\left(\frac{mx^j}{\sqrt{2}i\pi}+\sqrt{2}\pt^j\right)\cos(m\sigma')d\sigma' \right\}
-\end{flalign*}
-Comme $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjugués, seuls les termes croisés seront non nuls:
-\begin{flalign*}
-\{a_n^i,a_m^j\}&=\frac{-i}{\pi}e^{in\tau}e^{jm\tau}\int_0^\pi d\sigma\int_0^\pi d\sigma'\cos(n\sigma)\cos(m\sigma')\left(\{nx^i(\sigma),\pt^j(\sigma')\} + \{ \pt^i(\sigma) ,mx^j(\sigma')\}\right)\\
-&= \frac{-i}{\pi}e^{in\tau}e^{jm\tau}\int_0^\pi d\sigma\int_0^\pi d\sigma'\cos(n\sigma)\cos(m\sigma')\left(n\delta^{ij}\delta(\sigma-\sigma') - m\delta^{ij}\delta(\sigma-\sigma')\right)\\
-&= \frac{-i}{\pi}e^{in\tau}e^{im\tau}\delta^{ij}\int_0^\pi d\sigma\cos(n\sigma)\cos(m\sigma)(n - m)\\
-&= \frac{i(m-n)}{\pi}e^{in\tau}e^{im\tau}\delta^{ij}\left[\frac{\pi}{2}(\delta_{n,m}+\delta_{n,-m})\right]\\
-&=\left[\frac{i(m-m)}{2}e^{im\tau}e^{im\tau}\delta^{ij}\delta_{n,m}+\frac{i(m-(-m))}{2}e^{-im\tau}e^{im\tau}\delta^{ij}\delta_{n,-m}\right]\\
-&=im\delta^{ij}\delta_{n,-m}=-in\delta^{ij}\delta_{n,-m}\\
-\{a_0^i,a_0^j\}&=2\int_0^\pi d\sigma\int_0^\pi d\sigma'\{\pt^i(\sigma),\pt^j(\sigma')\}=0\\
-\{q_0^i,a_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\sqrt{2}\int_0^\pi \pt^j(\sigma')d\sigma'\right\}=\frac{\sqrt{2}}{\pi}\int_0^\pi d\sigma \int_0^\pi d\sigma' \{x^i(\sigma),\pt^j(\sigma')\}\\
-&=\frac{\sqrt{2}}{\pi}\delta^{ij}\int_0^\pi d\sigma \int_0^\pi d\sigma'\delta(\sigma-\sigma')=\sqrt{2}\delta{ij}\\
-\{q_0^i,q_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\frac{1}{\pi}\int_0^\pi  (x^j(\sigma')-2\tau\pt^j(\sigma'))d\sigma'\right\}\\
-&=\frac{-2\tau}{\pi}\int_0^\pi d\sigma\int_0^\pi d\sigma'\left(\{  x^i(\sigma),\pt^j(\sigma')\} +\{\pt^i(\sigma),x^j(\sigma')\}\right)=0\\
-\{q_0^-,a_0^+\}&=\{q_{0-},\sqrt{2}\CP_+\}=-\sqrt{2}
+&\{a_n^i,a_m^j\}=-in\delta^{ij}\delta_{n,-m}\\
+&\{a_0^i,a_0^j\}=0\\
+&\{q_0^i,a_0^j\}=\sqrt{2}\delta^{ij}\\
+&\{q_0^i,q_0^j\}=0\\
+&\{q_0^-,a_0^+\}=-\sqrt{2}
 \end{flalign*}
 Calculons à présent les crochets de Poisson des modes dépendants:
 \begin{flalign*}
-&\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\{\vec{a}_{-k} \cdot \vec{a}_{n+k},\vec{a}_{-l} \cdot \vec{a}_{m+l}\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-1}\sum_{j=1}^{D-1}\{a^i_{-k}a^i_{n+k},a^j_{-l}a^j_{m+l}\}\\
-&\{a^i_{-k} \cdot a^i_{n+k},a^j_{-l} \cdot a^j_{m+l}\}=a^i_{-k}\{a^i_{n+k},a^j_{-l}\}a^j_{m+l}+a^i_{-k}\{a^i_{n+k},a^j_{m+l}\}a^j_{-l}\\
-&+a^i_{n+k}\{a^i_{-k},a^j_{-l}\}a^j_{m+l}+a^i_{n+k}\{a^i_{-k},a^j_{m+l}\}a^j_{-l}\\
-&=a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
-&+a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}\\
+&\{L_n,L_m\}=i(m-n)L_{m+n}\\
+&\{L_n,a^j_m\}=ima^j_{m+n}\\
+&\{q_0^i,L_{m}\}=\sqrt{2}a_{m}^i
 \end{flalign*}
+On a montré que:
+\begin{equation*}
+H=\frac{(\vec{a}_0)^2}{2}+\sum_{n=1}^{+\infty}\vec{a}_{-n}\vec{a}_{n}
+\end{equation*}
+Or $\vec{a}_{-n}=\vec{a}_{n}^{*}$
+$$\Rightarrow H=\frac{(\vec{a}_0)^2}{2}+\sum_{n=1}^{+\infty}\norm{\vec{a}_{n}}^2$$
+D'autre part,
+$$\vec{\CP}=\int_0^\pi d\sigma \vec{\pt}$$
+or $$\vec{\pt}=\frac{1}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\vec{a}_k\cos(k\sigma)e^{-ik\tau}$$
+Donc
+$$\vec{\CP}=\frac{1}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\vec{a}_k e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma=\frac{1}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\vec{a}_k e^{-ik\tau}\pi\delta_{0,k}=\frac{\vec{a}_0}{\sqrt{2}}$$
+Conclusion: $$H=\vec{P}^2+\sum_{n=1}^{+\infty}\norm{\vec{a}_{n}}^2$$
+Masse invariante: $$M^2=2\CP_+\CP_- - \vec{P}^2=\sum_{n=1}^{+\infty}\norm{\vec{a}_{n}}^2$$
+\subsubsection{Expression des moments cinétiques et angulaires}
+$$\CP^\mu=\int_0^\pi \pt^\mu d\sigma$$
+Or
+\begin{equation*}
+\xmu(\sigma,\tau)= q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}
+\end{equation*}
 Donc
 \begin{flalign*}
-&\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-1}\sum_{j=1}^{D-1}\left[a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}+a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}\right]
+\pt^\mu&=\frac{\dot{\xmu}}{2\pi}= \frac{\sqrt{2}a_0^\mu}{2\pi} + \frac{\sqrt{2}}{2\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}\\
+&=\frac{\sqrt{2}}{2\pi}\left[a_0^\mu+\sum_{n=-\infty;n\neq 0}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}\right]=\frac{\sqrt{2}}{2\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}
 \end{flalign*}
-\subsubsection{Expression des moments cinétiques et angulaires}
+Ainsi,
+$$\CP^\mu=\frac{1}{\sqrt{2}\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu e^{-in\tau}\int_0^\pi\cos(n\sigma)d\sigma= \frac{a_0^\mu}{\sqrt{2}}$$
+$$M^{\mu\nu}\int_0^\pi (\xmu\pt^\nu - x^\nu\pt^\mu)d\sigma = \frac{1}{\sqrt{2}}(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu) + i\sum_{n=-\infty; n\neq 0}^{n=+\infty}\frac{a_n^\mu a_{-n}^\nu }{n} $$
 \part*{Approche Quantique}
 
 \end{document}
