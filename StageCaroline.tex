@@ -360,19 +360,16 @@ $$\dot{f}=\{f,H\}+\frac{\partial f}{\partial \tau}$$
 Comme on connait les équations du mouvement, on va en déduire $\dot{\vecx}, \dot{\vecpt}, \dot{\CP_+}, \dot{q_-}$  et en calculant ensuite l'Hamiltonien, on pourra trouver les crochets de Poisson.\\
 \textbf{Remarque:} la dérivée partielle par rapport à $\tau$ dans l'expression ci-dessus doit se comprendre comme une dérivée explicite par rapport à $\tau$. La dérivée pointée est ce que nous notions comme la dérivée par rapport à $\tau$ précédemment, c'est-à-dire la dérivée temporelle sur la surface.\\
 \paragraph*{Etape 1: calcul des dérivées pointées}
-\paragraph{$\vecpt:$}$$\dot{\xmu}=2\pi \pt^\mu$$ 
-Donc $$\left( \ddot{\xmu}-x^{\mu''} \right)=0 \Leftrightarrow 2\pi\dot{\pt^\mu}-x''^\mu=0$$
+\paragraph{$\vecpt:$}
+$\pt^\mu=\frac{\dot{\xmu}}{2\pi}$ et $\left( \ddot{\xmu}-x^{\mu''} \right)=0$
+$\Leftrightarrow 2\pi\dot{\pt^\mu}-x''^\mu=0$
 $$\Rightarrow \dot{\vecpt}=\frac{1}{2\pi}\vecx''$$
 \paragraph{$\vecx$:}
-$$x'.\dot{x}=0 \Leftrightarrow x'_0\dot{x^0} + \vecx'.\dot{\vecx} + x'_{D-1}\dot{x}^{D-1}=0$$
-$$\Leftrightarrow \vecx'.\dot{\vecx}= x'_+.\dot{x}_- + x'_-.\dot{x}_+$$
-Or $x'_+ =0$ donc $\vecx'.\dot{\vecx}=2\pi x'_{-} P_{\tau +}$\\
-Mais de la même manière, $\vecx' \vecpt=x'_{-} P_{\tau +} $, $\Leftrightarrow \vecx'.\dot{\vecx}=2\pi \vecx'\vecpt$ $$\Rightarrow \dot{\vecx}=2\pi\vecpt$$
+$\pt^\mu=\frac{\dot{\xmu}}{2\pi}$  $$\Rightarrow \dot{\vecx}=2\pi\vecpt$$
 \paragraph{$\CP_+$:}
 $$\CP_+= cst$$ 
 \paragraph{$q_-$:}
 $$\dot{q}_-=\frac{1}{\pi}\int_0^\pi d\sigma \dot{x}_-= 2\int_0^\pi d\sigma P_{\tau -}\equiv 2 \CP_-$$
-$$\Leftrightarrow \dot{q}_-=2\CP_-$$
 \paragraph*{Etape 2: calcul du hamiltonien.}
 On doit exprimer le hamiltonien du système. On est tenté pour ce faire de retourner à l'expression du Lagrangien du système et de trouver l'Hamiltonien par transformée de Legendre. Cependant cette méthode n'est plus valable maintenant qu'on a fixé une partie des variables par les contraintes (si on le fait, on obtient des contradictions comme $H=0$).\\
 Pour déterminer H, on utilise le fait que H décrit l'évolution temporelle du système:
@@ -402,7 +399,16 @@ Les équations de Hamilton sont:
      \right.
 \end{equation}
  Montrons que ces équations sont équivalentes pour $q^i=x^i(\sigma)$, $p^i=\pt^i(\sigma)$:\\
-\textbf{Problème}\\
+\textbf{NB:} Le Hamiltonien est une fonction de $q^i$ et de $p^i$ qui sont considérées indépendantes dans cette formulation! \\
+\begin{equation}
+\delta H = \pi\int_0^\pi\left(2\pt^i \delta P_{\tau i} +\frac{2x^{'i}}{(2\pi)^2}\delta x^{'}_{i}\right) d\sigma=2\pi\int_0^\pi\pt^i \delta P_{\tau i}d\sigma -\int_0^\pi\frac{x^{''i}}{2\pi}\delta x_{i} d\sigma 
+\end{equation}
+Donc
+\begin{flalign*}
+&\frac{\delta H}{\delta \pt^i} = 2\pi\int_0^\pi\pt^id\sigma\\
+&\frac{\delta H}{\delta x^i} = -\int_0^\pi\frac{x^{''i}}{2\pi}d\sigma
+\end{flalign*}
+\textbf{(encore à travailler avec les $\sigma$/$\sigma'$ ?)}\\
 Par conséquent, $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjuguées:
 \begin{equation}
 	\begin{aligned}
@@ -504,7 +510,26 @@ Donc
 \end{flalign*}
 Ainsi,
 $$\CP^\mu=\frac{1}{\sqrt{2}\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu e^{-in\tau}\int_0^\pi\cos(n\sigma)d\sigma= \frac{a_0^\mu}{\sqrt{2}}$$
-$$M^{\mu\nu}\int_0^\pi (\xmu\pt^\nu - x^\nu\pt^\mu)d\sigma = \frac{1}{\sqrt{2}}(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu) + i\sum_{n=-\infty; n\neq 0}^{n=+\infty}\frac{a_n^\mu a_{-n}^\nu }{n} $$
+$$M^{\mu\nu}=\int_0^\pi (\xmu\pt^\nu - x^\nu\pt^\mu)d\sigma = \frac{1}{\sqrt{2}}(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu) + i\sum_{n=-\infty; n\neq 0}^{n=+\infty}\frac{a_n^\mu a_{-n}^\nu }{n} $$
+Démo:
+\begin{flalign*}
+& M^{\mu\nu}=\int_0^\pi \left(q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
+& - \int_0^\pi \left(q_0^\nu + \sqrt{2}a_0^\nu \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\nu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
+&=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma \\
+& - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma \\
+&=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2}a_0^\nu + \frac{i}{2}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k}) \\
+& - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2}a_0^\mu + \frac{i}{2}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k})\\
+&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + \frac{i}{2}\sum_{n=-\infty;n\neq 0}^{+\infty}\left[\frac{a_n^\mu a_n^\nu}{n}e^{-2in\tau} + \frac{a_n^\mu a_{-n}^\nu}{n} - \frac{a_n^\nu a_n^\mu}{n}e^{-2in\tau} - \frac{a_n^\nu a_{-n}^\mu}{n}\right]\\
+&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu a_{-n}^\nu}{n} \square
+\end{flalign*}
+Nous pouvons à présent montrer que les $M^{\mu\nu}$  forment une base des représentations du groupe de Lorentz car elles obéissent à la relation:
+\begin{equation}
+\{M^{\mu\nu},M^{\rho\sigma}\}=g^{\mu\rho}M^{\nu\sigma}- g^{\nu\rho}M^{\mu\sigma} -g^{\mu\sigma}M^{\nu\rho} + g^{\nu\sigma}M^{\mu\rho}
+\end{equation}
+où $g^{\mu\nu}$ est la métrique sur notre surface.
 \part*{Approche Quantique}
+La quantification du système se fait par le principe de correspondance:
+$$i\{Crochets de Poisson\} \rightarrow \left[Commutateur\right]$$
+Par les calculs fait pour la partie classique, nous possédons directement les expressions des commutateurs de toutes les variables indépendantes ainsi que de tous les modes normaux, avec lesquels nous allons travailler:
 
 \end{document}
