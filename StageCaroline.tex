@@ -6,6 +6,7 @@
 \def\CL{\mathcal{L}}
 \def\pt{P_\tau}
 \def\vecpt{\vec{\pt}}
+\newcommand{\Mup}[1]{M^{#1}}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -522,14 +523,21 @@ Démo:
 &=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + \frac{i}{2}\sum_{n=-\infty;n\neq 0}^{+\infty}\left[\frac{a_n^\mu a_n^\nu}{n}e^{-2in\tau} + \frac{a_n^\mu a_{-n}^\nu}{n} - \frac{a_n^\nu a_n^\mu}{n}e^{-2in\tau} - \frac{a_n^\nu a_{-n}^\mu}{n}\right]\\
 &=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu a_{-n}^\nu}{n} \square
 \end{flalign*}
-Nous pouvons à présent montrer que les $M^{\mu\nu}$  forment une base des représentations du groupe de Lorentz car elles obéissent à la relation:
+Nous pouvons montrer que les $M^{\mu\nu}$  forment une base des représentations du groupe de Lorentz car elles obéissent à la relation:
 \begin{equation}
 \{M^{\mu\nu},M^{\rho\sigma}\}=g^{\mu\rho}M^{\nu\sigma}- g^{\nu\rho}M^{\mu\sigma} -g^{\mu\sigma}M^{\nu\rho} + g^{\nu\sigma}M^{\mu\rho}
 \end{equation}
-où $g^{\mu\nu}$ est la métrique sur notre surface.
+où $g^{\mu\nu}$ est la métrique sur notre surface. (cf. Annexes)
 \part*{Approche Quantique}
 La quantification du système se fait par le principe de correspondance:
 $$i\{Crochets de Poisson\} \rightarrow \left[Commutateur\right]$$
 Par les calculs fait pour la partie classique, nous possédons directement les expressions des commutateurs de toutes les variables indépendantes ainsi que de tous les modes normaux, avec lesquels nous allons travailler:
-
+\begin{flalign*}
+&[a_n^i,a_m^j]=n\delta^{ij}\delta_{n,-m}\\
+&[a_0^i,a_0^j]=0\\
+&[q_0^i,a_0^j]=i\sqrt{2}\delta^{ij}\\
+&[q_0^i,q_0^j]=0\\
+&[q_0^-,a_0^+]=-i\sqrt{2}
+\end{flalign*}
+Mais pour les calculer les commutateurs des $L_n$, $\pt^\mu$ et $\Mup{\mu\nu}$ nous devons faire plus attention car lorsqu'on quantifie le système, l'ordre des termes devient important. Nous ne pouvons donc pas reprendre directement les expressions des crochets de Poisson mais d'abord rendre toutes les expressions symétriques par rapport à l'ordre des termes.
 \end{document}
