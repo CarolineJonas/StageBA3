@@ -20,7 +20,7 @@
 \maketitle
 
 \part*{Introduction}
-Le but de ce travail est de comprendre l'article "Quantum dynamics of a massless relativistic string" et de pouvoir en réexpliquer et démontrer les résultats.\\
+Le but de ce travail est de comprendre l'article "Quantum dynamics of a massless relativistic string"[\ref{article}] et de pouvoir en réexpliquer et démontrer les résultats.\\
 Cet article se divise en deux parties. Dans un premier temps, on traite la corde bosonique à l'aide de la mécanique classique. On trouve les équations du mouvement et on développe le formalisme Hamiltonien.\\
 Dans un second temps, on transpose les résultats ainsi obtenus à la mécanique quantique par le principe de correspondance et on trouve la dimension dans laquelle cette théorie est covariante. 
 \part*{Approche Classique}
@@ -42,8 +42,8 @@ Pour deux coordonnées $(\sigma,\tau)$, $$A=\int d\tau d\sigma \sqrt{-\gamma_{\t
 $$=\int d\tau d\sigma \sqrt{(\partial_\tau x \partial_\sigma x)^2-(\partial_\tau x)^2(\partial_\sigma x)^2}$$
 On impose les contraintes suivantes sur les paramètres:
 \begin{enumerate}
-\item Les bouts de la corde correspondent à $\sigma=0$ and $\sigma=\pi$
-\item Les configurations initiales et finales sont n'importes quelles courbes $x^{\mu}_{i}(\sigma)$ et $x^{\mu}_{f}(\sigma)$  \textit{de type espace} qui peuvent être reliées par une surface $x^{\mu}(\sigma,\tau) \textit{de type temps}$:
+\item Les bouts de la corde correspondent à $\sigma=0$ et $\sigma=\pi$
+\item Les configurations initiales et finales sont n'importes quelles courbes $x^{\mu}_{i}(\sigma)$ et $x^{\mu}_{f}(\sigma)$  de type espace qui peuvent être reliées par une surface $x^{\mu}(\sigma,\tau)$ de type temps:
 autrement dit, $\left( \frac{\partial x^{\mu}}{\partial \tau}\right)^{2}\leq 0 $ et $\left( \frac{\partial x^{\mu}}{\partial \sigma}\right)^{2}\geq 0 $ (car la métrique utilisée est la métrique de Minkowski constante telle que $g^{00}=-1$).
 \end{enumerate}
 \section{Equations du mouvement}
@@ -102,7 +102,7 @@ Ainsi,
 	\frac{\partial \CL}{\partial x'_\mu }=\frac{1}{2\pi}\frac{x'^\mu (\dot{x}^2)-\dot{\xmu}(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
 	\frac{\partial \CL}{\partial \dot{x_\mu}}=\frac{1}{2\pi}\frac{\dot{\xmu} (x'^2)-x'^\mu(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
 	\end{aligned}
-	\right.
+	\right.\label{mvt}
 \end{equation}
 \section{Quantités conservées}
 Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkowskiennes de $\dot{x^{\mu}}$ et $x'^{\mu}$, il est invariant sous le groupe des transformations de Poincaré.
@@ -111,35 +111,43 @@ Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkows
 $$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}+a^{\mu}$$ 
 Où $\Lambda_{\nu}^{\mu}$ est une transformation de Lorentz et $a^{\mu}$ est une translation dans l'espace temps.\\
 $$------------------------------------------------------$$
-\paragraph*{Théorème de Noether pour les champs continus dans l'espace-temps quadridimensionnel:}
-
-Soit un ensemble de champs différentiables $\phi$ définis sur tout l'espace-temps. L'action est une intégrale sur l'espace et le temps:
+\paragraph*{Théorème de Noether en théorie classique des champs:[\ref{QFT}]}
+Le théorème de Noether établit un lien entre les symétries d'un système physique et les lois de conservation s'appliquant dans ce système.\\
+Soit un ensemble de champs différentiables $\phi$ définis sur tout l'espace-temps. L'action est l'intégrale sur l'espace et le temps de la densité lagrangienne $\CL$:
 $$\mathcal{S}=\int\CL(\phi,\partial_\mu \phi,\xmu)d^4x$$
 Une transformation infinitésimale continue du champ $\phi$ peut s'écrire:
-$\phi \rightarrow \phi + \epsilon \psi$ où $\psi$ est une fonction qui peut dépendre de $\xmu$ et de $\phi$.
-Cette transformation génère une symétrie physique si elle laisse l'action $\mathcal{S}$ invariante, autrement dit si elle laisse $\CL$ invariant à une divergence près: $$\CL \rightarrow \CL + \epsilon \partial_\mu \Gamma^\mu$$
-Dans ce cas, le théorème de Noether nous dit qu'il existe une densité de courant: $$j^\nu=\Gamma^\nu -\frac{\partial \CL}{\partial \phi_{,\nu}}.\psi$$
-où $\phi_{,\nu}$ est la dérivée de $\phi$ par rapport à la variable $x^\nu$.
-Ce courant est conservé, et dans l'espace-temps cette conservation s'écrit: $$\partial_\nu j^\nu=0$$
+$\phi \rightarrow \phi' = \phi + \alpha \Delta \phi$ où $\alpha$ est un paramètre infinitésimal et $\Delta\phi$ est une déformation du champ $\phi$.
+Cette transformation génère une symétrie physique si elle laisse les équations du mouvement invariantes, autrement dit si elle laisse $\CL$ invariant à une divergence près: $$\CL \rightarrow \CL + \alpha \partial_\mu J^\mu$$
+Soit une variation infinitésimale de $\CL$:
+\begin{flalign*}
+\alpha\Delta\CL=&\alpha\frac{\partial\CL}{\partial \phi}\Delta\phi + \frac{\partial \CL}{\partial(\partial_{\mu}\phi)}\partial_{\mu}(\alpha\Delta\phi)\\
+=&\alpha\frac{\partial\CL}{\partial \phi}\Delta\phi + \alpha\partial_{\mu}\left(\frac{\partial \CL}{\partial(\partial_{\mu}\phi)}\Delta\phi\right)-\alpha\partial_{\mu}\left(\frac{\partial \CL}{\partial(\partial_{\mu}\phi)}\right)\Delta\phi
+\end{flalign*}
+Par les équations d'Euler-Lagrange, 
+$$\frac{\partial\CL}{\partial \phi} -\partial_{\mu}\left(\frac{\partial \CL}{\partial(\partial_{\mu}\phi)}\right)=0$$
+Donc
+$$\alpha\Delta\CL=\alpha\partial_{\mu}\left(\frac{\partial \CL}{\partial(\partial_{\mu}\phi)}\Delta\phi\right)$$
+Si la transformation est une symétrie, alors $\alpha\Delta\CL=\alpha\partial_{\mu}J^\mu$\\
+Donc 
+$$\partial_{\mu}\left(\frac{\partial \CL}{\partial(\partial_{\mu}\phi)}\Delta\phi - J^\mu\right)=0$$
+$\Rightarrow j^\mu=\frac{\partial \CL}{\partial(\partial_{\mu}\phi)}\Delta\phi - J^\mu$ est un courant conservé$\Leftrightarrow \partial_\mu j^\mu=0$. Cette conservation est aussi équivalente au fait que la charge $$\mathcal{Q}\equiv\int_{space}j^0 d^3 x$$ est constante dans le temps.
 $$------------------------------------------------------$$
 Dans notre cas, le Lagrangien est laissé invariant par les transformations de Lorentz $$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}$$ et par les translations dans l'espace-temps $$ x^{\mu}\rightarrow \xmu+a^{\mu}$$
-Par le théorème de Noether, chacune de ces transformations va donner lieu à une densité de courant conservé.
+Par le théorème de Noether, chacune de ces transformations va donner lieu à un courant conservé et une charge constante.
 
 \subsection{Translations:}
 
-Par le théorème de Noether, la densité de courant associée aux translations est définie sur la surface par:  
+Le courant associé aux translations est défini sur la surface par:  
 $$P^{\mu}_{\tau}=\frac{\partial \CL}{\partial \dot{x_{\mu}}},			 P^{\mu}_{\sigma}=\frac{\partial \CL}{\partial x'_{\mu}}$$
 On appelle les $P^\mu_i$ les courants d'impulsion.
 Si on remplace ces quantités dans les équations du mouvement, on trouve:
 $$\frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}=0$$
  $$P^{\mu}_{\sigma}(0,\tau)=P^{\mu}_{\sigma}(\pi,\tau)=0$$
 Ce qui revient en fait à la conservation du courant d'impulsion sur la surface.
-L'impulsion totale de la corde est définie comme:
+La charge constante dans le temps est appelée \textbf{impulsion totale de la corde} et s'écrit:
 $$\mathcal{P^{\mu}}=\int_{0}^{\pi}P^{\mu}_{\tau}d\sigma$$
-pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.
-Cette impulsion totale est donc conservée.
 \subsection{Transformations de Lorentz}
-La densité de courant associée aux tarnsformations de Lorentz est:
+Le courant associé aux transformations de Lorentz est:
 $M_{i}^{\mu\nu}\equiv x^{\mu}P^{\nu}_{i}-x^{\nu}P^{\mu}_{i}$\\
 On l'appelle le courant de moment angulaire.
 Comme pour l'impulsion, les équations du mouvement expriment la conservation locale du moment angulaire:
@@ -161,22 +169,21 @@ Les équations du mouvement en terme des moments angulaires sont donc:
 $$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=0$$
 Et les conditions de bords sont:
 $$M_{\sigma}^{\mu\nu}(0,\tau)=M_{\sigma}^{\mu\nu}(\pi,\tau)=0$$
-Le moment angulaire total de la corde est: 
+La charge constante est ici appelée \textbf{moment angulaire total de la corde} et s'écrit: 
 $$\mathcal{M^{\mu\nu}}=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
-pour toute courbe C reliant $x^{\mu}(0,\tau)$ à $x^{\mu}(\pi,\tau)$.Ce moment angulaire total est conservé en conséquence du théorème de Noether.
 \section{Spécification de la paramétrisation}
 L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(pas encore montré)}.
 Par conséquent, il faut choisir cette paramétrisation avant de résoudre les équations.\\
 Premièrement, on montre que les contraintes suivantes sur la paramétrisation:
 \begin{equation}
-x'. \dot{x}=0
+x'. \dot{x}=0\label{contrainte1}
 \end{equation}
 \begin{equation}
-\left( x'\right) ^{2}+\left(\dot{x}\right) ^{2}=0 
+\left( x'\right) ^{2}+\left(\dot{x}\right) ^{2}=0\label{contrainte2}
 \end{equation}
-simplifient les équations du mouvement.\\ Secondement, nous verrons comment on peut retrouver ces contraintes, ainsi que d'autres, par des arguments physiques. 
+simplifient les équations du mouvement.\\ Secondement, on justifie ces contraintes (et d'autres) par des arguments physiques. 
 \subsection{Simplification des équations}
-En utilisant la contrainte (8) sur la paramétrisation, on peut ré-écrire l'équation (6) comme:
+En utilisant la contrainte \eqref{contrainte1} sur la paramétrisation, on peut ré-écrire l'équation \eqref{mvt} comme:
 \begin{equation}
 	\left\lbrace
 	\begin{aligned}
@@ -185,7 +192,7 @@ En utilisant la contrainte (8) sur la paramétrisation, on peut ré-écrire l'é
 	\end{aligned}
 	\right.
 \end{equation}
-Par la contrainte (9), on a que:
+Par la contrainte \eqref{contrainte2}, on a que:
 $$\frac{\dot{x}^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{\dot{x}^2}{\sqrt{\dot{x}^4}}=-1$$ car on sait que $(\dot{x}^2)\leq0$.
 Et similairement,
 $$\frac{x'^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{x'^2}{\sqrt{x'^4}}=+1$$
@@ -221,7 +228,7 @@ $$P_\sigma^\mu(0,\tau)=P_\sigma^\mu(\pi,\tau)=0$$
 On a $\forall (\sigma,\tau)$ $$n.P_\sigma=0 $$\\
 D'autre part, 
 $$n.P_\sigma=n_\mu \frac{\partial \CL}{\partial x'_\mu }, n.P_\tau=n_\mu.\frac{\partial \CL}{\partial \dot{x_\mu}}$$
-En utilisant l'équation (6):
+En utilisant l'équation \eqref{mvt}:
 \begin{equation}
 	\left\lbrace
 	\begin{aligned}
@@ -289,16 +296,11 @@ Par conséquent,
         \right.
 \end{equation}
 \section{Formalisme Hamiltonien}
-Pour passer ensuite à la formulation quantique du système par le principe de correspondance, on doit construire le formalisme Hamiltonien de notre système. Cependant, les équations du mouvement sont contraintes par:
-\begin{align}
-(\dot{x}x')=0\\
-(\dot{x}^2)+(x'^2)=0
-\end{align}
+Pour passer ensuite à la formulation quantique du système par le principe de correspondance, on doit construire le formalisme Hamiltonien de notre système. Cependant, les équations du mouvement sont contraintes par \eqref{contrainte1} et \eqref{contrainte2}.
 De plus, $\xmu$ et $P_\tau^\mu$ ne peuvent pas être prises comme les variables canoniquement conjuguées car:
-\begin{align}
-n.x=2(n.\mathcal{P})\tau\\
-n.P_\tau=\frac{n.\mathcal{P}}{\pi}
-\end{align}
+\begin{align*}
+& n.x=2(n.\mathcal{P})\tau & n.P_\tau=\frac{n.\mathcal{P}}{\pi}&
+\end{align*}
 Autrement dit, $\xmu$ et $\pt^\mu$ ne sont pas indépendantes l'une de l'autre. Sous contraintes, on a deux méthodes pour obtenir le formalisme Hamiltonien:
 \begin{enumerate}
 \item On calcule les crochets de Poisson de toutes les variables et puis on impose les contraintes.
@@ -314,35 +316,45 @@ $r_\pm=\frac{1}{\sqrt2}(r^0\pm r^{D-1})$
 $n_+=0$ et $n_-=1$ ( et $n$ est de type-lumière: le temps sur la corde est défini par une direction de type-lumière)
 \end{enumerate}
 On va résoudre explicitement les contraintes pour fixer certaines des composantes de $\xmu$ et de $P_\tau^\mu$: 
-\subsubsection{$n.x=2(n.\mathcal{P})\tau$}
-$$\Leftrightarrow n_0x^0 + \vec{n}.\vec{x} + n_{D-1}x^{D-1}=2\left( n_0\mathcal{P}^0 + \vec{n}.\vec{\mathcal{P}} + n_{D-1}\mathcal{P}^{D-1}\right) \tau$$
-$$\Leftrightarrow \frac{-1}{\sqrt{2}}x^0 + \frac{-1}{\sqrt{2}}x^{D-1}=2\left( \frac{-1}{\sqrt{2}}\mathcal{P}^0  + \frac{-1}{\sqrt{2}}\mathcal{P}^{D-1}\right) \tau$$
-$$\Rightarrow\boxed{x_+ = 2 \mathcal{P_+}\tau}$$
+\subsubsection{$n.x=2(n.\mathcal{P})\tau$}\label{point1}
+\begin{align*}
+& n_0x^0 + \vec{n}.\vec{x} + n_{D-1}x^{D-1}=2\left( n_0\mathcal{P}^0 + \vec{n}.\vec{\mathcal{P}} + n_{D-1}\mathcal{P}^{D-1}\right) \tau\\
+\Leftrightarrow &\frac{-1}{\sqrt{2}}x^0 + \frac{-1}{\sqrt{2}}x^{D-1}=2\left( \frac{-1}{\sqrt{2}}\mathcal{P}^0  + \frac{-1}{\sqrt{2}}\mathcal{P}^{D-1}\right) \tau &\Rightarrow\boxed{x_+ = 2 \mathcal{P_+}\tau}
+\end{align*}
 \subsubsection{$n.P_\tau=\frac{n.\mathcal{P}}{\pi}$}
-$$\Leftrightarrow n_0P_\tau^0 + \vec{n}.\vec{x} + n_{D-1}P_\tau^{D-1}=\frac{1}{\pi}\left( n_0\mathcal{P}^0 + \vec{n}.\vec{\mathcal{P}} + n_{D-1}\mathcal{P}^{D-1}\right)$$
-$$\Leftrightarrow \frac{-1}{\sqrt{2}}P_\tau^0 + \frac{-1}{\sqrt{2}}P_\tau^{D-1}=\left( \frac{-1}{\sqrt{2}\pi}\mathcal{P}^0  + \frac{-1}{\sqrt{2}}\mathcal{P}^{D-1}\right) $$
-$$\Rightarrow\boxed{P_{\tau+} = \frac{\mathcal{P_+}}{\pi}}$$
+\begin{align*}
+&\Leftrightarrow n_0P_\tau^0 + \vec{n}.\vec{x} + n_{D-1}P_\tau^{D-1}=\frac{1}{\pi}\left( n_0\mathcal{P}^0 + \vec{n}.\vec{\mathcal{P}} + n_{D-1}\mathcal{P}^{D-1}\right)\\
+&\Leftrightarrow \frac{-1}{\sqrt{2}}P_\tau^0 + \frac{-1}{\sqrt{2}}P_\tau^{D-1}=\left( \frac{-1}{\sqrt{2}\pi}\mathcal{P}^0  + \frac{-1}{\sqrt{2}}\mathcal{P}^{D-1}\right)
+&\Rightarrow\boxed{P_{\tau+} = \frac{\mathcal{P_+}}{\pi}}
+\end{align*}
 \subsubsection{$(\dot{x}x')=0$}
-$$\Leftrightarrow x'.P_\tau=0$$
-$$\Leftrightarrow -x'_0P_\tau^0 +\vec{x'}.\vec{P_\tau} + x'_{D-1}.P_\tau^{D-1} =0$$
-$$\Leftrightarrow x'^0P_\tau^0 - x'^{D-1}.P_\tau^{D-1}=\vec{x'}.\vec{P_\tau}$$
-Or, $$x'_+P_{\tau -} + x'_-P_{\tau +}=\frac{1}{2}\left( x'^0 + x'^{D-1}\right) \left(P_\tau^0 - P_\tau^{D-1}\right) + \frac{1}{2}\left( x'^0 - x'^{D-1}\right) \left(P_\tau^0 + P_\tau^{D-1}\right)=x'^0P_\tau^0 - x'^{D-1}.P_\tau^{D-1}$$
-De plus, par le point 1 on a que $x_+ = 2 \mathcal{P_+}\tau$ donc $x'_+=\frac{\partial x_+}{\partial \sigma}=0$ car $\mathcal{P}$ est une constante.
+\begin{equation*}
+ x'.P_\tau=0
+\Leftrightarrow -x'_0P_\tau^0 +\vec{x'}.\vec{P_\tau} + x'_{D-1}.P_\tau^{D-1} =0
+\Leftrightarrow x'^0P_\tau^0 - x'^{D-1}.P_\tau^{D-1}=\vec{x'}.\vec{P_\tau}
+\end{equation*}
+Or,
+\begin{equation*}
+x'_+P_{\tau -} + x'_-P_{\tau +}=\frac{1}{2}\left( x'^0 + x'^{D-1}\right) \left(P_\tau^0 - P_\tau^{D-1}\right) + \frac{1}{2}\left( x'^0 - x'^{D-1}\right) \left(P_\tau^0 + P_\tau^{D-1}\right)=x'^0P_\tau^0 - x'^{D-1}.P_\tau^{D-1}
+\end{equation*}
+De plus, par \eqref{point1} on a que $x_+ = 2 \mathcal{P_+}\tau$ donc $x'_+=\frac{\partial x_+}{\partial \sigma}=0$ car $\mathcal{P}$ est une constante.
 $$\Rightarrow\boxed{x'_-P_{\tau +}=\vec{x'}.\vec{P_\tau}}$$
 \subsubsection{$(\dot{x}^2)+(x'^2)=0$}
-$$\Leftrightarrow 0=\frac{1}{(2\pi)^2}\left[ -(x'^0)^2+(\vec{x'})^2 + (x'^{D-1})^2\right] +\left[ -(\pt^0)^2 +(\vec{P_\tau})^2 + (\pt^{D-1})^2\right] $$
-$$=\frac{1}{(2\pi)^2}(\vec{x'})^2 + (\vec{P_\tau})^2 - \frac{1}{(2\pi)^2}\left( 2x'_+x'_-\right) - (2P_{\tau +}P_{\tau -})$$
-$$\Rightarrow\boxed{\frac{1}{(2\pi)^2}(\vec{x'})^2 + (\vecpt)^2=2P_{\tau +}P_{\tau -}}$$
+\begin{align*}
+&\frac{1}{(2\pi)^2}\left[ -(x'^0)^2+(\vec{x'})^2 + (x'^{D-1})^2\right] +\left[ -(\pt^0)^2 +(\vec{P_\tau})^2 + (\pt^{D-1})^2\right]=0\\
+\Leftrightarrow&\frac{1}{(2\pi)^2}(\vec{x'})^2 + (\vec{P_\tau})^2 - \frac{1}{(2\pi)^2}\left( 2x'_+x'_-\right) - (2P_{\tau +}P_{\tau -})=0
+\Rightarrow\boxed{\frac{1}{(2\pi)^2}(\vec{x'})^2 + (\vecpt)^2=2P_{\tau +}P_{\tau -}}
+\end{align*}
 On a trouvé quatre contraintes directement sur les variables $x$ et $P_\tau$. Les deux premières équations fixent $P_{\tau +}$ et $x_+$ en fonction de $\CP_+$.\\
 On introduit ensuite \textit{la coordonnée barycentrique}:
 $$q_-(\tau)=\frac{1}{\pi}\int_0^\pi d\sigma x_-(\sigma,\tau)$$
 Alors, les deux dernières équations nous permettent d'écrire:
-\begin{align}
-P_{\tau -}(\sigma,\tau)=\frac{\pi}{2\mathcal{P_+}}\left[\frac{1}{(2\pi)^2}(\vec{x'})^2 + (\vec{\pt})^2\right]\\
-x_-(\sigma,\tau) = q_-(\tau) + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
-\end{align}
+\begin{flalign}
+& P_{\tau -}(\sigma,\tau)=\frac{\pi}{2\mathcal{P_+}}\left[\frac{1}{(2\pi)^2}(\vec{x'})^2 + (\vec{\pt})^2\right]\label{pt-}\\
+& x_-(\sigma,\tau) = q_-(\tau) + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\label{x-}
+\end{flalign}
 \textbf{Démonstration:}
-L'équation (22) s'obtient directement en inversant la relation (2.7.4) et en utilisant (2.7.1). Nous montrons que l'équation (23) est bien cohérente avec la définition de $q_-(\tau)$:
+L'équation \eqref{pt-} s'obtient directement en utilisant les 4 contraintes précédentes. Nous montrons que l'équation \eqref{x-} est bien cohérente avec la définition de $q_-(\tau)$:
 $$q_-(\tau)=\frac{1}{\pi}\int_0^\pi d\sigma x_-(\sigma,\tau)
 \Rightarrow q_-(\tau)=\frac{1}{\pi}\int_0^\pi d\sigma\left[ q_-(\tau) + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\right] $$
 $q_-(\tau)$ ne dépend pas de $\sigma$ donc l'intégrale du premier terme nous donne $q_-(\tau)$. Il reste à montrer que l'intégrale du second terme donne 0. On utilise la relation (2.7.3): $\frac{\pi}{\CP}\vecx'\vecpt=x'_-$.
@@ -415,20 +427,20 @@ Par conséquent, $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjuguées
 	\begin{aligned}
 	\{x^i(\sigma),\pt^j(\sigma')\}=\delta^{ij}\delta(\sigma-\sigma')\\
 	\{x^i,x^j\}=\{\pt^i,\pt^j\}=0
-	\end{aligned}
+	\end{aligned}\label{crp1}
 \end{equation}
 D'autre part, $$\dot{q}_-=2\CP_-=\frac{H}{\CP_+}$$
 Donc $$q_-=q_{0-}+\frac{H}{\CP_+}\tau$$
 $\Rightarrow$ $\CP_+$ et $q_{0-}$ sont deux constantes du mouvement qui complètent les variables canoniques. On suppose que 
 \begin{equation}
-\{q_{0-},\CP_+\}=-1
+\{q_{0-},\CP_+\}=-1\label{crp2}
 \end{equation}
 ($\equiv$ $\CP_+$ est le générateur des translations infinitésimales dans la direction de $x_-$)
 Comme ce sont des constantes du mouvement, on a également:
 \begin{equation}
-\{\CP_+,\vec{\pt}\}=\{\CP_+,\vec{x}\}=\{q_{0-},\vec{\pt}\}=\{q_{0-},\vec{x}\}=0
+\{\CP_+,\vec{\pt}\}=\{\CP_+,\vec{x}\}=\{q_{0-},\vec{\pt}\}=\{q_{0-},\vec{x}\}=0\label{crp3}
 \end{equation}
-Les équations (26), (27) et (28) fixent tous les crochets de Poisson parmi les variables non contraintes.
+Les équations \eqref{crp1}, \eqref{crp2} et \eqref{crp3} fixent tous les crochets de Poisson parmi les variables non contraintes.
 \subsection{Modes normaux}
 Comme il est plus facile de travailler avec des indices discrets, on va utiliser les modes normaux au lieu des variables $x$ et $\pt$.\\
 L'équation du mouvement pour $\xmu$ est l'équation d'onde:
@@ -441,25 +453,25 @@ $q_0^\mu$ et $a_n^\mu$ sont des constantes indépendantes de $\sigma$ et de $\ta
 \subsubsection{Contraintes sur les modes normaux}
 $\xmu$ est réel donc:
 $q_0^\mu=q_0^{\mu*}$, $a_0^\mu=a_0^{\mu*}$ et $a_{-n}^\mu=a_{n}^{\mu*}$
-\begin{flalign}
+\begin{flalign*}
 x_+=2\CP_+\tau=q_0^+ + \sqrt{2}a_0^+ \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^+}{n}\cos(n\sigma)e^{-in\tau}
-\end{flalign}
+\end{flalign*}
  donc $q_0^+ =0$, $a_0^+ =\sqrt{2}\CP_+$ et $a_n^+ =0$ $\forall n\neq 0$
-\begin{flalign}
+\begin{flalign*}
 x_- &=q_0^- + \sqrt{2}a_0^- \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\\
 &= q_-(\tau) + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\\
 &=q_{0-}+\frac{H}{\CP_+}\tau + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
-\end{flalign}
+\end{flalign*}
 donc $q_0^-=q_{0-}$ et $a_0^-=\frac{H}{\sqrt{2}\CP_+}=\frac{H}{a_0^+}$\\
 Pour exprimer les $a_n^-$, il faut travailler les expressions un peu plus (cf. Annexes).\\
 On trouve que $\forall m\neq 0$:
-\begin{equation}
+\begin{equation*}
 a_m^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}
-\end{equation}
+\end{equation*}
 On montre également que:
-\begin{equation}
+\begin{equation*}
 H=\frac{1}{2}\sum_{n=-\infty}^{+\infty}\vec{a}_{-n}\vec{a}_{n}=\frac{(\vec{a}_0)^2}{2}+\sum_{n=1}^{+\infty}\vec{a}_{-n}\vec{a}_{n}
-\end{equation}
+\end{equation*}
 Et par conséquent, $\forall n \in \mathbb{Z}$:
 \begin{equation}
 a_n^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
@@ -540,4 +552,10 @@ Par les calculs fait pour la partie classique, nous possédons directement les e
 &[q_0^-,a_0^+]=-i\sqrt{2}
 \end{flalign*}
 Mais pour les calculer les commutateurs des $L_n$, $\pt^\mu$ et $\Mup{\mu\nu}$ nous devons faire plus attention car lorsqu'on quantifie le système, l'ordre des termes devient important. Nous ne pouvons donc pas reprendre directement les expressions des crochets de Poisson mais d'abord rendre toutes les expressions symétriques par rapport à l'ordre des termes.
+\part*{Bibliographie}
+\begin{enumerate}
+\item\label{article} GODDARD P., GOLDSTONE J., REBBI C. and THORN C.B., \textit{Quantum Dynamics of a Massless Relativistic String} (1973), Nuclear Physics B56 , North-Holland Publishing Company
+\item\label{zwiebach} ZWIEBACH Barton, \textit{A First Course In String Theory} (2009), Cambridge University Presse
+\item\label{QFT} PESKIN E., SCHROEDER D., \textit{An Introduction to Quantum Field Theory} (1995), Perseus Books Publishing
+\end{enumerate}
 \end{document}
