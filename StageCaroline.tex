@@ -1,4 +1,4 @@
-% !TeX spellcheck = en_US
+ % !TeX spellcheck = en_US
 \documentclass[a4paper,12pt]{article}
 \def\xmu{x^\mu}
 \def\vecx{\vec{x}}
@@ -414,14 +414,14 @@ Les équations de Hamilton sont:
  Montrons que ces équations sont équivalentes pour $q^i=x^i(\sigma)$, $p^i=\pt^i(\sigma)$:\\
 \textbf{NB:} Le Hamiltonien est une fonction de $q^i$ et de $p^i$ qui sont considérées indépendantes dans cette formulation! \\
 \begin{equation}
-\delta H = \pi\int_0^\pi\left(2\pt^i \delta P_{\tau i} +\frac{2x^{'i}}{(2\pi)^2}\delta x^{'}_{i}\right) d\sigma=2\pi\int_0^\pi\pt^i \delta P_{\tau i}d\sigma -\int_0^\pi\frac{x^{''i}}{2\pi}\delta x_{i} d\sigma 
+\delta H = \pi\int_0^\pi\left(2\pt^i \delta P_{\tau i} +\frac{2x^{'i}}{(2\pi)^2}\delta x^{'}_{i}\right) d\sigma=\int_0^\pi \left( 2\pi\pt^i(\sigma) \delta P_{\tau i}(\sigma) -\frac{x^{''i}(\sigma)}{2\pi}\delta x_{i}(\sigma)\right)  d\sigma 
 \end{equation}
+où la deuxième égalité est une integration par parties où on a supprimé le terme aux bords (les variations $\delta x$ sont toujours nuls aux bords). 
 Donc
 \begin{flalign*}
-&\frac{\delta H}{\delta \pt^i} = 2\pi\int_0^\pi\pt^id\sigma\\
-&\frac{\delta H}{\delta x^i} = -\int_0^\pi\frac{x^{''i}}{2\pi}d\sigma
+&\frac{\delta H}{\delta \pt^j(\sigma')} = 2\pi\int_0^\pi\pt^i(\sigma)\frac{\delta P_{\tau i}(\sigma)}{\delta \pt^j(\sigma')}d\sigma = 2\pi\int_0^\pi\pt^i(\sigma)\delta_i^j\delta(\sigma-\sigma')d\sigma=2\pi \pt^j(\sigma')=\dot{x}^j \\
+&\frac{\delta H}{\delta x^j(\sigma')} = -\int_0^\pi\frac{x^{''i}(\sigma)}{2\pi}\frac{\delta x_i(\sigma)}{\delta x^j(\sigma')}d\sigma=-\int_0^\pi\frac{x^{''i}(\sigma)}{2\pi}\delta_i^j\delta(\sigma-\sigma')d\sigma=-\frac{x^{''j}(\sigma')}{2\pi}=-\dot{\pt}^j
 \end{flalign*}
-\textbf{(encore à travailler avec les $\sigma$/$\sigma'$ ?)}\\
 Par conséquent, $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjuguées:
 \begin{equation}
 	\begin{aligned}
@@ -476,14 +476,12 @@ Et par conséquent, $\forall n \in \mathbb{Z}$:
 \begin{equation}
 a_n^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
 \end{equation}
-
 \subsubsection{Crochets de Poisson des modes normaux}
 Les variables indépendantes sont $\{a_n^i,q_0^i,a_n^+,q_0^-\}$. Tous les autres modes s'expriment en fonction de ces variables comme vu au point (6.3.1). On définit les modes dépendants:
 \begin{equation}
 L_n=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
 \end{equation}
 Nous pouvons à présent calculer les crochets de Poisson parmi les variables indépendantes ainsi que parmi les modes dépendants (calculs en Annexes).
-
 \begin{flalign*}
 &\{a_n^i,a_m^j\}=-in\delta^{ij}\delta_{n,-m}\\
 &\{a_0^i,a_0^j\}=0\\
@@ -508,8 +506,8 @@ $$\vec{\CP}=\int_0^\pi d\sigma \vec{\pt}$$
 or $$\vec{\pt}=\frac{1}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\vec{a}_k\cos(k\sigma)e^{-ik\tau}$$
 Donc
 $$\vec{\CP}=\frac{1}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\vec{a}_k e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma=\frac{1}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\vec{a}_k e^{-ik\tau}\pi\delta_{0,k}=\frac{\vec{a}_0}{\sqrt{2}}$$
-Conclusion: $$H=\vec{P}^2+\sum_{n=1}^{+\infty}\norm{\vec{a}_{n}}^2$$
-Masse invariante: $$M^2=2\CP_+\CP_- - \vec{P}^2=\sum_{n=1}^{+\infty}\norm{\vec{a}_{n}}^2$$
+Conclusion: $$H=\vec{\CP}^2+\sum_{n=1}^{+\infty}\norm{\vec{a}_{n}}^2$$
+Masse invariante: $$M^2=2\CP_+\CP_- - \vec{\CP}^2=\sum_{n=1}^{+\infty}\norm{\vec{a}_{n}}^2$$
 \subsubsection{Expression des moments cinétiques et angulaires}
 $$\CP^\mu=\int_0^\pi \pt^\mu d\sigma$$
 Or
