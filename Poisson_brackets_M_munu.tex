@@ -27,11 +27,12 @@ où $\gup{\mu\nu}$ est la métrique sur notre surface.
 On doit commencer par calculer notre métrique dans les nouvelles coordonnées. En effet, on a fait un changement de variables:
 $r_\pm=\frac{1}{\sqrt2}(r^0\pm r^{D-1})$ donc on doit réexprimer la métrique $\gup{\mu\nu}$ dans ces nouvelles variables.
 \begin{flalign*}
-\forall i \in \{1,D-2\}: &\gup{ii}=1\\
-&\gup{00}=-1\\
-&\gup{D-1 D-1}=1
+\forall i,j \in \{1,D-2\}: &\gup{ij}=\delta^{ij}\\
+&\gup{00}=-1 \\
+&\gup{D-1 D-1}=1\\
+&\gup{0i}=\gup{D-1 i}=\gup{0 D-1}=0
 \end{flalign*}
-et tous les autres sont nuls.\\
+et $$\gup{\mu\nu}=\gup{\nu\mu}$$
 Or 
 \begin{flalign*}
 & ds^2= -dx_0^2 + dx_{D-1}^2 + d\vec{x}^2\\
@@ -42,8 +43,9 @@ Or
 \end{flalign*}
 Donc:
 \begin{flalign*}
- &\gup{ii}=1 \forall i \in \{1,D-2\}\\
+\forall i,j \in \{1,D-2\}:  &\gup{ij}=\delta^{ij} \\
 &\gup{+-}=\gup{-+}=-1\\
+&\gup{i+}\gup{i-}=\gup{++}=\gup{--}=0
 \end{flalign*}
 et tout le reste est nul.
 On va démontrer l'équation (2) en séparant les indices spatiaux (i,j) des indices (+,-):
@@ -71,7 +73,7 @@ Donc
 Deuxième terme:
 On utilise : $\{a_n^i,a_m^j\}=-in\delta^{ij}\delta_{n,-m}$
 \begin{flalign*}
-&-\left\{\sum_{n=-\infty; n\neq 0}^{n=+\infty}\frac{a_n^i a_{-n}^j }{n} ,\sum_{m=-\infty; m\neq 0}^{m=+\infty}\frac{a_m^k a_{-m}^l }{m}\right\}=\sum_{n=-\infty; n\neq 0}^{n=+\infty}\sum_{m=-\infty; m\neq 0}^{m=+\infty}\frac{1}{nm}\{a_n^i a_{-n}^j,a_m^k a_{-m}^l\}=(**)\\
+&-\left\{\sum_{n=-\infty; n\neq 0}^{n=+\infty}\frac{a_n^i a_{-n}^j }{n} ,\sum_{m=-\infty; m\neq 0}^{m=+\infty}\frac{a_m^k a_{-m}^l }{m}\right\}=-\sum_{n=-\infty; n\neq 0}^{n=+\infty}\sum_{m=-\infty; m\neq 0}^{m=+\infty}\frac{1}{nm}\{a_n^i a_{-n}^j,a_m^k a_{-m}^l\}=(**)\\
 &\{a_n^i a_{-n}^j,a_m^k a_{-m}^l\}=a_n^i\{ a_{-n}^j,a_m^k \}a_{-m}^l + a_{-n}^j\{a_n^i ,a_m^k \}a_{-m}^l + a_n^i\{ a_{-n}^j, a_{-m}^l\}a_m^k + a_{-n}^j\{a_n^i , a_{-m}^l\}a_m^k\\
 &=-i\Big((-n\delta^{jk}\delta_{-n,-m})a_n^i a_{-m}^l + (n\delta^{ik}\delta_{n,-m})a_{-n}^ja_{-m}^l +(-n\delta^{jl}\delta_{-n,m})a_n^i a_m^k + (n\delta^{il}\delta_{n,m})a_{-n}^j a_m^k\Big)\\
 &\Rightarrow (**)=+i \sum_{n=-\infty; n\neq 0}^{n=+\infty}\Big(\frac{-1}{n}\delta^{jk}a_n^i a_{-n}^l +\frac{1}{-n}\delta^{ik}a_{-n}^j a_{n}^l +\frac{-1}{-n}\delta^{jl}a_n^i a_{-n}^k + \frac{1}{n}\delta^{il}a_{-n}^j a_n^k\Big)\\
