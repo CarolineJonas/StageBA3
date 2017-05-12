@@ -27,10 +27,7 @@ où $\gup{\mu\nu}$ est la métrique sur notre surface.
 On doit commencer par calculer notre métrique dans les nouvelles coordonnées. En effet, on a fait un changement de variables:
 $r_\pm=\frac{1}{\sqrt2}(r^0\pm r^{D-1})$ donc on doit réexprimer la métrique $\gup{\mu\nu}$ dans ces nouvelles variables.
 \begin{flalign*}
-\forall i,j \in \{1,D-2\}: &\gup{ij}=\delta^{ij}\\
-&\gup{00}=-1 \\
-&\gup{D-1 D-1}=1\\
-&\gup{0i}=\gup{D-1 i}=\gup{0 D-1}=0
+\forall i,j \in \{1,D-2\}: &\gup{ij}=\delta^{ij}, \gup{00}=-1, \gup{D-1 D-1}=1, \gup{0i}=\gup{D-1 i}=\gup{0 D-1}=0
 \end{flalign*}
 et $$\gup{\mu\nu}=\gup{\nu\mu}$$
 Or 
@@ -38,16 +35,12 @@ Or
 & ds^2= -dx_0^2 + dx_{D-1}^2 + d\vec{x}^2\\
 & dx_0= \frac{1}{\sqrt{2}}(dx_+ + dx_-)\\
 & dx_{D-1}= \frac{1}{\sqrt{2}}(dx_+ - dx_-)\\
-\Rightarrow & ds^2= -\frac{1}{2}(dx_+ + dx_-)^2 + \frac{1}{2}(dx_+ - dx_-)^2 + d\vec{x}^2\\
-&= -2dx_+ dx_- + d\vec{x}^2
+\Rightarrow & ds^2= -\frac{1}{2}(dx_+ + dx_-)^2 + \frac{1}{2}(dx_+ - dx_-)^2 + d\vec{x}^2= -2dx_+ dx_- + d\vec{x}^2
 \end{flalign*}
 Donc:
 \begin{flalign*}
-\forall i,j \in \{1,D-2\}:  &\gup{ij}=\delta^{ij} \\
-&\gup{+-}=\gup{-+}=-1\\
-&\gup{i+}\gup{i-}=\gup{++}=\gup{--}=0
+\forall i,j \in \{1,D-2\}:  &\gup{ij}=\delta^{ij}, \gup{+-}=\gup{-+}=-1, \gup{i+}=\gup{i-}=\gup{++}=\gup{--}=0
 \end{flalign*}
-et tout le reste est nul.
 On va démontrer l'équation (2) en séparant les indices spatiaux (i,j) des indices (+,-):
 \section{Partie spatiale}
 On commence par la partie spatiale:
@@ -98,6 +91,82 @@ On a que:
 &\Mup{+-}=-\frac{1}{\sqrt{2}}q_0^- a_0^+\\
 &\Mup{-+}=\frac{1}{\sqrt{2}}q_0^- a_0^+=-\Mup{+-}\\
 &\Mup{++}=0\\
-&\Mup{--}=i\sum_{m=-\infty;m\neq 0}^{m=+\infty} \frac{a_m^-a_{-m}^-}{m}=\frac{i}{(a_0^+)^2}\sum_{m=-\infty;m\neq 0}^{m=+\infty}\frac{L_m \cdot L_{-m}}{m}
+&\Mup{--}=i\sum_{m=-\infty;m\neq 0}^{m=+\infty} \frac{a_m^-a_{-m}^-}{m}
+\end{flalign*}
+On doit montrer que
+\begin{equation}
+\{\Mup{\mu\nu},\Mup{\rho\sigma}\}=\gup{\mu\rho}\Mup{\nu\sigma}- \gup{\nu\rho}\Mup{\mu\sigma} -\gup{\mu\sigma}\Mup{\nu\rho} + \gup{\nu\sigma}\Mup{\mu\rho}
+\end{equation}
+comme $\Mup{+-}=\Mup{-+}$ et que $\Mup{++}=0$ , cela revient à:
+\begin{align}
+&\{\Mup{++},\Mup{--}\}=\gup{+-}\Mup{+-}- \gup{+-}\Mup{+-} -\gup{+-}\Mup{+-} + \gup{+-}\Mup{+-}=0\\
+&\{\Mup{++},\Mup{+-}\}=\gup{++}\Mup{+-}- \gup{++}\Mup{+-} -\gup{+-}\Mup{++} + \gup{+-}\Mup{++}=0\\
+&\{\Mup{--},\Mup{+-}\}=\gup{-+}\Mup{--}- \gup{-+}\Mup{--} -\gup{--}\Mup{-+} + \gup{--}\Mup{-+}=0
+\end{align}
+Comme $\Mup{++}=0$, les deux premières égalités sont triviales à vérifier. 
+Pour la troisième:
+\begin{align}
+&\{\Mup{--},\Mup{+-}\}=\left\{i\sum_{m=-\infty;m\neq 0}^{m=+\infty} \frac{a_m^-a_{-m}^-}{m},-\frac{1}{\sqrt{2}}q_0^- a_0^+\right\}=\sum_{m=-\infty;m\neq 0}^{m=+\infty}-\frac{i}{\sqrt{2}m}\Big\{ a_m^-a_{-m}^-,q_0^- a_0^+\Big\}\\
+&=\sum_{m=-\infty;m\neq 0}^{m=+\infty}-\frac{i}{\sqrt{2}m}\Big[ a_m^-\{ a_{-m}^-,q_0^- \}a_0^+ +a_{-m}^-\{ a_m^-,q_0^- \}a_0^+ +a_m^-\{ a_{-m}^-, a_0^+\}q_0^- +a_{-m}^-\{ a_m^-, a_0^+\}q_0^-\Big]=0
+\end{align}
+On s'occupe maintenant des termes croisés. En plus des moments déjà calculés, on a besoin des deux moments suivants:
+\begin{align*}
+&\Mup{i+}=\frac{1}{\sqrt{2}}q_0^ia_0^+\\
+&\Mup{i-}=\frac{1}{\sqrt{2}}\left( q_0^i a_0^- -q_0^- a_0^i\right) +i\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n}
+\end{align*}
+\begin{align}
+&\{\Mup{--},\Mup{i-}\}=?\\
+&\{\Mup{i+},\Mup{j+}\}=\gup{ij}\Mup{++}=0\label{eq1}\\
+&\{\Mup{i+},\Mup{j-}\}=\gup{ij}\Mup{+-}+\gup{+-}\Mup{ij}=\delta^{ij}\Mup{+-}-\Mup{ij}\label{eq2}\\
+&\{\Mup{i-},\Mup{j-}\}=\gup{ij}\Mup{--}=\delta^{ij}\Mup{--}\label{eq3}
+\end{align} 
+et que $\Mup{++}=0$\\
+\textbf{Démonstration de \eqref{eq1}:}
+$$\{\Mup{i,+},\Mup{j+}\}=\left\{\frac{1}{\sqrt{2}}q_0^ia_0^+,\frac{1}{\sqrt{2}}q_0^ja_0^+\right\}=0$$
+car $ \{q_0^i,q_0^j\}=0 $\\
+\textbf{Démonstration de \eqref{eq2}:}
+\begin{flalign*}
+&\{\Mup{i+},\Mup{j-}\}=\Big\{\frac{1}{\sqrt{2}}q_0^ia_0^+,\frac{1}{\sqrt{2}}\left( q_0^j a_0^- -q_0^- a_0^j\right) +i\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^j a_{-n}^-}{n}\Big\} \\
+&=\frac{a_0^+}{2}\Big\{q_0^i,a_0^-\Big\}q_0^j - \frac{q_0^i a_0^j}{2}\{a_0^+,q_0^-\} -\frac{a_0^+ q_0^-}{2}\{q_0^i,a_0^j\}+\frac{i a_0^+}{\sqrt{2}}\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{1}{n} \{q_0^i,a_{-n}^-\}a_n^j\\
+&=\frac{a_0^+}{2}\frac{\sqrt{2}a_0^i}{a_0^+}q_0^j- \frac{q_0^i a_0^j}{2}\sqrt{2} -\frac{a_0^+ q_0^-}{2}\sqrt{2}\delta^{ij} +\frac{i a_0^+}{\sqrt{2}}\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{1}{n} \frac{\sqrt{2}a_{-n}^i}{a_0^+}a_n^j\\
+&=\delta^{ij}\frac{-q_0^- a_0^+}{\sqrt{2}}+\frac{q_0^j a_0^i -q_0^i a_0^j}{\sqrt{2}} +i\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_{-n}^ia_n^j}{n} =\delta^{ij}\Mup{+-}-\Mup{ij} \square
+\end{flalign*}
+\textbf{Démonstration de \eqref{eq3}:}
+\begin{flalign*}
+&\{\Mup{i-},\Mup{j-}\}=\Big\{\frac{1}{\sqrt{2}}\left( q_0^i a_0^- -q_0^- a_0^i\right) +i\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n},\frac{1}{\sqrt{2}}\left( q_0^j a_0^- -q_0^- a_0^j\right) +i\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_m^j a_{-m}^-}{m}\Big\}\\
+&=\frac{1}{2}\Big\{q_0^ia_0^- - q_0^-a_0^i,q_0^ja_0^- - q_0^-a_0^j\Big\}+\frac{i}{\sqrt{2}}\Big\{q_0^ia_0^- - q_0^-a_0^i,\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_m^j a_{-m}^-}{m}\Big\}\\
+& + \frac{i}{\sqrt{2}}\Big\{\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n},q_0^ja_0^- - q_0^-a_0^i\Big\} - \left\{\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n},\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_m^j a_{-m}^-}{m}\right\}\\
+\end{flalign*}
+\textbf{Premier terme:}\\
+Comme $\{q_0^i,q_0^j\}=0$ et $\{a_0^i,a_0^j\}=0$:
+\begin{flalign*}
+\frac{1}{2}\Big\{q_0^ia_0^- - q_0^-a_0^i,q_0^ja_0^- - q_0^-a_0^j\Big\}=\frac{1}{2}\Big[ q_0^i\{a_0^-,q_0^j\}a_0^- + a_0^-\{q_0^i,a_0^-\}q_0^j + q_0^-\{a_0^i,q_0^-\}a_0^j + a_0^i\{q_0^-,a_0^j\}q_0^-\Big]&\\
+-\frac{1}{2}\Big[q_0^i\{a_0^-,q_0^-\}a_0^j + a_0^-\{q_0^i,q_0^-\}a_0^j + a_0^-\{q_0^i,a_0^j\}q_0^- + q_0^-\{a_0^i,q_0^j\}a_0^- + a_0^i\{q_0^-,q_0^j\}-a_0^i\{q_0^-,a_0^-\}q_0^j\Big]&
+\end{flalign*}
+De plus, on a que $\{a_0^i,q_0^-\}=0$, $\{q_0^i,q_0^-\}=0$ et $\{q_0^-,a_0^-\}=\frac{\sqrt{2}a_0^-}{a_0^+}$
+Donc
+\begin{flalign*}
+\frac{1}{2}\Big\{q_0^ia_0^- - q_0^-a_0^i,q_0^ja_0^- - q_0^-a_0^j\Big\}&=\frac{1}{2}\left[q_0^i\frac{-\sqrt{2}a_0^j}{a_0^+}a_0^- + a_0^-\frac{\sqrt{2}a_0^i}{a_0^+}q_0^j\right]\\ &-\frac{1}{2}\left[q_0^i(-\frac{\sqrt{2}a_0^-}{a_0^+})a_0^j + a_0^-(\sqrt{2}\delta^{ij})q_0^- + q_0^-(-\sqrt{2}\delta^{ij})a_0^- + a_0^i\frac{\sqrt{2}a_0^-}{a_0^+}q_0^j\right]\\
+&=0
+\end{flalign*}
+\textbf{Deuxième et troisième termes:}\\
+\begin{flalign*}
+&\frac{i}{\sqrt{2}}\left( \Big\{q_0^ia_0^- - q_0^-a_0^i,\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_m^j a_{-m}^-}{m}\Big\}+ \Big\{\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n},q_0^ja_0^- - q_0^-a_0^i\Big\}\right) \\
+&=\frac{i}{\sqrt{2}}\left\{q_0^ia_0^-,\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_m^j a_{-m}^-}{m}\right\} - \frac{i}{\sqrt{2}}\left\{q_0^-a_0^i,\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_m^j a_{-m}^-}{m}\right\}+ \frac{i}{\sqrt{2}}\left\{\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n},q_0^ja_0^-\right\}\\
+& - \frac{i}{\sqrt{2}}\left\{\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n},q_0^-a_0^j\right\}=(**)
+\end{flalign*}
+Le deuxième terme et le quatrième terme sont nuls et on utilise ensuite que
+$\{a_0^-,a_m^j\}=im\frac{a_m^j}{a_0^+}$
+et que
+$\{a_0^-,a_m^-\}=im\frac{a_m^-}{a_0^+}$
+\begin{flalign*}
+(**)&=\frac{i}{\sqrt{2}}\left(\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{q_0^ia_{-m}^-}{m}im\frac{a_m^j}{a_0^+}+\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{q_0^ia_{m}^j}{m}(-im\frac{a_{-m}^-}{a_0^+}) + \sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_0^-a_{m}^j}{m}\sqrt{2}\frac{a_{-m}^i}{a_0^+}\right)\\ 
+&+\frac{i}{\sqrt{2}}\left(\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{q_0^ja_{-n}^-}{n}in\frac{a_n^i}{a_0^+}+\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{q_0^ja_{n}^i}{n}(-in\frac{a_{-n}^-}{a_0^+}) +\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_0^-a_n^i}{n}\sqrt{2}\frac{a_{-m}^j}{a_0^+}\right)\\
+&=0
+\end{flalign*}
+encore des problèmes
+\textbf{Quatrième terme:}\\
+\begin{flalign*}
+- \left\{\sum_{n=-\infty; n\neq 0}^{+\infty}\frac{a_n^i a_{-n}^-}{n},\sum_{m=-\infty; m\neq 0}^{+\infty}\frac{a_m^j a_{-m}^-}{m}\right\}
 \end{flalign*}
 \end{document}
