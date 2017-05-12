@@ -56,38 +56,38 @@ Comme $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjugués, seuls les 
 &=im\delta^{ij}\delta_{n,-m}=-in\delta^{ij}\delta_{n,-m}\\
 \{a_0^i,a_0^j\}&=2\int_0^\pi d\sigma\int_0^\pi d\sigma'\{\pt^i(\sigma),\pt^j(\sigma')\}=0\\
 \{q_0^i,a_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\sqrt{2}\int_0^\pi \pt^j(\sigma')d\sigma'\right\}=\frac{\sqrt{2}}{\pi}\int_0^\pi d\sigma \int_0^\pi d\sigma' \{x^i(\sigma),\pt^j(\sigma')\}\\
-&=\frac{\sqrt{2}}{\pi}\delta^{ij}\int_0^\pi d\sigma \int_0^\pi d\sigma'\delta(\sigma-\sigma')=\sqrt{2}\delta{ij}\\
+&=\frac{\sqrt{2}}{\pi}\delta^{ij}\int_0^\pi d\sigma \int_0^\pi d\sigma'\delta(\sigma-\sigma')=\sqrt{2}\delta^{ij}\\
 \{q_0^i,q_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\frac{1}{\pi}\int_0^\pi  (x^j(\sigma')-2\tau\pt^j(\sigma'))d\sigma'\right\}\\
 &=\frac{-2\tau}{\pi}\int_0^\pi d\sigma\int_0^\pi d\sigma'\left(\{  x^i(\sigma),\pt^j(\sigma')\} +\{\pt^i(\sigma),x^j(\sigma')\}\right)=0\\
 \{q_0^-,a_0^+\}&=\{q_{0-},\sqrt{2}\CP_+\}=-\sqrt{2}
 \end{flalign*}
 Calculons à présent les crochets de Poisson des modes dépendants:
 \begin{flalign*}
-&\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\{\vec{a}_{-k} \cdot \vec{a}_{n+k},\vec{a}_{-l} \cdot \vec{a}_{m+l}\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-1}\sum_{j=1}^{D-1}\{a^i_{-k}a^i_{n+k},a^j_{-l}a^j_{m+l}\}\\
-&\{a^i_{-k} \cdot a^i_{n+k},a^j_{-l} \cdot a^j_{m+l}\}=a^i_{-k}\{a^i_{n+k},a^j_{-l}\}a^j_{m+l}+a^i_{-k}\{a^i_{n+k},a^j_{m+l}\}a^j_{-l}\\
-&+a^i_{n+k}\{a^i_{-k},a^j_{-l}\}a^j_{m+l}+a^i_{n+k}\{a^i_{-k},a^j_{m+l}\}a^j_{-l}\\
-&=a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
-&+a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}\\
+\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}&\{\vec{a}_{-k} \cdot \vec{a}_{n+k},\vec{a}_{-l} \cdot \vec{a}_{m+l}\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-2}\sum_{j=1}^{D-2}\{a^i_{-k}a^i_{n+k},a^j_{-l}a^j_{m+l}\}\\
+\{a^i_{-k} \cdot a^i_{n+k},a^j_{-l} \cdot a^j_{m+l}\}=& a^i_{-k}\{a^i_{n+k},a^j_{-l}\}a^j_{m+l}+a^i_{-k}\{a^i_{n+k},a^j_{m+l}\}a^j_{-l}\\
++& a^i_{n+k}\{a^i_{-k},a^j_{-l}\}a^j_{m+l}+a^i_{n+k}\{a^i_{-k},a^j_{m+l}\}a^j_{-l}\\
+=& a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
++& a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}\\
 \end{flalign*}
 Donc
 \begin{flalign*}
-\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-1}\sum_{j=1}^{D-1}& a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
+\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-2}\sum_{j=1}^{D-2}& a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
 &+a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}
 \end{flalign*}
 \begin{flalign*}
-&=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-1} \left[ -i(n+k)a^i_{-k}a^i_{m+n+k}-i(n+k)a^i_{-k}a^i_{m+n+k}+ika^i_{n+k}a^i_{m-k}+ika^i_{n+k}a^i_{m-k}\right]\\
-&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-1} -i(n+k)a^i_{-k}a^i_{m+n+k}+\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-1}ika^i_{n+k}a^i_{m-k}\\
-&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-1} -i(n+k)a^i_{-k}a^i_{m+n+k}+\frac{1}{2}\sum_{k'=-\infty}^{k=+\infty}\sum_{i=1}^{D-1}i(k'+m)a^i_{n+m+k'}a^i_{-k'}\\
-&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-1} i(m-n)a^i_{-k}a^i_{m+n+k}=i(m-n)L_{m+n}
+&=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} \left[ -i(n+k)a^i_{-k}a^i_{m+n+k}-i(n+k)a^i_{-k}a^i_{m+n+k}+ika^i_{n+k}a^i_{m-k}+ika^i_{n+k}a^i_{m-k}\right]\\
+&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} -i(n+k)a^i_{-k}a^i_{m+n+k}+\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2}ika^i_{n+k}a^i_{m-k}\\
+&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} -i(n+k)a^i_{-k}a^i_{m+n+k}+\frac{1}{2}\sum_{k'=-\infty}^{k=+\infty}\sum_{i=1}^{D-2}i(k'+m)a^i_{n+m+k'}a^i_{-k'}\\
+&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} i(m-n)a^i_{-k}a^i_{m+n+k}=i(m-n)L_{m+n}
 \end{flalign*}
 \begin{flalign*}
-\{L_n,a^j_m\}&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-1}\{a^i_{-k}a^i_{n+k},a^j_m\}=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-1}\left[ a^i_{-k}\{a^i_{n+k},a^j_m\}+\{a^i_{-k},a^j_m\}a^i_{n+k}\right]\\
-&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-1}\left[ a^i_{-k}(-i(n+k)\delta_{n+k,-m}\delta_{i,j})+(-i(-k)\delta_{-k,-m}\delta_{i,j}a^i_{n+k}\right]\\
+\{L_n,a^j_m\}&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-2}\{a^i_{-k}a^i_{n+k},a^j_m\}=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-2}\left[ a^i_{-k}\{a^i_{n+k},a^j_m\}+\{a^i_{-k},a^j_m\}a^i_{n+k}\right]\\
+&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-2}\left[ a^i_{-k}(-i(n+k)\delta_{n+k,-m}\delta_{i,j})+(-i(-k)\delta_{-k,-m}\delta_{i,j}a^i_{n+k}\right]\\
 &=\frac{1}{2}\left[ima^j_{m+n}+ima^j_{n+m}\right]=ima^j_{m+n}
 \end{flalign*}
 \begin{flalign*}
-\{q_0^i,L_{m}\}&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-1}\{q_0^i,a_{-k}^j \cdot a_{m+k}^{j}\}=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-1}\left[\{q_0^i,a_{-k}^j\}a_{m+k}^{j}+a_{-k}^j\{q_0^i,a_{m+k}^{j}\}\right]\\
-&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-1}\left[\sqrt{2}\delta_{0,-k}\delta{ij}a_{n+k}^{j}+a_{-k}^j\sqrt{2}\delta_{0,m+k}\delta^{ij}\right]=\sqrt{2}a_{m}^i
+\{q_0^i,L_{m}\}&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\{q_0^i,a_{-k}^j \cdot a_{m+k}^{j}\}=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\left[\{q_0^i,a_{-k}^j\}a_{m+k}^{j}+a_{-k}^j\{q_0^i,a_{m+k}^{j}\}\right]\\
+&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\left[\sqrt{2}\delta_{0,-k}\delta^{ij}a_{n+k}^{j}+a_{-k}^j\sqrt{2}\delta_{0,m+k}\delta^{ij}\right]=\sqrt{2}a_{m}^i
 \end{flalign*}
 
 \end{document}
