@@ -22,7 +22,9 @@
 \part*{Introduction}
 Le but de ce travail est de comprendre l'article "Quantum dynamics of a massless relativistic string"[\ref{article}] et de pouvoir en réexpliquer et démontrer les résultats.\\
 Cet article se divise en deux parties. Dans un premier temps, on traite la corde bosonique à l'aide de la mécanique classique. On trouve les équations du mouvement et on développe le formalisme Hamiltonien.\\
-Dans un second temps, on transpose les résultats ainsi obtenus à la mécanique quantique par le principe de correspondance et on trouve la dimension dans laquelle cette théorie est covariante. 
+Dans un second temps, on transpose les résultats ainsi obtenus à la mécanique quantique par le principe de correspondance et on trouve la dimension dans laquelle cette théorie est covariante.
+Dans ce travail, on se concentre sur la partie classique dont on redémontre les résultats.
+ 
 \part*{Approche Classique}
 \section{Définition de la corde}
 Une corde est une courbe dans l'espace dont la forme et la position changent au cours du temps.
@@ -464,7 +466,7 @@ x_- &=q_0^- + \sqrt{2}a_0^- \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\f
 &=q_{0-}+\frac{H}{\CP_+}\tau + \frac{\pi}{\mathcal{P_+}}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
 \end{flalign*}
 donc $q_0^-=q_{0-}$ et $a_0^-=\frac{H}{\sqrt{2}\CP_+}=\frac{H}{a_0^+}$\\
-Pour exprimer les $a_n^-$, il faut travailler les expressions un peu plus (cf. Annexes).\\
+Pour exprimer les $a_n^-$, il faut travailler les expressions un peu plus (cf. Annexe 1).\\
 On trouve que $\forall m\neq 0$:
 \begin{equation*}
 a_m^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}
@@ -482,7 +484,7 @@ Les variables indépendantes sont $\{a_n^i,q_0^i,a_n^+,q_0^-\}$. Tous les autres
 \begin{equation}
 L_n=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
 \end{equation}
-Nous pouvons à présent calculer les crochets de Poisson parmi les variables indépendantes ainsi que parmi les modes dépendants (calculs en Annexes).
+Nous pouvons à présent calculer les crochets de Poisson parmi les variables indépendantes ainsi que parmi les modes dépendants (cf.Annexe 2).
 \begin{flalign*}
 &\{a_n^i,a_m^j\}=-in\delta^{ij}\delta_{n,-m}\\
 &\{a_0^i,a_0^j\}=0\\
@@ -538,19 +540,213 @@ Nous pouvons montrer que les $M^{\mu\nu}$  forment une base des représentations
 \begin{equation}
 \{M^{\mu\nu},M^{\rho\sigma}\}=g^{\mu\rho}M^{\nu\sigma}- g^{\nu\rho}M^{\mu\sigma} -g^{\mu\sigma}M^{\nu\rho} + g^{\nu\sigma}M^{\mu\rho}
 \end{equation}
-où $g^{\mu\nu}$ est la métrique sur notre surface. (cf. Annexes)
-\part*{Approche Quantique}
-La quantification du système se fait par le principe de correspondance:
-$$i\{Crochets de Poisson\} \rightarrow \left[Commutateur\right]$$
-Par les calculs fait pour la partie classique, nous possédons directement les expressions des commutateurs de toutes les variables indépendantes ainsi que de tous les modes normaux, avec lesquels nous allons travailler:
+où $g^{\mu\nu}$ est la métrique sur notre surface.
+
+\part*{Annexes}
+\section*{Annexe 1: Calcul des contraintes sur les $a_n$}
+\paragraph{Calcul des coefficients $a_n^-$ par analyse de Fourier pour $n\neq 0$:}
+\begin{flalign}
+ f(\sigma,\tau)&\equiv\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\\
+ &=\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
+\end{flalign}
+Par la première égalité:
+\begin{flalign}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left( \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\right) \cos(m\sigma)d\sigma\\
+&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
+&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\frac{\pi}{2}\left( \delta_{n,-m}+\delta_{n,m}\right)\\
+&=\frac{i\pi}{\sqrt{2}}\left( \frac{a_{-m}^-}{-m}e^{im\tau}+\frac{a_m^-}{m}e^{-im\tau}\right) 
+\end{flalign}
+Le passage de (5) à (6) est valable seulement dans le cas $m\neq 0$. 
+Si $m=0$, on voit que par la contrainte $n\neq0$ dans la somme, l'intégrale donne 0 (le cas $m=0$ sera traité à part). Nous pouvons donc supposer $m\neq 0$ pour la suite.\\
+Par la seconde égalité:
+\begin{flalign}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\right]\cos(m\sigma)d\sigma 
+\end{flalign}
+Or,
+\begin{equation}
+\begin{aligned}
+\vec{x}^{ '} &=\frac{\partial}{\partial \sigma'}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}\cos(n\sigma')e^{-in\tau}\right)
+=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}(-n\sin(n\sigma'))e^{-in\tau}\\
+\vec{\pt} &=\frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{k=-\infty;k\neq 0}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')e^{-ik\tau}\right)
+=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')(-ike^{-ik\tau})\\
+&\Rightarrow \vec{x}^{ '}\vec{\pt}=\frac{-i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_k\sin(n\sigma')\cos(k\sigma')e^{-in\tau}e^{-ik\tau}
+\end{aligned}
+\end{equation}
+Ainsi,
 \begin{flalign*}
-&[a_n^i,a_m^j]=n\delta^{ij}\delta_{n,-m}\\
-&[a_0^i,a_0^j]=0\\
-&[q_0^i,a_0^j]=i\sqrt{2}\delta^{ij}\\
-&[q_0^i,q_0^j]=0\\
-&[q_0^-,a_0^+]=-i\sqrt{2}
+f(\sigma,\tau)&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]\\
+&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_n\vec{a}_0e^{-in\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\right]\\
+&+\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty;k\neq 0}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]
 \end{flalign*}
-Mais pour les calculer les commutateurs des $L_n$, $\pt^\mu$ et $\Mup{\mu\nu}$ nous devons faire plus attention car lorsqu'on quantifie le système, l'ordre des termes devient important. Nous ne pouvons donc pas reprendre directement les expressions des crochets de Poisson mais d'abord rendre toutes les expressions symétriques par rapport à l'ordre des termes.
+Où on a séparé le cas $k=0$ du reste. Ceci implique que le second terme est symétrique en $k$ et $n$ ($\equiv$ on peut interchanger $k$ et $n$ et conserver la même expression).\\
+Cependant,
+\begin{flalign*}
+\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')&=\frac{1}{2\pi}\int_0^\pi \sigma'\left[ \sin((n+k)\sigma')+\sin((n-k)\sigma')\right]d\sigma'\\ &-\frac{1}{2}\int_{\sigma}^{\pi}\left[ \sin((n+k)\sigma')+\sin((n-k)\sigma')\right]d\sigma'
+\end{flalign*}
+Or $\sin((n-k)\sigma')$ est antisymétrique par rapport à l'échange de $k$ et $n$ $\Rightarrow$ les termes qui contiennent $\sin((n-k)\sigma')$ seront nuls. On peut donc ré-écrire:
+\begin{flalign*}
+f(\sigma,\tau)&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_n\vec{a}_0e^{-in\tau}\left[\frac{1}{\pi}\int_0^\pi \sigma'\sin(n\sigma')d\sigma'-\int_\sigma^\pi \sin(n\sigma')d\sigma'\right]\\
+&+\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty;k\neq 0}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\frac{1}{2\pi}\int_0^\pi \sigma' \sin((n+k)\sigma')d\sigma'-\frac{1}{2}\int_{\sigma}^{\pi} \sin((n+k)\sigma')d\sigma'\right]
+\end{flalign*}
+On doit maintenant traiter les intégrales des sinus:\\
+Si $a\neq$0, alors:
+\begin{flalign*}
+&\int_0^\pi x\sin(ax) dx=\left[ x\frac{\cos(ax)}{-a}\right]_0^\pi - \int_0^\pi \frac{\cos(ax)}{-a}dx=\left( -\frac{\pi}{a}\cos(a\pi)\right) +\left[\frac{\sin(ax)}{a^2}\right]_0^\pi=-\frac{\pi}{a}\cos(a\pi)\\
+&\int_\sigma^\pi \sin(ax) dx = \left[\frac{\cos(ax)}{-a}\right]_\sigma^\pi=\frac{\cos(a\sigma)-\cos(a\pi)}{a}
+\end{flalign*}
+Si $a=0$, alors $\sin(ax)=0$ $\forall x$\\
+On introduit le symbole suivant:
+\begin{equation}
+\epsilon_{a}=\left\lbrace
+\begin{aligned}
+	0   (a=0)\\
+	1  (a\neq 0)
+\end{aligned}\right.
+\end{equation}
+Alors:
+\begin{equation*}
+\frac{1}{\pi}\int_0^\pi x\sin(ax) dx-\int_\sigma^\pi \sin(ax) dx=\epsilon_{a}*\left(-\frac{\cos(a\sigma)}{a}\right)
+\end{equation*}
+Donc
+\begin{flalign*}
+f(\sigma,\tau)&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\left[ \frac{\vec{a}_n\vec{a}_0}{n}\cos(n\sigma)e^{-in\tau}+\sum_{k=-\infty;k\neq 0}^{+\infty}\epsilon_{n+k}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right]\\
+&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}
+\end{flalign*}
+On peut finalement intégrer $f(\sigma,\tau)$:
+\begin{flalign*}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[  \frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right] \cos(m\sigma)d\sigma\\
+&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}e^{-i(n+k)\tau}\int_0^\pi\cos((n+k)\sigma)\cos(m\sigma)d\sigma
+\end{flalign*}
+\begin{equation}
+\int_0^\pi\cos(ax)\cos(bx)dx=\frac{1}{2}\int_0^\pi\left( \cos((a+b)x)+\cos((a-b)x\right)dx=\frac{\pi}{2}\left( \delta_{a,-b}+\delta_{a,b}\right)
+\end{equation}
+Car
+$$\int_0^\pi\cos(ax)dx=\pi\delta_{a,0}$$
+Donc
+\begin{flalign*}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma= \frac{\pi i}{2\sqrt{2}a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{n+k}e^{-i(n+k)\tau}\left( \delta_{n+k,-m}+\delta_{n+k,m}\right) 
+\end{flalign*}
+Comme $m\neq 0$,
+\begin{flalign*}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&= \frac{\pi i}{2\sqrt{2}a_0^+}\sum_{n=-\infty}^{+\infty}\left[ \frac{\vec{a}_n\vec{a}_{-m-n}}{-m}e^{im\tau}+\frac{\vec{a}_n\vec{a}_{m-n}}{m}e^{-im\tau}\right]\\
+&=\frac{i\pi}{\sqrt{2}}\left( \frac{e^{im\tau}}{-m}\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty} \vec{a}_{-k}\vec{a}_{-m+k}+\frac{e^{-im\tau}}{m}\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}\right)  
+\end{flalign*}
+En comparant à l'expression (6), on voit directement que:
+\begin{equation}
+a_m^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}
+\end{equation}
+\paragraph{Calcul de $a_0^-$:}
+On sait que $a_0^-=\frac{H}{a_0^+}$
+Nous devons donc exprimer $H$ en fonction des modes normaux.
+$$H=\pi\int_0^\pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)d\sigma$$
+Or
+\begin{equation}
+\left\lbrace
+\begin{aligned}
+\vec{x}^{ '} &=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}(-n\sin(n\sigma))e^{-in\tau}\\
+\vec{\pt}&=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma)(-ike^{-ik\tau})
+\end{aligned}
+\right.
+\end{equation}
+\begin{equation}
+\Rightarrow
+\left\lbrace
+\begin{aligned} \frac{(\vec{x}^{'})^2}{(2\pi)^2}&=\frac{-2}{(2\pi)^2}\sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\sin(k\sigma)\sin(n\sigma)\\
+(\vec{\pt})^2&=\frac{1}{2\pi^2}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\cos(n\sigma)\cos(k\sigma)
+\end{aligned}
+\right.
+\end{equation}
+Donc
+\begin{equation}
+\begin{aligned}
+H&=\frac{1}{2\pi}\int_0^\pi d\sigma\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}(\cos(n\sigma)\cos(k\sigma)-\sin(n\sigma)\sin(k\sigma))\right]+\frac{1}{2\pi}\int_0^\pi d\sigma(\vec{a}_0)^2 \\
+&=\frac{1}{2\pi}\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\int_0^\pi  \cos((n+k)\sigma)d\sigma\right] +\frac{(\vec{a}_0)^2}{2}\\
+&=\frac{1}{2}\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\delta_{n,-k}\right] +\frac{(\vec{a}_0)^2}{2}\\
+&=\left( \sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_{-n}\vec{a}_n}{2}\right)  +\frac{(\vec{a}_0)^2}{2}
+\end{aligned}
+\end{equation}
+\begin{equation}
+\Rightarrow H=\frac{1}{2}\sum_{n=-\infty}^{+\infty}\vec{a}_{-n}\vec{a}_{n}=\frac{(\vec{a}_0)^2}{2}+\sum_{n=1}^{+\infty}\vec{a}_{-n}\vec{a}_{n}
+\end{equation}
+\paragraph{Conclusion:}
+$\forall n \in \mathbb{Z}:$
+\begin{equation}
+a_n^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
+\end{equation}
+\section*{Annexe 2: Calcul des crochets de Poisson des modes normaux}
+Nous allons calculer les crochets de Poissons parmi les variables indépendantes et les modes dépendants.\\
+Lors du calcul des contraintes sur les $a_n^-$, on a montré que:
+\begin{equation}
+\left\lbrace
+\begin{aligned}
+&x^i= q_0^i + \sqrt{2}a_0^i \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}\cos(n\sigma)e^{-in\tau}\\
+&\pt^i=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}\cos(k\sigma)e^{-ik\tau}
+\end{aligned}
+\right.
+\end{equation}
+Donc si on veut isoler les $a_n^i$ en fonction de $x^i$ et $\pt^i$:
+\begin{flalign*}
+\int_0^\pi \pt^i \cos(m\sigma)d\sigma&=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}e^{-ik\tau}\int_0^\pi\cos(k\sigma)cos(m\sigma)d\sigma=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}e^{-ik\tau}\frac{\pi}{2}\left( \delta_{k,m}+\delta_{k,-m}\right) \\
+&=\frac{1}{2\sqrt{2}}\left(a_m^ie^{-im\tau}+a_{-m}^ie^{im\tau}\right) 
+\end{flalign*}
+\begin{flalign*}
+\int_0^\pi x^i \cos(m\sigma)d\sigma &=  (q_0^i + \sqrt{2}a_0^i \tau)\int_0^\pi\cos(m\sigma)d\sigma + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
+&=\pi\delta_{m,0}(q_0^i + \sqrt{2}a_0^i \tau) + \epsilon_{m,0}\frac{\pi\sqrt{2}i}{2}\left( \frac{a_m^i}{m}e^{-im\tau} + \frac{a_{-m}^i}{-m}e^{im\tau})\right) 
+\end{flalign*}
+Donc $\forall m\neq 0$:
+$$a^i_m=e^{im\tau}\left( \frac{m}{\sqrt{2}i\pi}\int_0^\pi x^i\cos(m\sigma)d\sigma + \sqrt{2}\int_0^\pi \pt^i \cos(m\sigma)d\sigma\right) $$
+Et pour $m=0$:
+$$a_0^i=\sqrt{2}\int_0^\pi\pt^i d\sigma$$
+$$\int_0^\pi x^id\sigma=\pi(q_0^i+\sqrt{2}a_0^i\tau)$$
+$$\Rightarrow q_0^i=\int_0^\pi(\frac{x^i}{\pi}- 2\tau \pt^i)d\sigma$$
+\textbf{Crochets de Poisson}:\\
+\begin{flalign*}
+\{a_n^i,a_m^j\}&=e^{in\tau}e^{jm\tau}\left\{\int_0^\pi\left( \frac{nx^i}{\sqrt{2}i\pi}+\sqrt{2}\pt^i\right) \cos(n\sigma)d\sigma,\int_0^\pi\left(\frac{mx^j}{\sqrt{2}i\pi}+\sqrt{2}\pt^j\right)\cos(m\sigma')d\sigma' \right\}
+\end{flalign*}
+Comme $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjugués, seuls les termes croisés seront non nuls:
+\begin{flalign*}
+\{a_n^i,a_m^j\}&=\frac{-i}{\pi}e^{in\tau}e^{jm\tau}\int_0^\pi d\sigma\int_0^\pi d\sigma'\cos(n\sigma)\cos(m\sigma')\left(\{nx^i(\sigma),\pt^j(\sigma')\} + \{ \pt^i(\sigma) ,mx^j(\sigma')\}\right)\\
+&= \frac{-i}{\pi}e^{in\tau}e^{jm\tau}\int_0^\pi d\sigma\int_0^\pi d\sigma'\cos(n\sigma)\cos(m\sigma')\left(n\delta^{ij}\delta(\sigma-\sigma') - m\delta^{ij}\delta(\sigma-\sigma')\right)\\
+&= \frac{-i}{\pi}e^{in\tau}e^{im\tau}\delta^{ij}\int_0^\pi d\sigma\cos(n\sigma)\cos(m\sigma)(n - m)\\
+&= \frac{i(m-n)}{\pi}e^{in\tau}e^{im\tau}\delta^{ij}\left[\frac{\pi}{2}(\delta_{n,m}+\delta_{n,-m})\right]\\
+&=\left[\frac{i(m-m)}{2}e^{im\tau}e^{im\tau}\delta^{ij}\delta_{n,m}+\frac{i(m-(-m))}{2}e^{-im\tau}e^{im\tau}\delta^{ij}\delta_{n,-m}\right]\\
+&=im\delta^{ij}\delta_{n,-m}=-in\delta^{ij}\delta_{n,-m}\\
+\{a_0^i,a_0^j\}&=2\int_0^\pi d\sigma\int_0^\pi d\sigma'\{\pt^i(\sigma),\pt^j(\sigma')\}=0\\
+\{q_0^i,a_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\sqrt{2}\int_0^\pi \pt^j(\sigma')d\sigma'\right\}=\frac{\sqrt{2}}{\pi}\int_0^\pi d\sigma \int_0^\pi d\sigma' \{x^i(\sigma),\pt^j(\sigma')\}\\
+&=\frac{\sqrt{2}}{\pi}\delta^{ij}\int_0^\pi d\sigma \int_0^\pi d\sigma'\delta(\sigma-\sigma')=\sqrt{2}\delta^{ij}\\
+\{q_0^i,q_0^j\}&=\left\{\frac{1}{\pi}\int_0^\pi  (x^i(\sigma)-2\tau\pt^i(\sigma))d\sigma,\frac{1}{\pi}\int_0^\pi  (x^j(\sigma')-2\tau\pt^j(\sigma'))d\sigma'\right\}\\
+&=\frac{-2\tau}{\pi}\int_0^\pi d\sigma\int_0^\pi d\sigma'\left(\{  x^i(\sigma),\pt^j(\sigma')\} +\{\pt^i(\sigma),x^j(\sigma')\}\right)=0\\
+\{q_0^-,a_0^+\}&=\{q_{0-},\sqrt{2}\CP_+\}=-\sqrt{2}
+\end{flalign*}
+Calculons à présent les crochets de Poisson des modes dépendants:
+\begin{flalign*}
+\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}&\{\vec{a}_{-k} \cdot \vec{a}_{n+k},\vec{a}_{-l} \cdot \vec{a}_{m+l}\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-2}\sum_{j=1}^{D-2}\{a^i_{-k}a^i_{n+k},a^j_{-l}a^j_{m+l}\}\\
+\{a^i_{-k} \cdot a^i_{n+k},a^j_{-l} \cdot a^j_{m+l}\}=& a^i_{-k}\{a^i_{n+k},a^j_{-l}\}a^j_{m+l}+a^i_{-k}\{a^i_{n+k},a^j_{m+l}\}a^j_{-l}\\
++& a^i_{n+k}\{a^i_{-k},a^j_{-l}\}a^j_{m+l}+a^i_{n+k}\{a^i_{-k},a^j_{m+l}\}a^j_{-l}\\
+=& a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
++& a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}\\
+\end{flalign*}
+Donc
+\begin{flalign*}
+\{L_n,L_m\}=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{l=-\infty}^{l=+\infty}\sum_{i=1}^{D-2}\sum_{j=1}^{D-2}& a^i_{-k}(-i(n+k)\delta_{n+k,l}\delta^{ij})a^j_{m+l}+a^i_{-k}(-i(n+k)\delta_{n+k,-m-l}\delta^{ij})a^j_{-l}\\
+&+a^i_{n+k}(-i(-k)\delta_{-k,l}\delta^{ij})a^j_{m+l}+a^i_{n+k}(-i(-k)\delta_{-k,-m-l}\delta^{ij})a^j_{-l}
+\end{flalign*}
+\begin{flalign*}
+&=\frac{1}{4}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} \left[ -i(n+k)a^i_{-k}a^i_{m+n+k}-i(n+k)a^i_{-k}a^i_{m+n+k}+ika^i_{n+k}a^i_{m-k}+ika^i_{n+k}a^i_{m-k}\right]\\
+&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} -i(n+k)a^i_{-k}a^i_{m+n+k}+\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2}ika^i_{n+k}a^i_{m-k}\\
+&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} -i(n+k)a^i_{-k}a^i_{m+n+k}+\frac{1}{2}\sum_{k'=-\infty}^{k=+\infty}\sum_{i=1}^{D-2}i(k'+m)a^i_{n+m+k'}a^i_{-k'}\\
+&=\frac{1}{2}\sum_{k=-\infty}^{k=+\infty}\sum_{i=1}^{D-2} i(m-n)a^i_{-k}a^i_{m+n+k}=i(m-n)L_{m+n}
+\end{flalign*}
+\begin{flalign*}
+\{L_n,a^j_m\}&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-2}\{a^i_{-k}a^i_{n+k},a^j_m\}=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-2}\left[ a^i_{-k}\{a^i_{n+k},a^j_m\}+\{a^i_{-k},a^j_m\}a^i_{n+k}\right]\\
+&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{i=1}^{D-2}\left[ a^i_{-k}(-i(n+k)\delta_{n+k,-m}\delta_{i,j})+(-i(-k)\delta_{-k,-m}\delta_{i,j}a^i_{n+k}\right]\\
+&=\frac{1}{2}\left[ima^j_{m+n}+ima^j_{n+m}\right]=ima^j_{m+n}
+\end{flalign*}
+\begin{flalign*}
+\{q_0^i,L_{m}\}&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\{q_0^i,a_{-k}^j \cdot a_{m+k}^{j}\}=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\left[\{q_0^i,a_{-k}^j\}a_{m+k}^{j}+a_{-k}^j\{q_0^i,a_{m+k}^{j}\}\right]\\
+&=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\left[\sqrt{2}\delta_{0,-k}\delta^{ij}a_{n+k}^{j}+a_{-k}^j\sqrt{2}\delta_{0,m+k}\delta^{ij}\right]=\sqrt{2}a_{m}^i
+\end{flalign*}
+
 \part*{Bibliographie}
 \begin{enumerate}
 \item\label{article} GODDARD P., GOLDSTONE J., REBBI C. and THORN C.B., \textit{Quantum Dynamics of a Massless Relativistic String} (1973), Nuclear Physics B56 , North-Holland Publishing Company
