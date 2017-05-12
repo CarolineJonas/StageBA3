@@ -416,11 +416,12 @@ Les équations de Hamilton sont:
 \begin{equation}
 \delta H = \pi\int_0^\pi\left(2\pt^i \delta P_{\tau i} +\frac{2x^{'i}}{(2\pi)^2}\delta x^{'}_{i}\right) d\sigma=\int_0^\pi \left( 2\pi\pt^i(\sigma) \delta P_{\tau i}(\sigma) -\frac{x^{''i}(\sigma)}{2\pi}\delta x_{i}(\sigma)\right)  d\sigma 
 \end{equation}
-où la deuxième égalité est une integration par parties où on a supprimé le terme aux bords (les variations $\delta x$ sont toujours nuls aux bords). 
-Donc
+où la deuxième égalité est une intégration par parties où on a supprimé le terme aux bords (les variations $\delta x$ sont toujours nuls aux bords).\\
+Or par définition,
 \begin{flalign*}
-&\frac{\delta H}{\delta \pt^j(\sigma')} = 2\pi\int_0^\pi\pt^i(\sigma)\frac{\delta P_{\tau i}(\sigma)}{\delta \pt^j(\sigma')}d\sigma = 2\pi\int_0^\pi\pt^i(\sigma)\delta_i^j\delta(\sigma-\sigma')d\sigma=2\pi \pt^j(\sigma')=\dot{x}^j \\
-&\frac{\delta H}{\delta x^j(\sigma')} = -\int_0^\pi\frac{x^{''i}(\sigma)}{2\pi}\frac{\delta x_i(\sigma)}{\delta x^j(\sigma')}d\sigma=-\int_0^\pi\frac{x^{''i}(\sigma)}{2\pi}\delta_i^j\delta(\sigma-\sigma')d\sigma=-\frac{x^{''j}(\sigma')}{2\pi}=-\dot{\pt}^j
+&\delta H=\int_0^\pi\left( \frac{\delta H}{\delta \pt^i}\delta \pt^i + \frac{\delta H}{\delta x^i}\delta x^i\right)d \sigma\\
+\Rightarrow &\frac{\delta H}{\delta \pt^i(\sigma)}=2\pi \pt^i (\sigma)= \dot{x}^i(\sigma)\\
+&\frac{\delta H}{\delta x^i(\sigma)}= -\frac{x''^i(\sigma)}{2\pi}=-\dot{\pt}^i(\sigma)
 \end{flalign*}
 Par conséquent, $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjuguées:
 \begin{equation}
