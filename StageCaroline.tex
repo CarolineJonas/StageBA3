@@ -7,23 +7,25 @@
 \def\pt{P_\tau}
 \def\vecpt{\vec{\pt}}
 \newcommand{\Mup}[1]{M^{#1}}
+\newcommand{\sumnotzero}[1]{\sum_{\substack{#1=-\infty \\ #1\neq 0}}^{+\infty}}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[a4paper]{geometry}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \geometry{hscale=0.80,vscale=0.80,centering}
-\title{Rapport de Stage}
+\title{Rapport de Stage: Etude classique de la corde non massive relativiste}
 \author{Caroline Jonas}
+\date{Mai 2017}
 
 \begin{document}
 \maketitle
 
 \part*{Introduction}
-Le but de ce travail est de comprendre l'article "Quantum dynamics of a massless relativistic string"[\ref{article}] et de pouvoir en réexpliquer et démontrer les résultats.\\
-Cet article se divise en deux parties. Dans un premier temps, on traite la corde bosonique à l'aide de la mécanique classique. On trouve les équations du mouvement et on développe le formalisme Hamiltonien.\\
-Dans un second temps, on transpose les résultats ainsi obtenus à la mécanique quantique par le principe de correspondance et on trouve la dimension dans laquelle cette théorie est covariante.
-Dans ce travail, on se concentre sur la partie classique dont on redémontre les résultats.
+Le but de ce travail est d'étudier l'article "Quantum dynamics of a massless relativistic string"[\ref{article}].\\
+Cet article se divise en deux parties. Dans un premier temps, il traite une corde relativiste et sans masse de façon classique en développant les équations du mouvement et le formalisme Hamiltonien.\\
+Dans un second temps, les résultats obtenus sont transposés à la mécanique quantique par le principe de correspondance. Dans cette approche quantique, la covariance de la théorie fixe la dimension de l'espace temps à $D=26$.
+Nous allons ici étudier et redémontrer les résultats de l'approche classique.
  
 \part*{Approche Classique}
 \section{Définition de la corde}
@@ -33,15 +35,13 @@ Dans l'espace-temps, elle est décrite par une surface à deux dimensions:
 $x^{\mu}(\sigma,t)$ ($\sigma$ est un paramètre le long de la corde, et t est le temps).
 Pour que le problème soit physique, on impose que chaque point de cette surface se déplace à une vitesse $v\leq c$, c'est-à-dire qu'en chaque point de la surface, il existe un déplacement infinitésimal le long de la surface de type-temps ou de type-lumière. On dit que cette surface est de type-temps.
 \section{Paramétrisation générale}
-\textit{A retravailler}
 On paramétrise la surface par $x^{\mu}=x^{\mu}(\sigma,\tau)$. On veut calculer l'aire de la surface en termes des coordonnées $\sigma$ et $\mu$.
 Soit une surface $\Sigma$ de dimension n dans une variété $M$ de dimension $D>n$ et soit une métrique $g_{\mu\nu}$ dans $M$ sur les coordonnées $\xmu$. Alors il existe une métrique induite sur $\Sigma$:
 Sur $\Sigma$ on définit les coordonnées $\xi^\alpha$ telles que 
 $$\xmu=\xmu(\xi^\alpha) $$
 Alors $$g_{\mu\nu}d\xmu dx^\nu=\gamma_{\alpha\beta}d\xi^\alpha d\xi^\beta \Rightarrow \gamma_{\alpha\beta}=g_{\mu\nu}\partial_\alpha\xmu\partial_\beta x^\nu$$
 L'aire de la surface $\Sigma$ s'écrit: $$A=\int d^n\xi\sqrt{-\gamma}=\sqrt{-det(\partial_\alpha x\partial_\beta x)}$$
-Pour deux coordonnées $(\sigma,\tau)$, $$A=\int d\tau d\sigma \sqrt{-\gamma_{\tau\tau}\gamma_{\sigma\sigma}+\gamma^2_{\tau\sigma}}$$
-$$=\int d\tau d\sigma \sqrt{(\partial_\tau x \partial_\sigma x)^2-(\partial_\tau x)^2(\partial_\sigma x)^2}$$
+Pour deux coordonnées $(\sigma,\tau)$, $$A=\int d\tau d\sigma \sqrt{-\gamma_{\tau\tau}\gamma_{\sigma\sigma}+\gamma^2_{\tau\sigma}}=\int d\tau d\sigma \sqrt{(\partial_\tau x \partial_\sigma x)^2-(\partial_\tau x)^2(\partial_\sigma x)^2}$$
 On impose les contraintes suivantes sur les paramètres:
 \begin{enumerate}
 \item Les bouts de la corde correspondent à $\sigma=0$ et $\sigma=\pi$
@@ -59,37 +59,41 @@ La constante à l'avant n'est pas importante et sert juste aux unités. On pose 
 \begin{equation}
 0=\delta S
 \Rightarrow
-0=\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\delta \CL
+0=\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\delta \CL \label{action}
 \end{equation}
-où $\CL$ est la densité Lagrangienne et vaut: $\CL=\frac{-1}{2\pi}\sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}$ $\Leftrightarrow$ $\CL$ est une fonctionnelle de x.
-Pour simplifier les notations on écrit par la suite: $ \frac{\partial x^{\mu}}{\partial \sigma}\equiv x'^{\mu}$ et $\frac{\partial x^{\mu}}{\partial \tau}\equiv \dot{x^{\mu}}$\\
+où $\CL$ est la densité Lagrangienne et vaut: 
+$$\CL=\frac{-1}{2\pi}\sqrt{\left( \frac{\partial x}{\partial \tau}\frac{\partial x}{\partial \sigma}\right)^{2}-\left( \frac{\partial x}{\partial \tau}\right) ^{2}\left( \frac{\partial x}{\partial \sigma}\right) ^{2}}$$ $\Leftrightarrow$ $\CL$ est une fonctionnelle de $x$.\\
+Pour simplifier les notations on écrit par la suite: 
+$$ \frac{\partial x^{\mu}}{\partial \sigma}\equiv x'^{\mu} \mbox{ et } \frac{\partial x^{\mu}}{\partial \tau}\equiv \dot{x^{\mu}}$$
 Donc:
-\begin{equation}
+\begin{equation*}
 \delta \CL= \frac{\partial \CL}{\partial \dot{\xmu}}\dot{\delta \xmu}+\frac{\partial \CL}{\partial x^{\mu'}}\delta  x^{\mu'}\\
 =\frac{\partial \CL}{\partial \dot{x^{\mu}}}\frac{\partial\delta x^{\mu}}{\partial \tau}+\frac{\partial \CL}{\partial x'^{\mu}}\frac{\partial\delta x^{\mu}}{\partial \sigma}
-\end{equation}
-Ainsi,
-
-$$\delta S=\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\left( \frac{\partial \CL}{\partial \dot{x^{\mu}}}\frac{\partial\delta x^{\mu}}{\partial \tau}+\frac{\partial \CL}{\partial x'^{\mu}}\frac{\partial\delta x^{\mu}}{\partial \sigma}\right) $$
-$$=\int_{0}^{\pi}d\sigma \Big[\frac{\partial \CL}{\partial \dot{x^{\mu}}}\delta x^{\mu}\Big]^{\tau_{f}}_{\tau_{i}}+\int_{\tau_{i}}^{\tau_{f}}d\tau \Big[\frac{\partial \CL}{\partial x'^{\mu}}\delta x^{\mu}\Big]^{\pi}_{0}-\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\left( \frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot{x^{\mu}}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial x'^{\mu}}\right)\delta x^{\mu}$$
-où la dernière égalité s'obtient par intégration par parties.
+\end{equation*}
+En remplaçant dans \eqref{action},
+\begin{flalign*}
+0=\delta S&=\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\left( \frac{\partial \CL}{\partial \dot{x^{\mu}}}\frac{\partial\delta x^{\mu}}{\partial \tau}+\frac{\partial \CL}{\partial x'^{\mu}}\frac{\partial\delta x^{\mu}}{\partial \sigma}\right)\\
+&=\int_{0}^{\pi}d\sigma \Big[\frac{\partial \CL}{\partial \dot{x^{\mu}}}\delta x^{\mu}\Big]^{\tau_{f}}_{\tau_{i}}+\int_{\tau_{i}}^{\tau_{f}}d\tau \Big[\frac{\partial \CL}{\partial x'^{\mu}}\delta x^{\mu}\Big]^{\pi}_{0}-\int_{\tau_{i}}^{\tau_{f}}d\tau\int_{0}^{\pi}d\sigma\left( \frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot{x^{\mu}}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial x'^{\mu}}\right)\delta x^{\mu}
+\end{flalign*}
 Ceci est valable $\forall \delta x^{\mu}(\sigma,\tau)$ tel que 
 $$\delta x^{\mu}(\sigma,\tau_{i})=\delta x^{\mu}(\sigma,\tau_{f})=0$$
-($\Rightarrow$ le premier terme de $\delta S$ est toujours nul).
-
-Et donc finalement, $\delta S=0 \Leftrightarrow$:
+$\Rightarrow$ le premier terme de $\delta S$ est toujours nul.\\
+Et donc finalement,
 \begin{equation}
-    \frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot x^{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial  x'^{\mu}}=0
+\delta S=0 \Leftrightarrow
+\left\lbrace
+	\begin{aligned}
+    \frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot x^{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial  x'^{\mu}}=0\\
+    \frac{\partial \CL}{\partial x'^{\mu}}(0, \tau)=\frac{\partial \CL}{\partial x'^{\mu}}(\pi, \tau)=0
+    \end{aligned}\label{motion1}
+    \right.  
 \end{equation}
-\begin{equation}
-    \frac{\partial \CL}{\partial x'^{\mu}}(0, \tau)=\frac{\partial \CL}{\partial x'^{\mu}}(\pi, \tau)=0   
-\end{equation}
-Les équations (4) et (5) forment le système d'équations classiques du mouvement de la corde. 
-\paragraph*{Calcul explicite de $\frac{\partial \CL}{\partial x'_{\mu}}$ et $\frac{\partial \CL}{\partial \dot x_{\mu}}$:}
+Le système \eqref{motion1} est le système d'équations classiques du mouvement de la corde.\\
+\paragraph{Calcul explicite de $\frac{\partial \CL}{\partial x'_{\mu}}$ et $\frac{\partial \CL}{\partial \dot x_{\mu}}$:}
 Dans la suite, nous allons utiliser les équations du mouvement sous leur forme covariante:
 $$\frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot x_{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial  x'_{\mu}}=0$$
 Comme ces expressions vont nous être très souvent utiles, nous allons calculer explicitement $\frac{\partial \CL}{\partial x'_{\mu}}$ et $\frac{\partial \CL}{\partial \dot x_{\mu}}$ en terme de $\dot{x}$ et $x'$.\\
-On a pour l'instant que $\CL=\frac{-1}{2\pi}\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}=\frac{-1}{2\pi}\sqrt{(\dot{\xmu}x'_\mu)^2-(\dot{\xmu}\dot{x_\mu})(x'^\nu x'_\nu)}$\\
+On a pour l'instant  $$\CL=\frac{-1}{2\pi}\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}=\frac{-1}{2\pi}\sqrt{(\dot{\xmu}x'_\mu)^2-(\dot{\xmu}\dot{x_\mu})(x'^\nu x'_\nu)}$$
 Ainsi,
 \begin{equation}
 	\left\lbrace 
@@ -113,7 +117,7 @@ Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkows
 $$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}+a^{\mu}$$ 
 Où $\Lambda_{\nu}^{\mu}$ est une transformation de Lorentz et $a^{\mu}$ est une translation dans l'espace temps.\\
 $$------------------------------------------------------$$
-\paragraph*{Théorème de Noether en théorie classique des champs:[\ref{QFT}]}
+\paragraph{Théorème de Noether en théorie classique des champs:[\ref{QFT}]}
 Le théorème de Noether établit un lien entre les symétries d'un système physique et les lois de conservation s'appliquant dans ce système.\\
 Soit un ensemble de champs différentiables $\phi$ définis sur tout l'espace-temps. L'action est l'intégrale sur l'espace et le temps de la densité lagrangienne $\CL$:
 $$\mathcal{S}=\int\CL(\phi,\partial_\mu \phi,\xmu)d^4x$$
@@ -155,7 +159,7 @@ On l'appelle le courant de moment angulaire.
 Comme pour l'impulsion, les équations du mouvement expriment la conservation locale du moment angulaire:
 $$\frac{\partial M_{\sigma}^{\mu\nu}}{\partial \sigma}+\frac{\partial M_{\tau}^{\mu\nu}}{\partial \tau}=x^{\mu}\left( \frac{\partial P^{\nu}_{\tau}}{\partial \tau}+\frac{\partial P^{\nu}_{\sigma}}{\partial \sigma}\right) +\left( \dot{x^{\mu}}P^{\nu}_{\tau}+x'^{\mu}P^{\nu}_{\sigma}\right) -x^{\nu}\left( \frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}\right) -\left( \dot{x^{\nu}}P^{\mu}_{\tau}+x'^{\nu}P^{\mu}_{\sigma}\right)$$
 Par les équations du mouvements exprimées en fonction de $P$, nous voyons directement que le premier et le troisième terme sont nuls. 
-Ré-écrivons les termes 2 et 4 en fonctions de $\dot{x}$ et $x'$ grâce à l'équation (6):
+Ré-écrivons les termes 2 et 4 en fonctions de $\dot{x}$ et $x'$ grâce à l'équation \eqref{mvt}:
 \begin{equation}
 	\left\lbrace
 	\begin{aligned}
@@ -174,42 +178,40 @@ $$M_{\sigma}^{\mu\nu}(0,\tau)=M_{\sigma}^{\mu\nu}(\pi,\tau)=0$$
 La charge constante est ici appelée \textbf{moment angulaire total de la corde} et s'écrit: 
 $$\mathcal{M^{\mu\nu}}=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
 \section{Spécification de la paramétrisation}
-L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$. \textbf{(pas encore montré)}.
+L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$ (admis).
 Par conséquent, il faut choisir cette paramétrisation avant de résoudre les équations.\\
 Premièrement, on montre que les contraintes suivantes sur la paramétrisation:
-\begin{equation}
-x'. \dot{x}=0\label{contrainte1}
-\end{equation}
-\begin{equation}
-\left( x'\right) ^{2}+\left(\dot{x}\right) ^{2}=0\label{contrainte2}
-\end{equation}
+\begin{flalign}
+& x'. \dot{x}=0\label{contrainte1}\\
+&\left( x'\right) ^{2}+\left(\dot{x}\right) ^{2}=0\label{contrainte2}
+\end{flalign}
 simplifient les équations du mouvement.\\ Secondement, on justifie ces contraintes (et d'autres) par des arguments physiques. 
 \subsection{Simplification des équations}
 En utilisant la contrainte \eqref{contrainte1} sur la paramétrisation, on peut ré-écrire l'équation \eqref{mvt} comme:
-\begin{equation}
+\begin{equation*}
 	\left\lbrace
 	\begin{aligned}
 	\frac{\partial \CL}{\partial x'_\mu }=\frac{1}{2\pi}\frac{x'^\mu (\dot{x})^2}{\sqrt{-x'^2\dot{x}^2}}\\
 	\frac{\partial \CL}{\partial \dot{x_\mu}}=\frac{1}{2\pi}\frac{\dot{\xmu} (x')^2}{\sqrt{-x'^2\dot{x}^2}}\\
 	\end{aligned}
 	\right.
-\end{equation}
+\end{equation*}
 Par la contrainte \eqref{contrainte2}, on a que:
 $$\frac{\dot{x}^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{\dot{x}^2}{\sqrt{\dot{x}^4}}=-1$$ car on sait que $(\dot{x}^2)\leq0$.
 Et similairement,
 $$\frac{x'^2}{\sqrt{-x'^2\dot{x}^2}}=\frac{x'^2}{\sqrt{x'^4}}=+1$$
 car on sait que $(x'^2)\geq0$.
 Donc
-\begin{equation}
+\begin{equation*}
 	\left\lbrace
 	\begin{aligned}
 	\frac{\partial \CL}{\partial x'_\mu }=-\frac{1}{2\pi}x'^\mu\\
-	\frac{\partial \CL}{\partial \dot{x_\mu}}=+\frac{1}{2\pi}\dot{\xmu}\\
+	\frac{\partial \CL}{\partial \dot{x}^\mu}=+\frac{1}{2\pi}\dot{x}^\mu\\
 	\end{aligned}
 	\right.
-\end{equation}
+\end{equation*}
 Et les équations du mouvement deviennent:
-$$\frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot x_{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial  x'_{\mu}}=0 \Leftrightarrow \frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \dot{\xmu}\right)+\frac{-1}{2\pi}\frac{\partial}{\partial \sigma}\left( x'^\mu\right) $$
+$$\frac{\partial}{\partial \tau}\frac{\partial \CL}{\partial \dot{x}_{\mu}}+\frac{\partial}{\partial \sigma}\frac{\partial \CL}{\partial  x'_{\mu}}=0 \Leftrightarrow \frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \dot{x}^\mu\right)+\frac{-1}{2\pi}\frac{\partial}{\partial \sigma}\left( x'^\mu\right) $$
 $$\Leftrightarrow \frac{1}{2\pi}\left[ \frac{\partial^2 x^\mu}{\partial \tau^2}-\frac{\partial^2 x^\mu}{\partial \sigma^2}\right] =0 \Leftrightarrow \left( \frac{\partial^2}{\partial \tau^2}-\frac{\partial^2 }{\partial \sigma^2}\right) \xmu(\sigma,\tau)=0$$
 c'est-à-dire l'équation d'onde classique.
 \subsection{Arguments physiques pour le choix de la paramétrisation}
@@ -217,11 +219,10 @@ On veut que $\tau$ soit identifié à une coordonnée temporelle et que $\sigma$
 On pose donc les deux égalités suivantes:
 $$n.x=2(n.\mathcal{P})\tau$$
 $$(n.\mathcal{P})\sigma=\pi\int_0^\sigma d\sigma (n.P_\tau)$$
-où n est un vecteur à D dimensions constant tel que $n^2\leq0$.
+où $n$ est un vecteur à D dimensions constant tel que $n^2\leq0$.
 Ainsi, comme $\CP$ est une constante (par conservation du courant de Noether), 
 $n.P_\tau$ est également une constante et:
 $$n.P_\tau=\frac{n.\mathcal{P}}{\pi}$$\\
-
 Les équations du mouvement nous donnent:
 $$\frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\tau}}{\partial \tau}+\frac{\partial n.P_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\sigma}}{\partial \sigma}=0$$
 Car $n.P_\tau$ est constant.
@@ -231,7 +232,7 @@ On a $\forall (\sigma,\tau)$ $$n.P_\sigma=0 $$\\
 D'autre part, 
 $$n.P_\sigma=n_\mu \frac{\partial \CL}{\partial x'_\mu }, n.P_\tau=n_\mu.\frac{\partial \CL}{\partial \dot{x_\mu}}$$
 En utilisant l'équation \eqref{mvt}:
-\begin{equation}
+\begin{equation*}
 	\left\lbrace
 	\begin{aligned}
 	\frac{\partial \CL}{\partial x'_\mu }=\frac{1}{2\pi}\frac{x'^\mu (\dot{x}^2)-\dot{\xmu}(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
@@ -245,11 +246,11 @@ En utilisant l'équation \eqref{mvt}:
 	n.P_\tau=\frac{1}{2\pi}\frac{n.\dot{x} (x'^2)-n.x'(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}
 	\end{aligned}
 	\right.
-\end{equation}
+\end{equation*}
 Or, $n.x=2(n.\mathcal{P})\tau$ où $n$ et $\mathcal{P}$ sont des constantes,
 donc $n.\dot{x}=2(n.\mathcal{P})$ et $n.x'=0$,
 Par conséquent, 
-\begin{equation}
+\begin{equation*}
 	\left\lbrace
 	\begin{aligned}
 	0=n.P_\sigma=\frac{1}{2\pi}\frac{-2(n.\mathcal{P})(x'\dot{x})}{\sqrt{(x'\dot{x})^2-x'^2\dot{x}^2}}\\
@@ -263,8 +264,8 @@ Par conséquent,
 	\frac{n.\mathcal{P}}{\pi}=\frac{1}{\pi}\frac{(n.\mathcal{P}) (x'^2)}{\sqrt{-x'^2\dot{x}^2}}
 	\end{aligned}
 	\right.	
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
 	\left\lbrace
 	\begin{aligned}
 	(x'\dot{x})=0\\
@@ -285,17 +286,17 @@ Par conséquent,
 	(x'^2)+(\dot{x}^2)=0
 	\end{aligned}
 	\right.	
-\end{equation}
+\end{equation*}
 \textbf{Conclusion:}
 \begin{equation}
 	\left\lbrace
-    \begin{aligned}
-        \frac{\partial x}{\partial \sigma}.\frac{\partial x}{\partial \tau}=0, \left( \frac{\partial x}{\partial \sigma}\right) ^2+\left( \frac{\partial x}{\partial \tau}\right) ^2=0\\
-        \left( \frac{\partial^2}{\partial  \tau^2}-\frac{\partial^2}{\partial  \sigma^2}\right) \xmu=0\\
-        \frac{\partial \xmu}{\partial \sigma}=0 	 (\sigma=0,\pi)\\
-        n.x=2(n.\mathcal{P})\tau
-        \end{aligned}
-        \right.
+	\begin{aligned}
+		\frac{\partial x}{\partial \sigma}.\frac{\partial x}{\partial \tau}=0, \left( \frac{\partial x}{\partial \sigma}\right) ^2+\left( \frac{\partial x}{\partial \tau}\right) ^2=0\\ 
+    	\left( \frac{\partial^2}{\partial  \tau^2}-\frac{\partial^2}{\partial  \sigma^2}\right) \xmu=0\\ 
+    	\frac{\partial \xmu}{\partial \sigma}=0 \mbox{  si $\sigma=0,\pi$}\\ 
+    	n.x=2(n.\mathcal{P})\tau 
+	\end{aligned}
+    \right.
 \end{equation}
 \section{Formalisme Hamiltonien}
 Pour passer ensuite à la formulation quantique du système par le principe de correspondance, on doit construire le formalisme Hamiltonien de notre système. Cependant, les équations du mouvement sont contraintes par \eqref{contrainte1} et \eqref{contrainte2}.
@@ -385,13 +386,13 @@ $\pt^\mu=\frac{\dot{\xmu}}{2\pi}$  $$\Rightarrow \dot{\vecx}=2\pi\vecpt$$
 $$\CP_+= cst$$ 
 \paragraph{$q_-$:}
 $$\dot{q}_-=\frac{1}{\pi}\int_0^\pi d\sigma \dot{x}_-= 2\int_0^\pi d\sigma P_{\tau -}\equiv 2 \CP_-$$
-\paragraph*{Etape 2: calcul du hamiltonien.}
-On doit exprimer le hamiltonien du système. On est tenté pour ce faire de retourner à l'expression du Lagrangien du système et de trouver l'Hamiltonien par transformée de Legendre. Cependant cette méthode n'est plus valable maintenant qu'on a fixé une partie des variables par les contraintes (si on le fait, on obtient des contradictions comme $H=0$).\\
+\paragraph*{Etape 2: calcul de l'Hamiltonien.}
+On doit exprimer l'Hamiltonien du système. On est tenté pour ce faire de retourner à l'expression du Lagrangien du système et de trouver l'Hamiltonien par transformée de Legendre. Cependant cette méthode n'est plus valable maintenant qu'on a fixé une partie des variables par les contraintes (si on le fait, on obtient des contradictions comme $H=0$).\\
 Pour déterminer H, on utilise le fait que H décrit l'évolution temporelle du système:
 $$H \leftrightarrow \frac{\partial}{\partial \tau}$$
-D'autre part, on sait que $\CP_-$ génére les translations infinitésimales dans la direction de $x_+$: $$\frac{\partial}{\partial x_+}\leftrightarrow \CP_-$$
+D'autre part, on sait que $\CP_-$ génère les translations infinitésimales dans la direction de $x_+$: $$\frac{\partial}{\partial x_+}\leftrightarrow \CP_-$$
 et que (relation (6.1.1)): $$x_+=2\CP_+.\tau$$ Donc $$H \leftrightarrow \frac{\partial}{\partial \tau}=2\CP_+\frac{\partial}{\partial x_+}=2\CP_+\CP_- $$
-Par l'équation (22) et la définition de $\CP_-$, on obtient: $$H=\pi\int_0^\pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)d\sigma=\dot{q_-}\CP_+ $$
+Par l'équation (22) et la définition de $\CP_-$, on obtient: $$H=\pi\int_0^\pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)d\sigma=\dot{q}_-\CP_+ $$
 \paragraph*{Etape 3: calcul des crochets de Poisson}
 Les équations du mouvement du système sont:
 \begin{equation}
@@ -415,16 +416,23 @@ Les équations de Hamilton sont:
 \end{equation}
  Montrons que ces équations sont équivalentes pour $q^i=x^i(\sigma)$, $p^i=\pt^i(\sigma)$:\\
 \textbf{NB:} Le Hamiltonien est une fonction de $q^i$ et de $p^i$ qui sont considérées indépendantes dans cette formulation! \\
-\begin{equation}
+\begin{equation*}
 \delta H = \pi\int_0^\pi\left(2\pt^i \delta P_{\tau i} +\frac{2x^{'i}}{(2\pi)^2}\delta x^{'}_{i}\right) d\sigma=\int_0^\pi \left( 2\pi\pt^i(\sigma) \delta P_{\tau i}(\sigma) -\frac{x^{''i}(\sigma)}{2\pi}\delta x_{i}(\sigma)\right)  d\sigma 
-\end{equation}
+\end{equation*}
 où la deuxième égalité est une intégration par parties où on a supprimé le terme aux bords (les variations $\delta x$ sont toujours nuls aux bords).\\
 Or par définition,
-\begin{flalign*}
-&\delta H=\int_0^\pi\left( \frac{\delta H}{\delta \pt^i}\delta \pt^i + \frac{\delta H}{\delta x^i}\delta x^i\right)d \sigma\\
-\Rightarrow &\frac{\delta H}{\delta \pt^i(\sigma)}=2\pi \pt^i (\sigma)= \dot{x}^i(\sigma)\\
-&\frac{\delta H}{\delta x^i(\sigma)}= -\frac{x''^i(\sigma)}{2\pi}=-\dot{\pt}^i(\sigma)
-\end{flalign*}
+\begin{equation*}
+\delta H=\int_0^\pi\left( \frac{\delta H}{\delta \pt^i}\delta \pt^i + \frac{\delta H}{\delta x^i}\delta x^i\right)d \sigma
+\end{equation*}
+\begin{equation*}
+\Rightarrow
+\left\lbrace
+\begin{aligned}
+\frac{\delta H}{\delta \pt^i(\sigma)}=2\pi \pt^i (\sigma)= \dot{x}^i(\sigma)\\
+\frac{\delta H}{\delta x^i(\sigma)}= -\frac{x''^i(\sigma)}{2\pi}=-\dot{\pt}^i(\sigma)
+\end{aligned}
+\right.
+\end{equation*}
 Par conséquent, $x^i(\sigma)$ et $\pt^i(\sigma)$ sont canoniquement conjuguées:
 \begin{equation}
 	\begin{aligned}
@@ -438,7 +446,7 @@ $\Rightarrow$ $\CP_+$ et $q_{0-}$ sont deux constantes du mouvement qui complèt
 \begin{equation}
 \{q_{0-},\CP_+\}=-1\label{crp2}
 \end{equation}
-($\equiv$ $\CP_+$ est le générateur des translations infinitésimales dans la direction de $x_-$)
+($\equiv$ $\CP_+$ est le générateur des translations infinitésimales dans la direction de $x_-$).
 Comme ce sont des constantes du mouvement, on a également:
 \begin{equation}
 \{\CP_+,\vec{\pt}\}=\{\CP_+,\vec{x}\}=\{q_{0-},\vec{\pt}\}=\{q_{0-},\vec{x}\}=0\label{crp3}
@@ -515,68 +523,69 @@ Masse invariante: $$M^2=2\CP_+\CP_- - \vec{\CP}^2=\sum_{n=1}^{+\infty}\norm{\vec
 $$\CP^\mu=\int_0^\pi \pt^\mu d\sigma$$
 Or
 \begin{equation*}
-\xmu(\sigma,\tau)= q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}
+\xmu(\sigma,\tau)= q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sumnotzero{n}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}
 \end{equation*}
 Donc
 \begin{flalign*}
 \pt^\mu&=\frac{\dot{\xmu}}{2\pi}= \frac{\sqrt{2}a_0^\mu}{2\pi} + \frac{\sqrt{2}}{2\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}\\
-&=\frac{\sqrt{2}}{2\pi}\left[a_0^\mu+\sum_{n=-\infty;n\neq 0}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}\right]=\frac{\sqrt{2}}{2\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}
+&=\frac{\sqrt{2}}{2\pi}\left[a_0^\mu+\sumnotzero{n}a_n^\mu\cos(n\sigma)e^{-in\tau}\right]=\frac{\sqrt{2}}{2\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}
 \end{flalign*}
 Ainsi,
 $$\CP^\mu=\frac{1}{\sqrt{2}\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu e^{-in\tau}\int_0^\pi\cos(n\sigma)d\sigma= \frac{a_0^\mu}{\sqrt{2}}$$
-$$M^{\mu\nu}=\int_0^\pi (\xmu\pt^\nu - x^\nu\pt^\mu)d\sigma = \frac{1}{\sqrt{2}}(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu) + i\sum_{n=-\infty; n\neq 0}^{n=+\infty}\frac{a_n^\mu a_{-n}^\nu }{n} $$
-Démo:
+$$M^{\mu\nu}=\int_0^\pi (\xmu\pt^\nu - x^\nu\pt^\mu)d\sigma = \frac{1}{\sqrt{2}}(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu) + i\sumnotzero{n}\frac{a_n^\mu a_{-n}^\nu }{n} $$
+\textbf{Démonstration:}
 \begin{flalign*}
-& M^{\mu\nu}=\int_0^\pi \left(q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
-& - \int_0^\pi \left(q_0^\nu + \sqrt{2}a_0^\nu \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\nu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
-&=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma \\
-& - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma \\
-&=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2}a_0^\nu + \frac{i}{2}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k}) \\
-& - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2}a_0^\mu + \frac{i}{2}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k})\\
-&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + \frac{i}{2}\sum_{n=-\infty;n\neq 0}^{+\infty}\left[\frac{a_n^\mu a_n^\nu}{n}e^{-2in\tau} + \frac{a_n^\mu a_{-n}^\nu}{n} - \frac{a_n^\nu a_n^\mu}{n}e^{-2in\tau} - \frac{a_n^\nu a_{-n}^\mu}{n}\right]\\
-&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^\mu a_{-n}^\nu}{n} \square
+& M^{\mu\nu}=\int_0^\pi \left(q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sumnotzero{n}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
+& - \int_0^\pi \left(q_0^\nu + \sqrt{2}a_0^\nu \tau + \sqrt{2}i\sumnotzero{n}\frac{a_n^\nu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
+&=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma \\
+& - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma\\
+&=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2}a_0^\nu + \frac{i}{2}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k}) \\
+& - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2}a_0^\mu + \frac{i}{2}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k})\\
+&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + \frac{i}{2}\sumnotzero{n}\left[\frac{a_n^\mu a_n^\nu}{n}e^{-2in\tau} + \frac{a_n^\mu a_{-n}^\nu}{n} - \frac{a_n^\nu a_n^\mu}{n}e^{-2in\tau} - \frac{a_n^\nu a_{-n}^\mu}{n}\right]\\
+&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + i\sumnotzero{n}\frac{a_n^\mu a_{-n}^\nu}{n} \square
 \end{flalign*}
 Nous pouvons montrer que les $M^{\mu\nu}$  forment une base des représentations du groupe de Lorentz car elles obéissent à la relation:
 \begin{equation}
-\{M^{\mu\nu},M^{\rho\sigma}\}=g^{\mu\rho}M^{\nu\sigma}- g^{\nu\rho}M^{\mu\sigma} -g^{\mu\sigma}M^{\nu\rho} + g^{\nu\sigma}M^{\mu\rho}
+\{M^{\mu\nu},M^{\rho\sigma}\}=g^{\mu\rho}M^{\nu\sigma}- g^{\nu\rho}M^{\mu\sigma} -g^{\mu\sigma}M^{\nu\rho} + g^{\nu\sigma}M^{\mu\rho}\label{poissonbracket}
 \end{equation}
 où $g^{\mu\nu}$ est la métrique sur notre surface.
-
+\part*{Conclusion}
+Ceci achève l'étude classique de la corde relativiste. Le passage au formalisme quantique se fait par le principe de correspondance
+$$i\{Crochets de Poisson\} \rightarrow \left[Commutateur\right]$$
+Grâce à l'étude poussée des crochets de Poisson réalisée dans la partie classique, on obtient directement les commutateurs des modes normaux pour le cas quantique. La plus grande difficulté réside ensuite à tenir compte de l'ordre des termes dans les modes dépendants. C'est enfin l'analogue du calcul de l'équation \eqref{poissonbracket} qui impose que $D=26$ pour que la théorie soit bien covariante.
 \part*{Annexes}
 \section*{Annexe 1: Calcul des contraintes sur les $a_n$}
 \paragraph{Calcul des coefficients $a_n^-$ par analyse de Fourier pour $n\neq 0$:}
-\begin{flalign}
+\begin{flalign*}
  f(\sigma,\tau)&\equiv\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\\
  &=\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt
-\end{flalign}
+\end{flalign*}
 Par la première égalité:
 \begin{flalign}
-\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left( \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\right) \cos(m\sigma)d\sigma\\
-&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
-&=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^-}{n}e^{-in\tau}\frac{\pi}{2}\left( \delta_{n,-m}+\delta_{n,m}\right)\\
-&=\frac{i\pi}{\sqrt{2}}\left( \frac{a_{-m}^-}{-m}e^{im\tau}+\frac{a_m^-}{m}e^{-im\tau}\right) 
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left( \sqrt{2}i\sumnotzero{n}\frac{a_n^-}{n}\cos(n\sigma)e^{-in\tau}\right) \cos(m\sigma)d\sigma\\
+&=\sqrt{2}i\sumnotzero{n}\frac{a_n^-}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
+&=\sqrt{2}i\sumnotzero{n}\frac{a_n^-}{n}e^{-in\tau}\frac{\pi}{2}\left( \delta_{n,-m}+\delta_{n,m}\right)\label{annexe1}\\ 
+&=\frac{i\pi}{\sqrt{2}}\left( \frac{a_{-m}^-}{-m}e^{im\tau}+\frac{a_m^-}{m}e^{-im\tau}\right) \label{annexe2}
 \end{flalign}
-Le passage de (5) à (6) est valable seulement dans le cas $m\neq 0$. 
+Le passage de \eqref{annexe1} à \eqref{annexe2} est valable seulement dans le cas $m\neq 0$. 
 Si $m=0$, on voit que par la contrainte $n\neq0$ dans la somme, l'intégrale donne 0 (le cas $m=0$ sera traité à part). Nous pouvons donc supposer $m\neq 0$ pour la suite.\\
 Par la seconde égalité:
-\begin{flalign}
-\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\right]\cos(m\sigma)d\sigma 
-\end{flalign}
+\begin{equation*}
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma=\int_0^\pi\left[\frac{\sqrt{2}\pi}{a_0^+}\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \vecx'\vecpt\right]\cos(m\sigma)d\sigma 
+\end{equation*}
 Or,
-\begin{equation}
-\begin{aligned}
-\vec{x}^{ '} &=\frac{\partial}{\partial \sigma'}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}\cos(n\sigma')e^{-in\tau}\right)
-=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}(-n\sin(n\sigma'))e^{-in\tau}\\
-\vec{\pt} &=\frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sum_{k=-\infty;k\neq 0}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')e^{-ik\tau}\right)
-=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')(-ike^{-ik\tau})\\
-&\Rightarrow \vec{x}^{ '}\vec{\pt}=\frac{-i}{\pi}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_k\sin(n\sigma')\cos(k\sigma')e^{-in\tau}e^{-ik\tau}
-\end{aligned}
-\end{equation}
+\begin{flalign*}
+\vec{x}^{ '} =\frac{\partial}{\partial \sigma'}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sumnotzero{n}\frac{\vec{a}_n}{n}\cos(n\sigma')e^{-in\tau}\right)
+&=\sqrt{2}i\sumnotzero{n}\frac{\vec{a}_n}{n}(-n\sin(n\sigma'))e^{-in\tau}\\
+\vec{\pt} =\frac{1}{2\pi}\frac{\partial}{\partial \tau}\left( \vec{q}_0 + \sqrt{2}\vec{a}_0 \tau + \sqrt{2}i\sumnotzero{k}\frac{\vec{a}_k}{k}\cos(k\sigma')e^{-ik\tau}\right)
+&=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma')(-ike^{-ik\tau})\\
+\Rightarrow \vec{x}^{ '}\vec{\pt}=\frac{-i}{\pi}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_k&\sin(n\sigma')\cos(k\sigma')e^{-in\tau}e^{-ik\tau}
+\end{flalign*}
 Ainsi,
 \begin{flalign*}
-f(\sigma,\tau)&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]\\
-&=\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_n\vec{a}_0e^{-in\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\right]\\
-&+\frac{-\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\sum_{k=-\infty;k\neq 0}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]
+f(\sigma,\tau)&=\frac{-\sqrt{2}i}{a_0^+}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]\\
+&=\frac{-\sqrt{2}i}{a_0^+}\sumnotzero{n}\vec{a}_n\vec{a}_0e^{-in\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\right]\\
+&+\frac{-\sqrt{2}i}{a_0^+}\sumnotzero{n}\sumnotzero{k}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\left[\int_0^\pi d\sigma'\left( \frac{\sigma'}{\pi}-\theta(\sigma'-\sigma)\right) \sin(n\sigma')\cos(k\sigma')\right]
 \end{flalign*}
 Où on a séparé le cas $k=0$ du reste. Ceci implique que le second terme est symétrique en $k$ et $n$ ($\equiv$ on peut interchanger $k$ et $n$ et conserver la même expression).\\
 Cependant,
@@ -596,42 +605,38 @@ Si $a\neq$0, alors:
 \end{flalign*}
 Si $a=0$, alors $\sin(ax)=0$ $\forall x$\\
 On introduit le symbole suivant:
-\begin{equation}
-\epsilon_{a}=\left\lbrace
-\begin{aligned}
-	0   (a=0)\\
-	1  (a\neq 0)
-\end{aligned}\right.
-\end{equation}
+\begin{equation*}
+\epsilon_{a}=\begin{cases} 0,& \mbox{si } a=0\\1, & \mbox{si } a\neq 0 \end{cases}
+\end{equation*}
 Alors:
 \begin{equation*}
 \frac{1}{\pi}\int_0^\pi x\sin(ax) dx-\int_\sigma^\pi \sin(ax) dx=\epsilon_{a}*\left(-\frac{\cos(a\sigma)}{a}\right)
 \end{equation*}
 Donc
 \begin{flalign*}
-f(\sigma,\tau)&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty;n\neq 0}^{+\infty}\left[ \frac{\vec{a}_n\vec{a}_0}{n}\cos(n\sigma)e^{-in\tau}+\sum_{k=-\infty;k\neq 0}^{+\infty}\epsilon_{n+k}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right]\\
-&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}
+f(\sigma,\tau)&=\frac{\sqrt{2}i}{a_0^+}\sumnotzero{n}\left[ \frac{\vec{a}_n\vec{a}_0}{n}\cos(n\sigma)e^{-in\tau}+\sumnotzero{k}\epsilon_{n+k}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right]\\
+&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{\substack{k=-\infty\\k\neq n}}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}
 \end{flalign*}
 On peut finalement intégrer $f(\sigma,\tau)$:
 \begin{flalign*}
-\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[  \frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right] \cos(m\sigma)d\sigma\\
-&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}e^{-i(n+k)\tau}\int_0^\pi\cos((n+k)\sigma)\cos(m\sigma)d\sigma
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&=\int_0^\pi\left[  \frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{\substack{k=-\infty\\k\neq n}}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}\cos((n+k)\sigma)e^{-i(n+k)\tau}\right] \cos(m\sigma)d\sigma\\
+&=\frac{\sqrt{2}i}{a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{\substack{k=-\infty\\k\neq n}}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{2(n+k)}e^{-i(n+k)\tau}\int_0^\pi\cos((n+k)\sigma)\cos(m\sigma)d\sigma
 \end{flalign*}
-\begin{equation}
+\begin{equation*}
 \int_0^\pi\cos(ax)\cos(bx)dx=\frac{1}{2}\int_0^\pi\left( \cos((a+b)x)+\cos((a-b)x\right)dx=\frac{\pi}{2}\left( \delta_{a,-b}+\delta_{a,b}\right)
-\end{equation}
+\end{equation*}
 Car
 $$\int_0^\pi\cos(ax)dx=\pi\delta_{a,0}$$
 Donc
 \begin{flalign*}
-\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma= \frac{\pi i}{2\sqrt{2}a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty;k\neq n}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{n+k}e^{-i(n+k)\tau}\left( \delta_{n+k,-m}+\delta_{n+k,m}\right) 
+\int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma= \frac{\pi i}{2\sqrt{2}a_0^+}\sum_{n=-\infty}^{+\infty}\sum_{\substack{k=-\infty\\k\neq n}}^{+\infty}\frac{\vec{a}_n\vec{a}_k}{n+k}e^{-i(n+k)\tau}\left( \delta_{n+k,-m}+\delta_{n+k,m}\right) 
 \end{flalign*}
 Comme $m\neq 0$,
 \begin{flalign*}
 \int_0^\pi f(\sigma,\tau)\cos(m\sigma)d\sigma&= \frac{\pi i}{2\sqrt{2}a_0^+}\sum_{n=-\infty}^{+\infty}\left[ \frac{\vec{a}_n\vec{a}_{-m-n}}{-m}e^{im\tau}+\frac{\vec{a}_n\vec{a}_{m-n}}{m}e^{-im\tau}\right]\\
 &=\frac{i\pi}{\sqrt{2}}\left( \frac{e^{im\tau}}{-m}\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty} \vec{a}_{-k}\vec{a}_{-m+k}+\frac{e^{-im\tau}}{m}\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}\right)  
 \end{flalign*}
-En comparant à l'expression (6), on voit directement que:
+En comparant cette dernière égalité à l'expression \eqref{annexe2}, on voit directement que:
 \begin{equation}
 a_m^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{m+k}
 \end{equation}
@@ -640,31 +645,28 @@ On sait que $a_0^-=\frac{H}{a_0^+}$
 Nous devons donc exprimer $H$ en fonction des modes normaux.
 $$H=\pi\int_0^\pi\left( \vecpt^2 +\frac{\vecx^{'2}}{(2\pi)^2}\right)d\sigma$$
 Or
-\begin{equation}
+\begin{equation*}
 \left\lbrace
 \begin{aligned}
-\vec{x}^{ '} &=\sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_n}{n}(-n\sin(n\sigma))e^{-in\tau}\\
-\vec{\pt}&=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma)(-ike^{-ik\tau})
+\vec{x}^{ '} =\sqrt{2}i\sumnotzero{n}\frac{\vec{a}_n}{n}(-n\sin(n\sigma))e^{-in\tau}\\
+\vec{\pt}=\frac{i}{\sqrt{2}\pi}\sum_{k=-\infty}^{+\infty}\frac{\vec{a}_k}{k}\cos(k\sigma)(-ike^{-ik\tau})
 \end{aligned}
 \right.
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
 \Rightarrow
 \left\lbrace
-\begin{aligned} \frac{(\vec{x}^{'})^2}{(2\pi)^2}&=\frac{-2}{(2\pi)^2}\sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\sin(k\sigma)\sin(n\sigma)\\
-(\vec{\pt})^2&=\frac{1}{2\pi^2}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\cos(n\sigma)\cos(k\sigma)
+\begin{aligned} \frac{(\vec{x}^{'})^2}{(2\pi)^2}=\frac{-2}{(2\pi)^2}\sumnotzero{k}\sumnotzero{n}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\sin(k\sigma)\sin(n\sigma)\\
+(\vec{\pt})^2=\frac{1}{2\pi^2}\sum_{n=-\infty}^{+\infty}\sum_{k=-\infty}^{+\infty}\vec{a}_n\vec{a}_ke^{-i(n+k)\tau}\cos(n\sigma)\cos(k\sigma)
 \end{aligned}
 \right.
-\end{equation}
+\end{equation*}
 Donc
-\begin{equation}
-\begin{aligned}
-H&=\frac{1}{2\pi}\int_0^\pi d\sigma\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}(\cos(n\sigma)\cos(k\sigma)-\sin(n\sigma)\sin(k\sigma))\right]+\frac{1}{2\pi}\int_0^\pi d\sigma(\vec{a}_0)^2 \\
-&=\frac{1}{2\pi}\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\int_0^\pi  \cos((n+k)\sigma)d\sigma\right] +\frac{(\vec{a}_0)^2}{2}\\
-&=\frac{1}{2}\left[ \sum_{k=-\infty;k\neq 0}^{+\infty}\sum_{n=-\infty;n\neq 0}^{+\infty}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\delta_{n,-k}\right] +\frac{(\vec{a}_0)^2}{2}\\
-&=\left( \sum_{n=-\infty;n\neq 0}^{+\infty}\frac{\vec{a}_{-n}\vec{a}_n}{2}\right)  +\frac{(\vec{a}_0)^2}{2}
-\end{aligned}
-\end{equation}
+\begin{flalign*}
+H&=\frac{1}{2\pi}\int_0^\pi d\sigma\left[ \sumnotzero{k}\sumnotzero{n}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}(\cos(n\sigma)\cos(k\sigma)-\sin(n\sigma)\sin(k\sigma))\right]+\frac{1}{2\pi}\int_0^\pi d\sigma(\vec{a}_0)^2 \\
+&=\frac{1}{2\pi}\left[ \sumnotzero{k}\sumnotzero{n}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\int_0^\pi  \cos((n+k)\sigma)d\sigma\right] +\frac{(\vec{a}_0)^2}{2}\\
+&=\frac{1}{2}\left[ \sumnotzero{k}\sumnotzero{n}\vec{a}_k\vec{a}_ne^{-i(n+k)\tau}\delta_{n,-k}\right] +\frac{(\vec{a}_0)^2}{2}=\left( \sumnotzero{n}\frac{\vec{a}_{-n}\vec{a}_n}{2}\right)  +\frac{(\vec{a}_0)^2}{2}
+\end{flalign*}
 \begin{equation}
 \Rightarrow H=\frac{1}{2}\sum_{n=-\infty}^{+\infty}\vec{a}_{-n}\vec{a}_{n}=\frac{(\vec{a}_0)^2}{2}+\sum_{n=1}^{+\infty}\vec{a}_{-n}\vec{a}_{n}
 \end{equation}
@@ -679,7 +681,7 @@ Lors du calcul des contraintes sur les $a_n^-$, on a montré que:
 \begin{equation}
 \left\lbrace
 \begin{aligned}
-&x^i= q_0^i + \sqrt{2}a_0^i \tau + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}\cos(n\sigma)e^{-in\tau}\\
+&x^i= q_0^i + \sqrt{2}a_0^i \tau + \sqrt{2}i\sumnotzero{n}\frac{a_n^i}{n}\cos(n\sigma)e^{-in\tau}\\
 &\pt^i=\sum_{k=-\infty}^{+\infty}\frac{a_k^i}{\sqrt{2}\pi}\cos(k\sigma)e^{-ik\tau}
 \end{aligned}
 \right.
@@ -690,7 +692,7 @@ Donc si on veut isoler les $a_n^i$ en fonction de $x^i$ et $\pt^i$:
 &=\frac{1}{2\sqrt{2}}\left(a_m^ie^{-im\tau}+a_{-m}^ie^{im\tau}\right) 
 \end{flalign*}
 \begin{flalign*}
-\int_0^\pi x^i \cos(m\sigma)d\sigma &=  (q_0^i + \sqrt{2}a_0^i \tau)\int_0^\pi\cos(m\sigma)d\sigma + \sqrt{2}i\sum_{n=-\infty;n\neq 0}^{+\infty}\frac{a_n^i}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
+\int_0^\pi x^i \cos(m\sigma)d\sigma &=  (q_0^i + \sqrt{2}a_0^i \tau)\int_0^\pi\cos(m\sigma)d\sigma + \sqrt{2}i\sumnotzero{n}\frac{a_n^i}{n}e^{-in\tau}\int_0^\pi\cos(n\sigma)\cos(m\sigma)d\sigma\\
 &=\pi\delta_{m,0}(q_0^i + \sqrt{2}a_0^i \tau) + \epsilon_{m,0}\frac{\pi\sqrt{2}i}{2}\left( \frac{a_m^i}{m}e^{-im\tau} + \frac{a_{-m}^i}{-m}e^{im\tau})\right) 
 \end{flalign*}
 Donc $\forall m\neq 0$:
@@ -747,7 +749,7 @@ Donc
 &=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\left[\sqrt{2}\delta_{0,-k}\delta^{ij}a_{n+k}^{j}+a_{-k}^j\sqrt{2}\delta_{0,m+k}\delta^{ij}\right]=\sqrt{2}a_{m}^i
 \end{flalign*}
 
-\part*{Bibliographie}
+\part*{Références}
 \begin{enumerate}
 \item\label{article} GODDARD P., GOLDSTONE J., REBBI C. and THORN C.B., \textit{Quantum Dynamics of a Massless Relativistic String} (1973), Nuclear Physics B56 , North-Holland Publishing Company
 \item\label{zwiebach} ZWIEBACH Barton, \textit{A First Course In String Theory} (2009), Cambridge University Presse
