@@ -36,11 +36,13 @@ $x^{\mu}(\sigma,t)$ ($\sigma$ est un paramètre le long de la corde, et t est le
 Pour que le problème soit physique, on impose que chaque point de cette surface se déplace à une vitesse $v\leq c$, c'est-à-dire qu'en chaque point de la surface, il existe un déplacement infinitésimal le long de la surface de type-temps ou de type-lumière. On dit que cette surface est de type-temps.
 \section{Paramétrisation générale}
 On paramétrise la surface par $x^{\mu}=x^{\mu}(\sigma,\tau)$. On veut calculer l'aire de la surface en termes des coordonnées $\sigma$ et $\mu$.
-Soit une surface $\Sigma$ de dimension n dans une variété $M$ de dimension $D>n$ et soit une métrique $g_{\mu\nu}$ dans $M$ sur les coordonnées $\xmu$. Alors il existe une métrique induite sur $\Sigma$:
-Sur $\Sigma$ on définit les coordonnées $\xi^\alpha$ telles que 
-$$\xmu=\xmu(\xi^\alpha) $$
-Alors $$g_{\mu\nu}d\xmu dx^\nu=\gamma_{\alpha\beta}d\xi^\alpha d\xi^\beta \Rightarrow \gamma_{\alpha\beta}=g_{\mu\nu}\partial_\alpha\xmu\partial_\beta x^\nu$$
-L'aire de la surface $\Sigma$ s'écrit: $$A=\int d^n\xi\sqrt{-\gamma}=\sqrt{-det(\partial_\alpha x\partial_\beta x)}$$
+Soit une surface $\Sigma$ de dimension n dans une variété $M$ de dimension $D>n$ et soit une métrique $g_{\mu\nu}$ dans $M$ sur les coordonnées $\xmu$. Alors il existe une métrique induite $\gamma_{\alpha\beta}$ sur $\Sigma$:\\
+\begin{flalign*}
+&\mbox{On paramétrise la surface } \Sigma \mbox{ par les coordonnées } \xi^\alpha \mbox{ telles que } \xmu=\xmu(\xi^\alpha).\\
+&\mbox{Alors	}g_{\mu\nu}d\xmu dx^\nu=\gamma_{\alpha\beta}d\xi^\alpha d\xi^\beta \Rightarrow \gamma_{\alpha\beta}=g_{\mu\nu}\partial_\alpha\xmu\partial_\beta x^\nu
+\mbox{	et l'aire de la surface $\Sigma$ s'écrit:}\\
+& A=\int d^n\xi\sqrt{-\gamma}=\sqrt{-det(\partial_\alpha x\partial_\beta x)}
+\end{flalign*}
 Pour deux coordonnées $(\sigma,\tau)$, $$A=\int d\tau d\sigma \sqrt{-\gamma_{\tau\tau}\gamma_{\sigma\sigma}+\gamma^2_{\tau\sigma}}=\int d\tau d\sigma \sqrt{(\partial_\tau x \partial_\sigma x)^2-(\partial_\tau x)^2(\partial_\sigma x)^2}$$
 On impose les contraintes suivantes sur les paramètres:
 \begin{enumerate}
@@ -67,7 +69,7 @@ Pour simplifier les notations on écrit par la suite:
 $$ \frac{\partial x^{\mu}}{\partial \sigma}\equiv x'^{\mu} \mbox{ et } \frac{\partial x^{\mu}}{\partial \tau}\equiv \dot{x^{\mu}}$$
 Donc:
 \begin{equation*}
-\delta \CL= \frac{\partial \CL}{\partial \dot{\xmu}}\dot{\delta \xmu}+\frac{\partial \CL}{\partial x^{\mu'}}\delta  x^{\mu'}\\
+\delta \CL= \frac{\partial \CL}{\partial \dot{\xmu}}\dot{\delta \xmu}+\frac{\partial \CL}{\partial x'^{\mu}}\delta  x'^{\mu}\\
 =\frac{\partial \CL}{\partial \dot{x^{\mu}}}\frac{\partial\delta x^{\mu}}{\partial \tau}+\frac{\partial \CL}{\partial x'^{\mu}}\frac{\partial\delta x^{\mu}}{\partial \sigma}
 \end{equation*}
 En remplaçant dans \eqref{action},
@@ -116,7 +118,7 @@ Comme le Lagrangien dépend uniquement du produit scalaire et des normes minkows
 \textsc{Rappel}: Le groupe de Poincaré est l'ensemble des transformations de l'espace temps qui préservent la distance minkowskienne:
 $$ x^{\mu}\rightarrow\Lambda_{\nu}^{\mu}x^{\nu}+a^{\mu}$$ 
 Où $\Lambda_{\nu}^{\mu}$ est une transformation de Lorentz et $a^{\mu}$ est une translation dans l'espace temps.\\
-$$------------------------------------------------------$$
+\newpage
 \paragraph{Théorème de Noether en théorie classique des champs:[\ref{QFT}]}
 Le théorème de Noether établit un lien entre les symétries d'un système physique et les lois de conservation s'appliquant dans ce système.\\
 Soit un ensemble de champs différentiables $\phi$ définis sur tout l'espace-temps. L'action est l'intégrale sur l'espace et le temps de la densité lagrangienne $\CL$:
@@ -178,7 +180,7 @@ $$M_{\sigma}^{\mu\nu}(0,\tau)=M_{\sigma}^{\mu\nu}(\pi,\tau)=0$$
 La charge constante est ici appelée \textbf{moment angulaire total de la corde} et s'écrit: 
 $$\mathcal{M^{\mu\nu}}=\int_{0}^{\pi}M^{\mu\nu}_{\tau}d\sigma$$
 \section{Spécification de la paramétrisation}
-L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$ (admis).
+L'action de Nambu-Goto laisse une liberté dans le choix de la paramétrisation, car les équations de mouvement gardent la même forme pour les paramètres $(\tilde{\sigma},\tilde{\tau})$ à condition que les courbes $x(\tilde{\sigma}=0,\tilde{\tau}), x(\tilde{\sigma}=\pi,\tilde{\tau})$ coïncident avec les courbes $x(\sigma=0,\tau), x(\sigma=\pi,\tau)$.
 Par conséquent, il faut choisir cette paramétrisation avant de résoudre les équations.\\
 Premièrement, on montre que les contraintes suivantes sur la paramétrisation:
 \begin{flalign}
@@ -224,11 +226,13 @@ Ainsi, comme $\CP$ est une constante (par conservation du courant de Noether),
 $n.P_\tau$ est également une constante et:
 $$n.P_\tau=\frac{n.\mathcal{P}}{\pi}$$\\
 Les équations du mouvement nous donnent:
-$$\frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\tau}}{\partial \tau}+\frac{\partial n.P_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\sigma}}{\partial \sigma}=0$$
-Car $n.P_\tau$ est constant.
-Comme les conditions au bord donnent
-$$P_\sigma^\mu(0,\tau)=P_\sigma^\mu(\pi,\tau)=0$$
-On a $\forall (\sigma,\tau)$ $$n.P_\sigma=0 $$\\
+\begin{equation*}
+\frac{\partial P^{\mu}_{\tau}}{\partial \tau}+\frac{\partial P^{\mu}_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\tau}}{\partial \tau}+\frac{\partial n.P_{\sigma}}{\partial \sigma}=0 \Leftrightarrow \frac{\partial n.P_{\sigma}}{\partial \sigma}=0 \mbox{ car } n.P_\tau \mbox{ est constant.}
+\end{equation*}
+
+\begin{equation*}
+\rightarrow\mbox{Comme les conditions au bord donnent: }  P_\sigma^\mu(0,\tau)=P_\sigma^\mu(\pi,\tau)=0\mbox{, on a que } n.P_\sigma=0 \mbox{ }\forall (\sigma,\tau)
+\end{equation*}
 D'autre part, 
 $$n.P_\sigma=n_\mu \frac{\partial \CL}{\partial x'_\mu }, n.P_\tau=n_\mu.\frac{\partial \CL}{\partial \dot{x_\mu}}$$
 En utilisant l'équation \eqref{mvt}:
@@ -266,7 +270,7 @@ Par conséquent,
 	\right.	
 \end{equation*}
 \begin{equation*}
-	\left\lbrace
+	\Rightarrow\left\lbrace
 	\begin{aligned}
 	(x'\dot{x})=0\\
 	1=\frac{ (x'^2)}{\sqrt{-x'^2\dot{x}^2}}
@@ -299,7 +303,7 @@ Par conséquent,
     \right.
 \end{equation}
 \section{Formalisme Hamiltonien}
-Pour passer ensuite à la formulation quantique du système par le principe de correspondance, on doit construire le formalisme Hamiltonien de notre système. Cependant, les équations du mouvement sont contraintes par \eqref{contrainte1} et \eqref{contrainte2}.
+Pour passer ensuite à la formulation quantique par le principe de correspondance, on doit construire le formalisme Hamiltonien de ce système. Cependant, les équations du mouvement sont contraintes par \eqref{contrainte1} et \eqref{contrainte2}.
 De plus, $\xmu$ et $P_\tau^\mu$ ne peuvent pas être prises comme les variables canoniquement conjuguées car:
 \begin{align*}
 & n.x=2(n.\mathcal{P})\tau & n.P_\tau=\frac{n.\mathcal{P}}{\pi}&
@@ -415,7 +419,7 @@ Les équations de Hamilton sont:
      \right.
 \end{equation}
  Montrons que ces équations sont équivalentes pour $q^i=x^i(\sigma)$, $p^i=\pt^i(\sigma)$:\\
-\textbf{NB:} Le Hamiltonien est une fonction de $q^i$ et de $p^i$ qui sont considérées indépendantes dans cette formulation! \\
+\textbf{NB:} L'Hamiltonien est une fonction de $q^i$ et de $p^i$ qui sont considérées indépendantes dans cette formulation. \\
 \begin{equation*}
 \delta H = \pi\int_0^\pi\left(2\pt^i \delta P_{\tau i} +\frac{2x^{'i}}{(2\pi)^2}\delta x^{'}_{i}\right) d\sigma=\int_0^\pi \left( 2\pi\pt^i(\sigma) \delta P_{\tau i}(\sigma) -\frac{x^{''i}(\sigma)}{2\pi}\delta x_{i}(\sigma)\right)  d\sigma 
 \end{equation*}
@@ -531,20 +535,24 @@ Donc
 &=\frac{\sqrt{2}}{2\pi}\left[a_0^\mu+\sumnotzero{n}a_n^\mu\cos(n\sigma)e^{-in\tau}\right]=\frac{\sqrt{2}}{2\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu\cos(n\sigma)e^{-in\tau}
 \end{flalign*}
 Ainsi,
-$$\CP^\mu=\frac{1}{\sqrt{2}\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu e^{-in\tau}\int_0^\pi\cos(n\sigma)d\sigma= \frac{a_0^\mu}{\sqrt{2}}$$
-$$M^{\mu\nu}=\int_0^\pi (\xmu\pt^\nu - x^\nu\pt^\mu)d\sigma = \frac{1}{\sqrt{2}}(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu) + i\sumnotzero{n}\frac{a_n^\mu a_{-n}^\nu }{n} $$
-\textbf{Démonstration:}
+\begin{flalign}
+&\CP^\mu=\frac{1}{\sqrt{2}\pi}\sum_{n=-\infty}^{+\infty}a_n^\mu e^{-in\tau}\int_0^\pi\cos(n\sigma)d\sigma= \frac{a_0^\mu}{\sqrt{2}}\\
+& M^{\mu\nu}=\int_0^\pi (\xmu\pt^\nu - x^\nu\pt^\mu)d\sigma = \frac{1}{\sqrt{2}}(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu) + i\sumnotzero{n}\frac{a_n^\mu a_{-n}^\nu }{n}\label{Mmunu}
+\end{flalign}
+\textbf{Démonstration de \eqref{Mmunu}:}
 \begin{flalign*}
-& M^{\mu\nu}=\int_0^\pi \left(q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sumnotzero{n}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
+M^{\mu\nu}&=\int_0^\pi \left(q_0^\mu + \sqrt{2}a_0^\mu \tau + \sqrt{2}i\sumnotzero{n}\frac{a_n^\mu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
 & - \int_0^\pi \left(q_0^\nu + \sqrt{2}a_0^\nu \tau + \sqrt{2}i\sumnotzero{n}\frac{a_n^\nu}{n}\cos(n\sigma)e^{-in\tau}\right)\left(\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu\cos(k\sigma)e^{-ik\tau}\right)d\sigma\\
 &=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\nu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma \\
 & - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2\pi}\sum_{k=-\infty}^{+\infty}a_k^\mu e^{-ik\tau}\int_0^\pi\cos(k\sigma)d\sigma + \frac{i}{\pi}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}\int_0^\pi\cos(n\sigma)\cos(k\sigma)d\sigma\\
 &=\left(q_0^\mu + \sqrt{2}a_0^\mu\right)\frac{\sqrt{2}}{2}a_0^\nu + \frac{i}{2}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\mu}{n}a_k^\nu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k}) \\
 & - \left(q_0^\nu + \sqrt{2}a_0^\nu\right)\frac{\sqrt{2}}{2}a_0^\mu + \frac{i}{2}\sumnotzero{n}\sum_{k=-\infty}^{+\infty}\frac{a_n^\nu}{n}a_k^\mu e^{-i(n+k)\tau}(\delta_{n,k} + \delta_{n,-k})\\
-&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + \frac{i}{2}\sumnotzero{n}\left[\frac{a_n^\mu a_n^\nu}{n}e^{-2in\tau} + \frac{a_n^\mu a_{-n}^\nu}{n} - \frac{a_n^\nu a_n^\mu}{n}e^{-2in\tau} - \frac{a_n^\nu a_{-n}^\mu}{n}\right]\\
+\end{flalign*}
+\begin{flalign*}
+\rightarrow\Mup{\mu\nu}&=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + \frac{i}{2}\sumnotzero{n}\left[\frac{a_n^\mu a_n^\nu}{n}e^{-2in\tau} + \frac{a_n^\mu a_{-n}^\nu}{n} - \frac{a_n^\nu a_n^\mu}{n}e^{-2in\tau} - \frac{a_n^\nu a_{-n}^\mu}{n}\right]\\
 &=\frac{1}{\sqrt{2}}\left(q_0^\mu a_0^\nu - q_0^\nu a_0^\mu\right) + i\sumnotzero{n}\frac{a_n^\mu a_{-n}^\nu}{n} \square
 \end{flalign*}
-Nous pouvons montrer que les $M^{\mu\nu}$  forment une base des représentations du groupe de Lorentz car elles obéissent à la relation:
+A partir de cette dernière expression, on peut montrer que les $\Mup{\mu\nu}$  forment une base des représentations du groupe de Lorentz car elles obéissent à la relation:
 \begin{equation}
 \{M^{\mu\nu},M^{\rho\sigma}\}=g^{\mu\rho}M^{\nu\sigma}- g^{\nu\rho}M^{\mu\sigma} -g^{\mu\sigma}M^{\nu\rho} + g^{\nu\sigma}M^{\mu\rho}\label{poissonbracket}
 \end{equation}
@@ -553,6 +561,13 @@ où $g^{\mu\nu}$ est la métrique sur notre surface.
 Ceci achève l'étude classique de la corde relativiste. Le passage au formalisme quantique se fait par le principe de correspondance
 $$i\{Crochets de Poisson\} \rightarrow \left[Commutateur\right]$$
 Grâce à l'étude poussée des crochets de Poisson réalisée dans la partie classique, on obtient directement les commutateurs des modes normaux pour le cas quantique. La plus grande difficulté réside ensuite à tenir compte de l'ordre des termes dans les modes dépendants. C'est enfin l'analogue du calcul de l'équation \eqref{poissonbracket} qui impose que $D=26$ pour que la théorie soit bien covariante.
+\part*{Références}
+\begin{enumerate}
+\item\label{article} GODDARD P., GOLDSTONE J., REBBI C. and THORN C.B., \textit{Quantum Dynamics of a Massless Relativistic String} (1973), Nuclear Physics B56 , North-Holland Publishing Company
+\item\label{zwiebach} ZWIEBACH Barton, \textit{A First Course In String Theory} (2009), Cambridge University Presse
+\item\label{QFT} PESKIN E., SCHROEDER D., \textit{An Introduction to Quantum Field Theory} (1995), Perseus Books Publishing
+\end{enumerate}
+\newpage
 \part*{Annexes}
 \section*{Annexe 1: Calcul des contraintes sur les $a_n$}
 \paragraph{Calcul des coefficients $a_n^-$ par analyse de Fourier pour $n\neq 0$:}
@@ -675,6 +690,7 @@ $\forall n \in \mathbb{Z}:$
 \begin{equation}
 a_n^-=\frac{1}{2a_0^+}\sum_{k=-\infty}^{+\infty}\vec{a}_{-k}\vec{a}_{n+k}
 \end{equation}
+\newpage
 \section*{Annexe 2: Calcul des crochets de Poisson des modes normaux}
 Nous allons calculer les crochets de Poissons parmi les variables indépendantes et les modes dépendants.\\
 Lors du calcul des contraintes sur les $a_n^-$, on a montré que:
@@ -749,10 +765,5 @@ Donc
 &=\frac{1}{2}\sum_{k=-\infty}^{+\infty}\sum_{j=1}^{D-2}\left[\sqrt{2}\delta_{0,-k}\delta^{ij}a_{n+k}^{j}+a_{-k}^j\sqrt{2}\delta_{0,m+k}\delta^{ij}\right]=\sqrt{2}a_{m}^i
 \end{flalign*}
 
-\part*{Références}
-\begin{enumerate}
-\item\label{article} GODDARD P., GOLDSTONE J., REBBI C. and THORN C.B., \textit{Quantum Dynamics of a Massless Relativistic String} (1973), Nuclear Physics B56 , North-Holland Publishing Company
-\item\label{zwiebach} ZWIEBACH Barton, \textit{A First Course In String Theory} (2009), Cambridge University Presse
-\item\label{QFT} PESKIN E., SCHROEDER D., \textit{An Introduction to Quantum Field Theory} (1995), Perseus Books Publishing
-\end{enumerate}
+
 \end{document}
